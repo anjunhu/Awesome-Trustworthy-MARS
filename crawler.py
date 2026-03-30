@@ -565,6 +565,7 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="Crawl only, no writes")
     parser.add_argument("--no-crawl", action="store_true", help="Skip crawling, just regenerate README from papers.json")
     parser.add_argument("--no-commit", action="store_true", help="Write files but skip git commit")
+    parser.add_argument("--save-raw", metavar="FILE", help="Save unfiltered crawl results to JSON before relevance filtering")
     parser.add_argument("--from", dest="date_from", default=DATE_FROM, metavar="YYYYMMDD",
                         help=f"Start of arXiv date window (default: {DATE_FROM})")
     parser.add_argument("--to", dest="date_to", default=DATE_TO, metavar="YYYYMMDD",
@@ -581,6 +582,9 @@ def main():
         print(f"\n=== Crawling OpenReview ===")
         new_papers += crawl_openreview(existing)
         print(f"\nFound {len(new_papers)} new papers.")
+        if args.save_raw:
+            Path(args.save_raw).write_text(json.dumps(new_papers, indent=2))
+            print(f"Raw results saved to {args.save_raw}.")
 
     if args.dry_run:
         print("\n[dry-run] Not writing anything.")
