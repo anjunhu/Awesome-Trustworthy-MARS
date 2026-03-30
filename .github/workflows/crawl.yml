@@ -22,6 +22,9 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Crawl and save raw JSON
+        env:
+          OPENREVIEW_USERNAME: ${{ secrets.OPENREVIEW_USERNAME }}
+          OPENREVIEW_PASSWORD: ${{ secrets.OPENREVIEW_PASSWORD }}
         run: python3 crawler.py --save-raw raw_crawl.json --no-commit
 
       - name: Commit and push to GitHub

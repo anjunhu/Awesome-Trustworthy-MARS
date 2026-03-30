@@ -3,6 +3,7 @@
 #
 # - pytest
 # - mypy
+# - openreview-py
 #
 
 iniconfig==2.1.0
@@ -11,6 +12,8 @@ mypy==1.11.0
     # via hatch.envs.default
 mypy-extensions==1.0.0
     # via mypy
+openreview-py==1.50.1
+    # via crawler dependencies
 packaging==25.0
     # via pytest
 pluggy==1.6.0

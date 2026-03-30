@@ -19,6 +19,12 @@ from datetime import date, datetime
 from pathlib import Path
 from xml.etree import ElementTree as ET
 
+try:
+    import openreview
+    HAS_OPENREVIEW = True
+except ImportError:
+    HAS_OPENREVIEW = False
+
 # ── Config ────────────────────────────────────────────────────────────────────
 
 REPO_DIR = Path(__file__).parent
@@ -176,13 +182,26 @@ def arxiv_search(query: str, max_results: int = 20,
         "sortOrder": "descending",
     })
     url = f"{ARXIV_API}?{params}"
-    try:
-        with urllib.request.urlopen(url, timeout=15) as resp:
-            xml = resp.read()
-        time.sleep(3)  # be polite to arXiv
-    except Exception as e:
-        print(f"  [arXiv] request failed for '{query}': {e}")
-        return []
+    
+    # Retry with exponential backoff on rate limit
+    for attempt in range(3):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "AwesomeTrustworthyMARS/1.0 (research crawler)"})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                xml = resp.read()
+            time.sleep(5)  # arXiv requests 3s minimum, we use 5s to be safe
+            break
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < 2:
+                wait = 10 * (2 ** attempt)  # 10s, 20s
+                print(f"    Rate limited, waiting {wait}s...")
+                time.sleep(wait)
+                continue
+            print(f"  [arXiv] request failed for '{query}': {e}")
+            return []
+        except Exception as e:
+            print(f"  [arXiv] request failed for '{query}': {e}")
+            return []
 
     ns = {"atom": "http://www.w3.org/2005/Atom"}
     root = ET.fromstring(xml)
@@ -207,7 +226,9 @@ def arxiv_search(query: str, max_results: int = 20,
     return results
 
 
-def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DATE_TO) -> list:
+def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DATE_TO, 
+                filter_relevance: bool = True) -> list:
+    """Crawl arXiv. If filter_relevance=False, returns all results (high recall)."""
     new_papers = []
     seen_this_run = set()
     for group, queries in SEARCH_GROUPS.items():
@@ -218,7 +239,7 @@ def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DA
                 aid = r["id"]
                 if aid in existing_ids or aid in seen_this_run:
                     continue
-                if not is_relevant(r["title"], r["abstract"]):
+                if filter_relevance and not is_relevant(r["title"], r["abstract"]):
                     continue
                 seen_this_run.add(aid)
                 tags = classify_paper(r["title"], r["abstract"])
@@ -236,75 +257,110 @@ def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DA
                     "github": None,
                     "doi": None,
                     "notes": "",
+                    "is_relevant": is_relevant(r["title"], r["abstract"]) if not filter_relevance else True,
                 }
                 new_papers.append(paper)
-                print(f"    + NEW: [{aid}] {r['title'][:70]}")
+                status = "NEW" if filter_relevance else "RAW"
+                print(f"    + {status}: [{aid}] {r['title'][:70]}")
     return new_papers
 
 
 # ── OpenReview crawler ────────────────────────────────────────────────────────
 
+# Search specific venues where MA-RS papers are likely
 OPENREVIEW_VENUES = [
-    "NeurIPS.cc/2025/Workshop",
-    "ICLR.cc/2025",
-    "ICML.cc/2025",
+    "NeurIPS.cc/2025/Conference",
+    "ICLR.cc/2026/Conference",
+    "RecSys.org/2025/Conference",
 ]
 
 OR_KEYWORDS = [
-    "multi-agent recommender", "agentic recommendation", "LLM recommender attack",
-    "collusion agent", "prompt injection agent", "privacy recommender",
+    "multi-agent", "recommender", "LLM", "agent",
+    "collusion", "prompt injection", "privacy",
 ]
 
 
-def crawl_openreview(existing_ids: set) -> list:
+def crawl_openreview(existing_ids: set, filter_relevance: bool = True) -> list:
+    """Crawl OpenReview. Requires OPENREVIEW_USERNAME and OPENREVIEW_PASSWORD env vars."""
+    if not HAS_OPENREVIEW:
+        print("  [OpenReview] openreview-py not installed, skipping. Install with: pip install openreview-py")
+        return []
+    
+    username = os.environ.get('OPENREVIEW_USERNAME')
+    password = os.environ.get('OPENREVIEW_PASSWORD')
+    
+    if not username or not password:
+        print("  [OpenReview] Skipping (set OPENREVIEW_USERNAME and OPENREVIEW_PASSWORD env vars to enable)")
+        return []
+    
     new_papers = []
-    for keyword in OR_KEYWORDS:
-        params = urllib.parse.urlencode({
-            "term": keyword,
-            "limit": 20,
-            "offset": 0,
-        })
-        url = f"{OPENREVIEW_API}?{params}"
+    try:
+        client = openreview.api.OpenReviewClient(
+            baseurl='https://api2.openreview.net',
+            username=username,
+            password=password
+        )
+    except Exception as e:
+        print(f"  [OpenReview] Failed to authenticate: {e}")
+        return []
+    
+    # Search by venue submissions
+    for venue_id in OPENREVIEW_VENUES:
         try:
-            with urllib.request.urlopen(url, timeout=15) as resp:
-                data = json.loads(resp.read())
-            time.sleep(2)
+            print(f"  [OpenReview] searching venue: {venue_id}")
+            venue_group = client.get_group(venue_id)
+            submission_name = venue_group.content.get('submission_name', {}).get('value', 'Submission')
+            notes = list(client.get_all_notes(invitation=f'{venue_id}/-/{submission_name}'))
+            time.sleep(3)
+            
+            for note in notes:
+                title = note.content.get('title', {})
+                title = title.get('value', title) if isinstance(title, dict) else title
+                if not title:
+                    continue
+                    
+                # Check if title/abstract contains any of our keywords
+                abstract = note.content.get('abstract', {})
+                abstract = abstract.get('value', abstract) if isinstance(abstract, dict) else abstract
+                abstract = abstract or ""
+                combined = f"{title} {abstract}".lower()
+                if not any(kw in combined for kw in OR_KEYWORDS):
+                    continue
+                
+                or_id = note.id
+                lookup_key = f"openreview_{or_id}"
+                if lookup_key in existing_ids:
+                    continue
+                
+                if filter_relevance and not is_relevant(title, abstract):
+                    continue
+                    
+                tags = classify_paper(title, abstract)
+                paper = {
+                    "id": lookup_key,
+                    "title": title,
+                    "authors": "Anonymous",
+                    "venue": f"OpenReview {venue_id.split('/')[1]}",
+                    "section": tags["section"],
+                    "risk_type": tags["risk_type"],
+                    "kurt_when": tags["kurt_when"],
+                    "kurt_what": None,
+                    "kurt_how": None,
+                    "yashar_rf": tags["yashar_rf"],
+                    "github": None,
+                    "doi": None,
+                    "openreview": f"https://openreview.net/forum?id={or_id}",
+                    "notes": "",
+                    "is_relevant": is_relevant(title, abstract) if not filter_relevance else True,
+                }
+                new_papers.append(paper)
+                status = "NEW" if filter_relevance else "RAW"
+                print(f"    + {status} [OpenReview]: {title[:70]}")
+                
         except Exception as e:
-            print(f"  [OpenReview] request failed for '{keyword}': {e}")
+            print(f"  [OpenReview] venue {venue_id} failed: {e}")
             continue
-
-        for note in data.get("notes", []):
-            content = note.get("content", {})
-            title = content.get("title", {})
-            title = title.get("value", title) if isinstance(title, dict) else title
-            if not title:
-                continue
-            or_id = note.get("id", "")
-            lookup_key = f"openreview_{or_id}"
-            if lookup_key in existing_ids:
-                continue
-            abstract = content.get("abstract", {})
-            abstract = abstract.get("value", abstract) if isinstance(abstract, dict) else abstract
-            abstract = abstract or ""
-            tags = classify_paper(title, abstract)
-            paper = {
-                "id": lookup_key,
-                "title": title,
-                "authors": "Anonymous",
-                "venue": "OpenReview 2025",
-                "section": tags["section"],
-                "risk_type": tags["risk_type"],
-                "kurt_when": tags["kurt_when"],
-                "kurt_what": None,
-                "kurt_how": None,
-                "yashar_rf": tags["yashar_rf"],
-                "github": None,
-                "doi": None,
-                "openreview": f"https://openreview.net/forum?id={or_id}",
-                "notes": "",
-            }
-            new_papers.append(paper)
-            print(f"    + NEW [OpenReview]: {title[:70]}")
+    
     return new_papers
 
 
@@ -577,14 +633,26 @@ def main():
     new_papers = []
 
     if not args.no_crawl:
-        print(f"=== Crawling arXiv [{args.date_from}–{args.date_to}] ===")
-        new_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to)
-        print(f"\n=== Crawling OpenReview ===")
-        new_papers += crawl_openreview(existing)
-        print(f"\nFound {len(new_papers)} new papers.")
         if args.save_raw:
-            Path(args.save_raw).write_text(json.dumps(new_papers, indent=2))
-            print(f"Raw results saved to {args.save_raw}.")
+            # Stage 1: High-recall grab (no filtering)
+            print(f"=== Stage 1: High-recall crawl (unfiltered) [{args.date_from}–{args.date_to}] ===")
+            raw_papers = []
+            raw_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to, filter_relevance=False)
+            raw_papers += crawl_openreview(existing, filter_relevance=False)
+            Path(args.save_raw).write_text(json.dumps(raw_papers, indent=2))
+            print(f"\nStage 1 complete: {len(raw_papers)} raw papers saved to {args.save_raw}")
+            
+            # Stage 2: Precision filter
+            print(f"\n=== Stage 2: Filtering for relevance ===")
+            new_papers = [p for p in raw_papers if p.get("is_relevant", True)]
+            print(f"Stage 2 complete: {len(new_papers)} relevant papers (filtered from {len(raw_papers)} raw)")
+        else:
+            # Single-stage: filtered crawl only
+            print(f"=== Crawling arXiv (filtered) [{args.date_from}–{args.date_to}] ===")
+            new_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to, filter_relevance=True)
+            print(f"\n=== Crawling OpenReview (filtered) ===")
+            new_papers += crawl_openreview(existing, filter_relevance=True)
+            print(f"\nFound {len(new_papers)} new papers.")
 
     if args.dry_run:
         print("\n[dry-run] Not writing anything.")

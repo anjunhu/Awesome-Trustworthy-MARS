@@ -235,11 +235,25 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 
 This README is maintained by `crawler.py` in this repository. The crawler:
 
-1. Queries the **arXiv API** weekly for new papers matching the taxonomy keywords
-2. Checks **OpenReview** for workshop/conference submissions
+1. Queries the **arXiv API** daily for new papers matching the taxonomy keywords
+2. Checks **OpenReview** for workshop/conference submissions (requires authentication)
 3. Tags each paper against the **When × What × How** axes and the **six risk families**
-4. Commits the updated README directly to `main`
+4. Saves unfiltered results to `raw_crawl.json`, then filters for relevance
+5. Commits the updated README automatically via GitHub Actions
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
+
+**To run the crawler locally**:
+```bash
+pip install -r requirements.txt
+
+# Optional: Enable OpenReview crawling (requires free account at openreview.net)
+export OPENREVIEW_USERNAME="your_email@example.com"
+export OPENREVIEW_PASSWORD="your_password"
+
+python3 crawler.py --save-raw raw_crawl.json
+```
+
+**For GitHub Actions**: Add `OPENREVIEW_USERNAME` and `OPENREVIEW_PASSWORD` as repository secrets to enable OpenReview crawling in CI.
 
 **Last crawler run**: 2026-03-30
