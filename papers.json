@@ -1374,5 +1374,27 @@
     "doi": null,
     "notes": "",
     "is_relevant": true
+  },
+  {
+    "id": "2603.27771",
+    "title": "Emergent Social Intelligence Risks in Generative Multi-Agent Systems",
+    "authors": "Yue Huang, Yu Jiang, Wenjie Wang, Haomin Zhuang, Xiaonan Luo, Yuchen Ma, Zhangchen Xu, Zichen Chen, Nuno Moniz, Zinan Lin, Pin-Yu Chen, Nitesh V Chawla, Nouha Dziri, Huan Sun, Xiangliang Zhang",
+    "venue": "arXiv 2026",
+    "section": "collusion",
+    "risk_type": "E",
+    "kurt_when": "deployment",
+    "kurt_what": null,
+    "kurt_how": "topology",
+    "yashar_rf": "RF6",
+    "github": "https://github.com/HowieHwong/RiskLab",
+    "doi": null,
+    "notes": "Google DeepMind + collaborators. Project page: https://howiehwong.github.io/blogs/MAS_risk.html",
+    "tags": [
+      "type:E",
+      "topic:collusion",
+      "topic:social-intelligence",
+      "topo:decentralised",
+      "tier:strategic"
+    ]
   }
 ]

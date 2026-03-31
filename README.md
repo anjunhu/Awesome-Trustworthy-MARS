@@ -187,6 +187,7 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 | **Studying Coordination and Collusion in Multi-Agent LLM Code Reviews** — Anonymous | OpenReview 2025 | [OpenReview](https://openreview.net/forum?id=CdZaamCf5Y) | — | `risk:rf6` `type:E` `topic:collusion` |
 | **Exposing Multi-Agent Collusion Risks in AI-Based Healthcare** — Anonymous | arXiv 2025 | [2512.03097](https://arxiv.org/abs/2512.03097) | — | `risk:rf6` `type:E` `topic:collusion` `domain:healthcare` |
 | **Beyond Single-Agent Safety: A Taxonomy of Risks in LLM-to-LLM Interactions** — Bisconti et al. | arXiv 2025 | [2512.02682](https://arxiv.org/abs/2512.02682) | — | `risk:rf6` `risk:rf3` `type:E` `topic:taxonomy` |
+| **Emergent Social Intelligence Risks in Generative Multi-Agent Systems** — Yue Huang, Yu Jiang, Wenjie Wang, Haomin Zhuang, Xiaonan Luo, Yuchen Ma, Zhangchen Xu, Zichen Chen, Nuno Moniz, Zinan Lin, Pin-Yu Chen, Nitesh V Chawla, Nouha Dziri, Huan Sun, Xiangliang Zhang | arXiv 2026 | [2603.27771](https://arxiv.org/abs/2603.27771) | [GitHub](https://github.com/HowieHwong/RiskLab) | `type:E` `topic:collusion` `topic:social-intelligence` `topo:decentralised` `tier:strategic` |
 
 ---
 
