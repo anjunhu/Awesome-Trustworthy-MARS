@@ -385,7 +385,7 @@ def crawl_huggingface(existing_ids: set, filter_relevance: bool = True, days_bac
         for keyword in ["multi-agent", "recommender", "LLM agent", "agentic"]:
             try:
                 print(f"  [HuggingFace] searching: {keyword}")
-                papers = api.list_papers(search=keyword, limit=50)
+                papers = api.list_papers(query=keyword, limit=50)
                 time.sleep(2)
                 
                 for paper in papers:
