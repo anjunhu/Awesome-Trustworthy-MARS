@@ -247,10 +247,12 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 
 This README is maintained by `crawler.py` in this repository. The crawler:
 
-1. Queries the **arXiv API** weekly for new papers matching the taxonomy keywords
-2. Checks **OpenReview** for workshop/conference submissions
-3. Tags each paper against the **When × What × How** axes and the **six risk families**
-4. Commits the updated README directly to `main`
+1. Queries the **arXiv API** daily for new papers matching the taxonomy keywords
+2. Checks **OpenReview** for workshop/conference submissions (requires authentication)
+3. Crawls **HuggingFace Papers** for community-curated arXiv papers with GitHub links
+4. Tags each paper against the **When × What × How** axes and the **six risk families**
+5. Saves unfiltered results to `raw_crawl.json`, then filters for relevance
+6. Commits the updated README automatically via GitHub Actions
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 

@@ -4,10 +4,13 @@
 # - pytest
 # - mypy
 # - openreview-py
+# - huggingface_hub
 #
 
 iniconfig==2.1.0
     # via pytest
+huggingface-hub==0.28.1
+    # via crawler dependencies
 mypy==1.11.0
     # via hatch.envs.default
 mypy-extensions==1.0.0

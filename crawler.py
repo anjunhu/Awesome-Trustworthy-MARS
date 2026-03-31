@@ -25,6 +25,12 @@ try:
 except ImportError:
     HAS_OPENREVIEW = False
 
+try:
+    from huggingface_hub import HfApi
+    HAS_HUGGINGFACE = True
+except ImportError:
+    HAS_HUGGINGFACE = False
+
 # ── Config ────────────────────────────────────────────────────────────────────
 
 REPO_DIR = Path(__file__).parent
@@ -364,6 +370,82 @@ def crawl_openreview(existing_ids: set, filter_relevance: bool = True) -> list:
     return new_papers
 
 
+# ── HuggingFace Papers crawler ───────────────────────────────────────────────
+
+def crawl_huggingface(existing_ids: set, filter_relevance: bool = True, days_back: int = 30) -> list:
+    """Crawl HuggingFace Papers (arXiv papers with community metadata)."""
+    if not HAS_HUGGINGFACE:
+        print("  [HuggingFace] huggingface_hub not installed, skipping. Install with: pip install huggingface_hub")
+        return []
+    
+    new_papers = []
+    try:
+        api = HfApi()
+        # HF Papers are arXiv papers, so search by keywords in title
+        for keyword in ["multi-agent", "recommender", "LLM agent", "agentic"]:
+            try:
+                print(f"  [HuggingFace] searching: {keyword}")
+                papers = api.list_papers(search=keyword, limit=50)
+                time.sleep(2)
+                
+                for paper in papers:
+                    # HF paper IDs are arXiv IDs
+                    arxiv_id = paper.id
+                    if arxiv_id in existing_ids:
+                        continue
+                    
+                    title = paper.title or ""
+                    abstract = getattr(paper, 'summary', '') or ""
+                    
+                    # Check relevance
+                    if filter_relevance and not is_relevant(title, abstract):
+                        continue
+                    
+                    # Get authors
+                    authors = getattr(paper, 'authors', [])
+                    if authors:
+                        author_str = ", ".join(a.name for a in authors[:3])
+                        if len(authors) > 3:
+                            author_str += " et al."
+                    else:
+                        author_str = "Unknown"
+                    
+                    # Get GitHub link if available
+                    github_url = None
+                    if hasattr(paper, 'github_url') and paper.github_url:
+                        github_url = paper.github_url
+                    
+                    tags = classify_paper(title, abstract)
+                    paper_entry = {
+                        "id": arxiv_id,
+                        "title": title,
+                        "authors": author_str,
+                        "venue": f"arXiv {getattr(paper, 'published', '')[:4] or '2026'}",
+                        "section": tags["section"],
+                        "risk_type": tags["risk_type"],
+                        "kurt_when": tags["kurt_when"],
+                        "kurt_what": None,
+                        "kurt_how": None,
+                        "yashar_rf": tags["yashar_rf"],
+                        "github": github_url,
+                        "doi": None,
+                        "notes": "via HuggingFace Papers",
+                        "is_relevant": is_relevant(title, abstract) if not filter_relevance else True,
+                    }
+                    new_papers.append(paper_entry)
+                    status = "NEW" if filter_relevance else "RAW"
+                    print(f"    + {status} [HF]: {title[:70]}")
+                    
+            except Exception as e:
+                print(f"  [HuggingFace] search '{keyword}' failed: {e}")
+                continue
+                
+    except Exception as e:
+        print(f"  [HuggingFace] Failed to initialize: {e}")
+    
+    return new_papers
+
+
 # ── README generator ──────────────────────────────────────────────────────────
 
 SECTION_META = {
@@ -584,10 +666,12 @@ def generate_readme(papers: list) -> str:
         "",
         "This README is maintained by `crawler.py` in this repository. The crawler:",
         "",
-        "1. Queries the **arXiv API** weekly for new papers matching the taxonomy keywords",
-        "2. Checks **OpenReview** for workshop/conference submissions",
-        "3. Tags each paper against the **When × What × How** axes and the **six risk families**",
-        "4. Commits the updated README directly to `main`",
+        "1. Queries the **arXiv API** daily for new papers matching the taxonomy keywords",
+        "2. Checks **OpenReview** for workshop/conference submissions (requires authentication)",
+        "3. Crawls **HuggingFace Papers** for community-curated arXiv papers with GitHub links",
+        "4. Tags each paper against the **When × What × How** axes and the **six risk families**",
+        "5. Saves unfiltered results to `raw_crawl.json`, then filters for relevance",
+        "6. Commits the updated README automatically via GitHub Actions",
         "",
         "**To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.",
         "",
@@ -639,6 +723,7 @@ def main():
             raw_papers = []
             raw_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to, filter_relevance=False)
             raw_papers += crawl_openreview(existing, filter_relevance=False)
+            raw_papers += crawl_huggingface(existing, filter_relevance=False)
             Path(args.save_raw).write_text(json.dumps(raw_papers, indent=2))
             print(f"\nStage 1 complete: {len(raw_papers)} raw papers saved to {args.save_raw}")
             
@@ -652,6 +737,8 @@ def main():
             new_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to, filter_relevance=True)
             print(f"\n=== Crawling OpenReview (filtered) ===")
             new_papers += crawl_openreview(existing, filter_relevance=True)
+            print(f"\n=== Crawling HuggingFace Papers (filtered) ===")
+            new_papers += crawl_huggingface(existing, filter_relevance=True)
             print(f"\nFound {len(new_papers)} new papers.")
 
     if args.dry_run:
