@@ -251,7 +251,11 @@ pip install -r requirements.txt
 export OPENREVIEW_USERNAME="your_email@example.com"
 export OPENREVIEW_PASSWORD="your_password"
 
+# Full crawl with commit
 python3 crawler.py --save-raw raw_crawl.json
+
+# Test crawl (no writes, short date range)
+python3 crawler.py --dry-run --save-raw /tmp/test_raw.json --from 20260301 --to 20260315
 ```
 
 **For GitHub Actions**: Add `OPENREVIEW_USERNAME` and `OPENREVIEW_PASSWORD` as repository secrets to enable OpenReview crawling in CI.
