@@ -1342,5 +1342,37 @@
       "topic:taxonomy",
       "topic:systemic-risk"
     ]
+  },
+  {
+    "id": "2603.28476",
+    "title": "With a Little Help From My Friends: Collective Manipulation in Risk-Controlling Recommender Systems",
+    "authors": "Giovanni De Toni, Cristian Consonni, Erasmo Purificato et al.",
+    "venue": "arXiv 2026",
+    "section": "defence",
+    "risk_type": null,
+    "kurt_when": "monitoring",
+    "kurt_what": null,
+    "kurt_how": null,
+    "yashar_rf": "RF3",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
+  },
+  {
+    "id": "2603.27765",
+    "title": "Let the Agent Steer: Closed-Loop Ranking Optimization via Influence Exchange",
+    "authors": "Yin Cheng, Liao Zhou, Xiyu Liang et al.",
+    "venue": "arXiv 2026",
+    "section": "misc",
+    "risk_type": "A",
+    "kurt_when": "monitoring",
+    "kurt_what": null,
+    "kurt_how": null,
+    "yashar_rf": "RF2",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
   }
 ]
