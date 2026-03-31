@@ -1,7 +1,7 @@
 # Risks and Trustworthiness of Multi-Agent Recommender Systems
 > A living, auto-updated reading list. Taxonomy follows the **RecSys '26 tutorial** and the **_FnTrendsIR_ book chapter**. Updated weekly by automated crawler.
 
-**Last updated:** 2026-03-30
+**Last updated:** 2026-03-31
 
 ---
 
@@ -215,6 +215,7 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 | **A Review of Trust, Risk, and Security Management in LLM-based Agentic MAS (TRiSM)** — Anonymous | arXiv 2025 | [2506.04133](https://arxiv.org/abs/2506.04133) | — | `topic:defence` `topic:survey` `topic:governance` |
 | **Securing Agentic AI: A Comprehensive Threat Model and Mitigation Framework** — Narajala & Narayan | arXiv 2025 | [2504.19956](https://arxiv.org/abs/2504.19956) | — | `topic:defence` `topic:threat-model` `topic:evaluation` |
 | **Towards Secure Systems of Interacting AI Agents** — Anonymous | arXiv 2025 | [2505.02077](https://arxiv.org/abs/2505.02077) | — | `topic:defence` `topic:formal` |
+| **With a Little Help From My Friends: Collective Manipulation in Risk-Controlling Recommender Systems** — Giovanni De Toni, Cristian Consonni, Erasmo Purificato et al. | arXiv 2026 | [2603.28476](https://arxiv.org/abs/2603.28476) | — | — |
 
 ---
 
@@ -231,33 +232,25 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 
 ---
 
+## 15. Uncategorised / New Additions
+
+> Papers added by crawler awaiting manual tagging.
+
+| Paper | Venue | arXiv | Notes | Tags |
+|----|----|----|----|----|
+| **Let the Agent Steer: Closed-Loop Ranking Optimization via Influence Exchange** — Yin Cheng, Liao Zhou, Xiyu Liang et al. | arXiv 2026 | [2603.27765](https://arxiv.org/abs/2603.27765) | — | — |
+
+---
+
 ## How to Contribute / Crawler Notes
 
 This README is maintained by `crawler.py` in this repository. The crawler:
 
-1. Queries the **arXiv API** daily for new papers matching the taxonomy keywords
-2. Checks **OpenReview** for workshop/conference submissions (requires authentication)
+1. Queries the **arXiv API** weekly for new papers matching the taxonomy keywords
+2. Checks **OpenReview** for workshop/conference submissions
 3. Tags each paper against the **When × What × How** axes and the **six risk families**
-4. Saves unfiltered results to `raw_crawl.json`, then filters for relevance
-5. Commits the updated README automatically via GitHub Actions
+4. Commits the updated README directly to `main`
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**To run the crawler locally**:
-```bash
-pip install -r requirements.txt
-
-# Optional: Enable OpenReview crawling (requires free account at openreview.net)
-export OPENREVIEW_USERNAME="your_email@example.com"
-export OPENREVIEW_PASSWORD="your_password"
-
-# Full crawl with commit
-python3 crawler.py --save-raw raw_crawl.json
-
-# Test crawl (no writes, short date range)
-python3 crawler.py --dry-run --save-raw /tmp/test_raw.json --from 20260301 --to 20260315
-```
-
-**For GitHub Actions**: Add `OPENREVIEW_USERNAME` and `OPENREVIEW_PASSWORD` as repository secrets to enable OpenReview crawling in CI.
-
-**Last crawler run**: 2026-03-30
+**Last crawler run**: 2026-03-31
