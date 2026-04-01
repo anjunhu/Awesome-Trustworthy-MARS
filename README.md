@@ -1,7 +1,7 @@
 # Risks and Trustworthiness of Multi-Agent Recommender Systems
 > A living, auto-updated reading list. Taxonomy follows the **RecSys '26 tutorial** and the **_FnTrendsIR_ book chapter**. Updated weekly by automated crawler.
 
-**Last updated:** 2026-03-31
+**Last updated:** 2026-04-01
 
 ---
 
@@ -256,4 +256,4 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**Last crawler run**: 2026-03-31
+**Last crawler run**: 2026-04-01
