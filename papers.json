@@ -1396,5 +1396,53 @@
       "topo:decentralised",
       "tier:strategic"
     ]
+  },
+  {
+    "id": "2604.01036",
+    "title": "Aligning Recommendations with User Popularity Preferences",
+    "authors": "Mona Schirmer, Anton Thielmann, Pola Schw\u00f6bel et al.",
+    "venue": "arXiv 2026",
+    "section": "rf5_bias",
+    "risk_type": "A",
+    "kurt_when": "design",
+    "kurt_what": null,
+    "kurt_how": null,
+    "yashar_rf": "RF2",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
+  },
+  {
+    "id": "2604.00249",
+    "title": "A Safety-Aware Role-Orchestrated Multi-Agent LLM Framework for Behavioral Health Communication Simulation",
+    "authors": "Ha Na Cho",
+    "venue": "arXiv 2026",
+    "section": "rf3_interagent",
+    "risk_type": "E",
+    "kurt_when": "offline_eval",
+    "kurt_what": null,
+    "kurt_how": null,
+    "yashar_rf": "RF5",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
+  },
+  {
+    "id": "2604.01127",
+    "title": "Multi-Agent LLM Governance for Safe Two-Timescale Reinforcement Learning in SDN-IoT Defense",
+    "authors": "Saeid Jamshidi, Negar Shahabi, Foutse Khomh et al.",
+    "venue": "arXiv 2026",
+    "section": "evaluation",
+    "risk_type": null,
+    "kurt_when": "training",
+    "kurt_what": null,
+    "kurt_how": null,
+    "yashar_rf": "RF3",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
   }
 ]

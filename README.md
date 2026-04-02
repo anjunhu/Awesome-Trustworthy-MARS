@@ -1,7 +1,7 @@
 # Risks and Trustworthiness of Multi-Agent Recommender Systems
 > A living, auto-updated reading list. Taxonomy follows the **RecSys '26 tutorial** and the **_FnTrendsIR_ book chapter**. Updated weekly by automated crawler.
 
-**Last updated:** 2026-04-01
+**Last updated:** 2026-04-02
 
 ---
 
@@ -135,6 +135,7 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 | **The Trust Paradox in LLM-Based Multi-Agent Systems** — Xu et al. | arXiv 2025 | [2510.18563](https://arxiv.org/abs/2510.18563) | — | `risk:rf3` `type:E` `topic:trust` |
 | **Systems Security Foundations for Agentic Computing** — Christodorescu et al. | arXiv 2025 | [2512.01295](https://arxiv.org/abs/2512.01295) | — | `risk:rf3` `risk:rf1` `type:E` `topic:systems-security` |
 | **A Benchmark for Tool Poisoning Attack on Real-World MCP Servers** — Anonymous | arXiv 2025 | [2508.14925](https://arxiv.org/abs/2508.14925) | — | `risk:rf3` `risk:rf1` `risk:rf2` `type:E` `topic:mcp` `topic:tool-misuse` |
+| **A Safety-Aware Role-Orchestrated Multi-Agent LLM Framework for Behavioral Health Communication Simulation** — Ha Na Cho | arXiv 2026 | [2604.00249](https://arxiv.org/abs/2604.00249) | — | — |
 
 ---
 
@@ -164,6 +165,7 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 | **Understanding Biases in ChatGPT-based Recommender Systems** — Anonymous | arXiv 2024 | [2401.10545](https://arxiv.org/abs/2401.10545) | — | `risk:rf5` `type:A` `topic:recsys` |
 | **Stereotype or Personalization? User Identity Biases Chatbot Recommendations** — Anonymous | arXiv 2024 | [2410.05613](https://arxiv.org/abs/2410.05613) | — | `risk:rf5` `type:A` `topic:recsys` `topic:stereotype` |
 | **Bias Mitigation for AI-Feedback Loops in Recommender Systems** — Anonymous | arXiv 2025 | [2509.00109](https://arxiv.org/abs/2509.00109) | — | `risk:rf5` `risk:rf6` `type:A` `topic:feedback-loop` `topic:recsys` |
+| **Aligning Recommendations with User Popularity Preferences** — Mona Schirmer, Anton Thielmann, Pola Schwöbel et al. | arXiv 2026 | [2604.01036](https://arxiv.org/abs/2604.01036) | — | — |
 
 ---
 
@@ -199,6 +201,7 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 |----|----|----|----|----|
 | **Why Do Multi-Agent LLM Systems Fail?** — Cemri et al. | arXiv 2025 | [2503.13657](https://arxiv.org/abs/2503.13657) | — | `topic:evaluation` `topic:failure-taxonomy` |
 | **AgentLeak: A Full-Stack Benchmark for Privacy Leakage in Multi-Agent LLM Systems** — Anonymous | arXiv 2026 | [2602.11510](https://arxiv.org/abs/2602.11510) | — | `risk:rf4` `type:E` `topic:benchmark` `topic:full-stack` |
+| **Multi-Agent LLM Governance for Safe Two-Timescale Reinforcement Learning in SDN-IoT Defense** — Saeid Jamshidi, Negar Shahabi, Foutse Khomh et al. | arXiv 2026 | [2604.01127](https://arxiv.org/abs/2604.01127) | — | — |
 
 ---
 
@@ -256,4 +259,4 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**Last crawler run**: 2026-04-01
+**Last crawler run**: 2026-04-02
