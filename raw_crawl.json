@@ -896,22 +896,6 @@
     "is_relevant": false
   },
   {
-    "id": "2604.02200",
-    "title": "Towards Position-Robust Talent Recommendation via Large Language Models",
-    "authors": "Silin Du, Hongyan Liu",
-    "venue": "arXiv 2026",
-    "section": "evaluation",
-    "risk_type": "A",
-    "kurt_when": "training",
-    "kurt_what": null,
-    "kurt_how": null,
-    "yashar_rf": "RF2",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2604.02183",
     "title": "TRU: Targeted Reverse Update for Efficient Multimodal Recommendation Unlearning",
     "authors": "Zhanting Zhou, KaHou Tam, Ziqiang Zheng et al.",
