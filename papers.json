@@ -1460,5 +1460,21 @@
     "doi": null,
     "notes": "",
     "is_relevant": true
+  },
+  {
+    "id": "2604.02833",
+    "title": "Bilateral Intent-Enhanced Sequential Recommendation with Embedding Perturbation-Based Contrastive Learning",
+    "authors": "Shanfan Zhang, Yongyi Lin, Yuan Rao",
+    "venue": "arXiv 2026",
+    "section": "evaluation",
+    "risk_type": null,
+    "kurt_when": "offline_eval",
+    "kurt_what": null,
+    "kurt_how": null,
+    "yashar_rf": null,
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
   }
 ]
