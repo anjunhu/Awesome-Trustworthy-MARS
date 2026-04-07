@@ -1476,5 +1476,21 @@
     "doi": null,
     "notes": "",
     "is_relevant": true
+  },
+  {
+    "id": "2604.04457",
+    "title": "Retrieval Augmented Conversational Recommendation with Reinforcement Learning",
+    "authors": "Zhenrui Yue, Honglei Zhuang, Zhen Qin et al.",
+    "venue": "arXiv 2026",
+    "section": "fairness",
+    "risk_type": null,
+    "kurt_when": "offline_eval",
+    "kurt_what": null,
+    "kurt_how": null,
+    "yashar_rf": "RF1",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
   }
 ]

@@ -1,7 +1,7 @@
 # Risks and Trustworthiness of Multi-Agent Recommender Systems
 > A living, auto-updated reading list. Taxonomy follows the **RecSys '26 tutorial** and the **_FnTrendsIR_ book chapter**. Updated weekly by automated crawler.
 
-**Last updated:** 2026-04-06
+**Last updated:** 2026-04-07
 
 ---
 
@@ -193,6 +193,16 @@ L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming �
 
 ---
 
+## 9. Fairness, Feedback Loops & Exposure Bias
+
+> **Tutorial taxonomy**: Objective/Stakeholder layer; **_FnTrendsIR_**: Bias & Fairness (RF2). Risk type: **A**.
+
+| Paper | Venue | arXiv | Notes | Tags |
+|----|----|----|----|----|
+| **Retrieval Augmented Conversational Recommendation with Reinforcement Learning** — Zhenrui Yue, Honglei Zhuang, Zhen Qin et al. | arXiv 2026 | [2604.04457](https://arxiv.org/abs/2604.04457) | — | — |
+
+---
+
 ## 10. Evaluation & Benchmarking
 
 > **Tutorial taxonomy**: L1–L6 evaluation ladder. **_FnTrendsIR_**: cross-cutting.
@@ -261,4 +271,4 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**Last crawler run**: 2026-04-06
+**Last crawler run**: 2026-04-07
