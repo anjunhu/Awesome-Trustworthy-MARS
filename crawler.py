@@ -87,25 +87,19 @@ SECTION_RULES = [
     (["agentcf", "macrec", "macf", "matcha", "agentic recommender", "multi-agent recommender"], "foundational"),
 ]
 
-KURT_WHEN_RULES = [
-    (["training", "backdoor", "poisoning data"], "training"),
-    (["offline eval", "benchmark", "simulation"], "offline_eval"),
-    (["monitoring", "anomaly", "online"], "monitoring"),
-    (["design", "architecture", "framework"], "design"),
+SCOPE_RULES = [
+    (["inter-agent", "agent-in-the-middle", "communication attack", "topology attack",
+      "collusion", "coordination", "deadlock", "cascade", "compositional privacy",
+      "end-to-end", "system-level", "fairness audit", "collusion audit"], "composition"),
+    (["red-team", "red team", "agent pair", "protocol check", "counterfactual",
+      "message trace", "inter-agent message"], "interaction"),
 ]
 
-YASHAR_RF_RULES = [
-    (["hallucination", "goal misalignment", "correctness"], "RF1"),
-    (["bias", "fairness", "stereotype", "feedback loop"], "RF2"),
-    (["privacy", "security", "injection", "jailbreak", "poisoning", "backdoor", "attack"], "RF3"),
-    (["tool misuse", "autonomy", "privilege escalation", "infinite loop"], "RF4"),
-    (["resource", "latency", "efficiency", "availability"], "RF5"),
-    (["collusion", "coordination", "deadlock", "cascade"], "RF6"),
-]
-
-RISK_TYPE_RULES = [
-    (["emergent", "inter-agent", "collusion", "cascad", "topology"], "E"),
-    (["amplified", "single-agent", "bias", "privacy", "poisoning", "injection"], "A"),
+THREAT_TIER_RULES = [
+    (["compromise", "adversarial", "attack", "injection", "poisoning", "backdoor",
+      "jailbreak", "red-team", "byzantine"], "compromise"),
+    (["misalignment", "gaming", "sycophancy", "role drift", "privacy leakage",
+      "inversion", "collusion", "strategic"], "misalignment"),
 ]
 
 # Relevance: paper must match at least one term from EACH group (AND logic)
@@ -149,9 +143,9 @@ def classify_paper(title: str, abstract: str) -> dict:
     combined = f"{title} {abstract}".lower()
     return {
         "section": _match_rules(combined, SECTION_RULES) or "misc",
-        "kurt_when": _match_rules(combined, KURT_WHEN_RULES) or "deployment",
-        "yashar_rf": _match_rules(combined, YASHAR_RF_RULES),
-        "risk_type": _match_rules(combined, RISK_TYPE_RULES),
+        "scope": _match_rules(combined, SCOPE_RULES) or "component",
+        "threat_tier": _match_rules(combined, THREAT_TIER_RULES) or "drift",
+        "risk_type": _match_rules(combined, RISK_TYPE_RULES) or None,
     }
 
 
@@ -256,10 +250,8 @@ def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DA
                     "venue": f"arXiv {r['published'][:4]}",
                     "section": tags["section"],
                     "risk_type": tags["risk_type"],
-                    "kurt_when": tags["kurt_when"],
-                    "kurt_what": None,
-                    "kurt_how": None,
-                    "yashar_rf": tags["yashar_rf"],
+                    "scope": tags["scope"],
+                    "threat_tier": tags["threat_tier"],
                     "github": None,
                     "doi": None,
                     "notes": "",
@@ -349,10 +341,8 @@ def crawl_openreview(existing_ids: set, filter_relevance: bool = True) -> list:
                     "venue": f"OpenReview {venue_id.split('/')[1]}",
                     "section": tags["section"],
                     "risk_type": tags["risk_type"],
-                    "kurt_when": tags["kurt_when"],
-                    "kurt_what": None,
-                    "kurt_how": None,
-                    "yashar_rf": tags["yashar_rf"],
+                    "scope": tags["scope"],
+                    "threat_tier": tags["threat_tier"],
                     "github": None,
                     "doi": None,
                     "openreview": f"https://openreview.net/forum?id={or_id}",
@@ -423,10 +413,8 @@ def crawl_huggingface(existing_ids: set, filter_relevance: bool = True, days_bac
                         "venue": f"arXiv {getattr(paper, 'published', '')[:4] or '2026'}",
                         "section": tags["section"],
                         "risk_type": tags["risk_type"],
-                        "kurt_when": tags["kurt_when"],
-                        "kurt_what": None,
-                        "kurt_how": None,
-                        "yashar_rf": tags["yashar_rf"],
+                        "scope": tags["scope"],
+                        "threat_tier": tags["threat_tier"],
                         "github": github_url,
                         "doi": None,
                         "notes": "via HuggingFace Papers",
@@ -503,7 +491,7 @@ SECTION_META = {
     },
     "evaluation": {
         "heading": "10. Evaluation & Benchmarking",
-        "blurb": "> **Tutorial taxonomy**: L1–L6 evaluation ladder. **_FnTrendsIR_**: cross-cutting.",
+        "blurb": "> **Evaluation framework**: Component / Interaction / Composition scope × Offline / Online setting.",
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
     "defence": {
@@ -551,8 +539,15 @@ def paper_to_row(p: dict) -> str:
         extras.append(f"[DOI](https://doi.org/{p['doi']})")
     notes_str = " · ".join(extras) if extras else (notes or "—")
 
-    tags = p.get("tags", [])
-    tag_str = " ".join(f"`{t}`" for t in tags) if tags else "—"
+    tag_parts = []
+    if p.get("risk_type"):
+        tag_parts.append(p["risk_type"])
+    if p.get("scope"):
+        tag_parts.append(p["scope"])
+    if p.get("threat_tier"):
+        tag_parts.append(p["threat_tier"])
+    tag_parts += p.get("tags", [])
+    tag_str = " ".join(f"`{t}`" for t in tag_parts) if tag_parts else "—"
 
     paper_cell = f"**{title}** — {authors}" if authors else f"**{title}**"
     return f"| {paper_cell} | {venue} | {arxiv_link} | {notes_str} | {tag_str} |"
@@ -596,47 +591,29 @@ def generate_readme(papers: list) -> str:
         "",
         "## Taxonomy Overview",
         "",
-        "### Tutorial Taxonomy (RecSys '26)",
+        "### Risk Taxonomy",
         "",
-        "The tutorial organises risks along **three axes**:",
+        "Risks are classified by the **single-agent isolation test**: an agent retains its full tool and memory interface, but no other agents consume or produce its messages.",
+        "- **Amplified (A)**: risk exists in single-agent settings but worsens under composition.",
+        "- **Emergent (E)**: risk only arises through agent interaction.",
         "",
-        "| Axis | Dimension | Values |",
-        "|------|-----------|--------|",
-        "| **When** | Lifecycle phase | Data/Design → Training → Offline Eval → Deployment → Monitoring |",
-        "| **What** | System target | User modelling · Ranking/Policy · Interaction · Tools/Actions · Memory · Protocols |",
-        "| **How** | Propagation mechanism | Topology · Comm protocol · Memory substrate · Alignment method · Safety controls |",
+        "**Threat tiers** determine evaluation scope:",
         "",
-        "**Amplified (A) vs Emergent (E) risks** — a risk is *amplified* if it exists in single-agent settings but worsens "
-        "under composition; *emergent* if it only arises through agent interaction.",
+        "| Tier | Description | Evaluation scope |",
+        "|------|-------------|-----------------|",
+        "| Drift | System dynamics cause degradation without adversary | Component |",
+        "| Misalignment | Internal agent exploits its position | Interaction |",
+        "| Compromise | External attacker corrupts one or more agents | Composition |",
         "",
-        "**Five architectural topologies** and their primary failure modes:",
+        "### Evaluation Framework",
         "",
-        "| Topology | Characteristic failure |",
-        "|----------|----------------------|",
-        "| Hierarchical delegation | Single point of failure; planner compromise |",
-        "| Ensemble aggregation | Correlated errors; exposure concentration |",
-        "| Tool-augmented workflow | Injection & tool misuse |",
-        "| Role-based specialists | Incentive conflicts; safety bypass |",
-        "| Decentralised ecosystem | Collusion & strategic gaming |",
+        "Evaluation is organised by **scope** and **setting**:",
         "",
-        "**Six evaluation levels (L1–L6):**",
-        "L1 Unit tests → L2 Protocol/guardrails → L3 Integration → L4 Red-teaming → L5 Stress tests → L6 Online monitoring",
-        "",
-        "### _FnTrendsIR_ Taxonomy (Incremental Risk View)",
-        "",
-        "| Generation | New risks introduced | Amplified risks |",
-        "|------------|---------------------|-----------------|",
-        "| LLM-RecSys | Hallucination, prompt injection | Bias, privacy leakage, opacity |",
-        "| Agentic RecSys (single) | Tool misuse, infinite loops, autonomy over-reach | Goal misalignment, manipulation |",
-        "| Multi-Agent RecSys | Coordination failure, collusion, error cascades, role ambiguity | Accountability gaps, latency, privacy |",
-        "",
-        "**Six risk families (_FnTrendsIR_ chapter structure):**",
-        "1. Correctness (Hallucination & Goal Misalignment)",
-        "2. Bias & Fairness",
-        "3. Privacy & Security",
-        "4. Tool Misuse & Autonomy Over-Reach",
-        "5. Resource Exhaustion & Efficiency",
-        "6. Coordination Failure & Collusion",
+        "| Scope | Offline | Online |",
+        "|-------|---------|--------|",
+        "| **Component** | Per-agent constraint checks, recommender metrics, adversarial prompting | Behavioural drift detection |",
+        "| **Interaction** | Red-teaming of agent pairs, protocol checks, counterfactual analysis | Inter-agent message trace monitoring |",
+        "| **Composition** | End-to-end stress tests, fairness audits, collusion audits | System-level KPIs, incident reconstruction |",
         "",
         "---",
         "",
@@ -669,7 +646,7 @@ def generate_readme(papers: list) -> str:
         "1. Queries the **arXiv API** daily for new papers matching the taxonomy keywords",
         "2. Checks **OpenReview** for workshop/conference submissions (requires authentication)",
         "3. Crawls **HuggingFace Papers** for community-curated arXiv papers with GitHub links",
-        "4. Tags each paper against the **When × What × How** axes and the **six risk families**",
+        "4. Tags each paper against the **scope** (component/interaction/composition), **threat tier** (drift/misalignment/compromise), and **risk type** (amplified/emergent)",
         "5. Saves unfiltered results to `raw_crawl.json`, then filters for relevance",
         "6. Commits the updated README automatically via GitHub Actions",
         "",
