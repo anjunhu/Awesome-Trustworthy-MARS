@@ -217,3 +217,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Amazon internal — not for public GitHub
+brazil.ion
+.crux_dry_run_build
+DEVELOPING.md
+src/
+tests/
+notes/
