@@ -1,7 +1,7 @@
 # Risks and Trustworthiness of Multi-Agent Recommender Systems
 > A living, auto-updated reading list. Taxonomy follows the **RecSys '26 tutorial** and the **_FnTrendsIR_ book chapter**. Updated weekly by automated crawler.
 
-**Last updated:** 2026-05-07
+**Last updated:** 2026-05-07 · [How the crawler works →](WORKFLOW.md)
 
 ---
 
