@@ -102,6 +102,14 @@ THREAT_TIER_RULES = [
       "inversion", "collusion", "strategic"], "misalignment"),
 ]
 
+RISK_TYPE_RULES = [
+    (["inter-agent", "agent-in-the-middle", "communication attack", "topology attack",
+      "collusion", "coordination failure", "deadlock", "cascade", "compositional privacy",
+      "emergent", "multi-agent interaction"], "E"),
+    (["prompt injection", "jailbreak", "backdoor", "poisoning", "privacy", "bias",
+      "hallucination", "shilling", "adversarial", "fairness", "feedback loop"], "A"),
+]
+
 # Relevance: paper must match at least one term from EACH group (AND logic)
 RELEVANCE_SYSTEM = [
     "recommender system", "recommendation system", "recsys",
