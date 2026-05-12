@@ -271,4 +271,16 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
+**To run the crawler on demand** (high-recall fetch + filter for a date window):
+```bash
+# Stage 1 + 2: fetch, filter, update papers.json and README
+python3 crawler.py --from YYYYMMDD --to YYYYMMDD --save-raw raw_crawl.json
+
+# Dry-run (fetch and filter, but write nothing)
+python3 crawler.py --from YYYYMMDD --to YYYYMMDD --save-raw raw_crawl.json --dry-run
+
+# Re-run filter only on an existing raw_crawl.json without re-fetching
+python3 crawler.py --no-crawl
+```
+
 **Last crawler run**: 2026-05-12
