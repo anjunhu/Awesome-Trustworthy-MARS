@@ -1646,5 +1646,33 @@
     "doi": null,
     "notes": "via HuggingFace Papers",
     "is_relevant": true
+  },
+  {
+    "id": "2605.27489",
+    "title": "HARP: Measuring Harm Amplification in Multi-Agent LLM Systems",
+    "authors": "Md Hafizur Rahman, Zafaryab Haider, Tanzim Mahfuz et al.",
+    "venue": "arXiv 2026",
+    "section": "collusion",
+    "risk_type": "E",
+    "scope": "composition",
+    "threat_tier": "compromise",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
+  },
+  {
+    "id": "2605.22842",
+    "title": "The Misattribution Gap: When Memory Poisoning Looks Like Model Failure in Agentic AI Systems",
+    "authors": "Tanzim Ahad, Ismail Hossain, Md Jahangir Alam et al.",
+    "venue": "arXiv 2026",
+    "section": "rf2_poisoning",
+    "risk_type": "E",
+    "scope": "composition",
+    "threat_tier": "compromise",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": true
   }
 ]

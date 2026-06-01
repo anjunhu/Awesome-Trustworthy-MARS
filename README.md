@@ -1,7 +1,7 @@
 # Risks and Trustworthiness of Multi-Agent Recommender Systems
 > A living, auto-updated reading list. Taxonomy follows the **RecSys '26 tutorial** and the **_FnTrendsIR_ book chapter**. Updated weekly by automated crawler.
 
-**Last updated:** 2026-05-12
+**Last updated:** 2026-06-01
 
 ---
 
@@ -102,6 +102,7 @@ Evaluation is organised by **scope** and **setting**:
 | **Human-Imperceptible Retrieval Poisoning Attacks in LLM-Powered Applications** — Anonymous | arXiv 2024 | [2404.17196](https://arxiv.org/abs/2404.17196) | — | `A` `risk:rf2` `type:A` `topic:rag` `topic:retrieval` |
 | **Improving the Shortest Plank: Vulnerability-Aware Adversarial Training
   for Robust Recommender System** — Kaike Zhang, Qi Cao, Yunfan Wu et al. | arXiv 2026 | [2409.17476](https://arxiv.org/abs/2409.17476) | via HuggingFace Papers | `A` `component` `compromise` |
+| **The Misattribution Gap: When Memory Poisoning Looks Like Model Failure in Agentic AI Systems** — Tanzim Ahad, Ismail Hossain, Md Jahangir Alam et al. | arXiv 2026 | [2605.22842](https://arxiv.org/abs/2605.22842) | — | `E` `composition` `compromise` |
 
 ---
 
@@ -177,6 +178,7 @@ Evaluation is organised by **scope** and **setting**:
 | **Exposing Multi-Agent Collusion Risks in AI-Based Healthcare** — Anonymous | arXiv 2025 | [2512.03097](https://arxiv.org/abs/2512.03097) | — | `E` `risk:rf6` `type:E` `topic:collusion` `domain:healthcare` |
 | **Beyond Single-Agent Safety: A Taxonomy of Risks in LLM-to-LLM Interactions** — Bisconti et al. | arXiv 2025 | [2512.02682](https://arxiv.org/abs/2512.02682) | — | `E` `risk:rf6` `risk:rf3` `type:E` `topic:taxonomy` |
 | **Emergent Social Intelligence Risks in Generative Multi-Agent Systems** — Yue Huang, Yu Jiang, Wenjie Wang, Haomin Zhuang, Xiaonan Luo, Yuchen Ma, Zhangchen Xu, Zichen Chen, Nuno Moniz, Zinan Lin, Pin-Yu Chen, Nitesh V Chawla, Nouha Dziri, Huan Sun, Xiangliang Zhang | arXiv 2026 | [2603.27771](https://arxiv.org/abs/2603.27771) | [GitHub](https://github.com/HowieHwong/RiskLab) | `E` `type:E` `topic:collusion` `topic:social-intelligence` `topo:decentralised` `tier:strategic` |
+| **HARP: Measuring Harm Amplification in Multi-Agent LLM Systems** — Md Hafizur Rahman, Zafaryab Haider, Tanzim Mahfuz et al. | arXiv 2026 | [2605.27489](https://arxiv.org/abs/2605.27489) | — | `E` `composition` `compromise` |
 
 ---
 
@@ -271,16 +273,4 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**To run the crawler on demand** (high-recall fetch + filter for a date window):
-```bash
-# Stage 1 + 2: fetch, filter, update papers.json and README
-python3 crawler.py --from YYYYMMDD --to YYYYMMDD --save-raw raw_crawl.json
-
-# Dry-run (fetch and filter, but write nothing)
-python3 crawler.py --from YYYYMMDD --to YYYYMMDD --save-raw raw_crawl.json --dry-run
-
-# Re-run filter only on an existing raw_crawl.json without re-fetching
-python3 crawler.py --no-crawl
-```
-
-**Last crawler run**: 2026-05-12
+**Last crawler run**: 2026-06-01
