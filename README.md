@@ -1,7 +1,7 @@
 # Risks and Trustworthiness of Multi-Agent Recommender Systems
 > A living, auto-updated reading list. Taxonomy follows the **RecSys '26 tutorial** and the **_FnTrendsIR_ book chapter**. Updated weekly by automated crawler.
 
-**Last updated:** 2026-06-01
+**Last updated:** 2026-06-11
 
 ---
 
@@ -79,9 +79,10 @@ Evaluation is organised by **scope** and **setting**:
 | **Jailbreaking LLMs via Iterative Tool-Disguised Attacks via RL** — Chen et al. | arXiv 2026 | [2601.05466](https://arxiv.org/abs/2601.05466) | — | `A` `risk:rf1` `type:A` `topic:tool-misuse` `topic:rl` |
 | **INJECAGENT: Benchmarking Indirect Prompt Injections in LLM Agents** — Zhan et al. | ACL Findings 2024 | [2403.02691](https://arxiv.org/abs/2403.02691) | [GitHub](https://github.com/uiuc-kang-lab/InjecAgent) | `A` `risk:rf1` `type:A` `topic:benchmark` `topic:indirect-injection` |
 | **A Systematic Evaluation of Prompt Injection and Jailbreak Vulnerabilities** — Pasquini et al. | arXiv 2025 | [2505.04806](https://arxiv.org/abs/2505.04806) | — | `A` `risk:rf1` `type:A` `topic:benchmark` |
-| **A Real-World Case Study of Attacking ChatGPT via Lightweight Prompt Injection** — Yu et al. | arXiv 2026 | [2504.16125](https://arxiv.org/abs/2504.16125) | — | `A` `risk:rf1` `type:A` `topic:real-world` |
+| **A Real-World Case Study of Attacking ChatGPT via Lightweight Prompt Injection** — Yu et al. | arXiv 2025 | [2504.16125](https://arxiv.org/abs/2504.16125) | — | `A` `risk:rf1` `type:A` `topic:real-world` |
 | **Demystifying Prompt Injection Attacks on Agentic AI Coding Editors** — Anonymous | arXiv 2025 | [2509.22040](https://arxiv.org/abs/2509.22040) | — | `A` `risk:rf1` `type:A` `topic:tool-misuse` |
 | **Exploit Tool Invocation Prompt for Tool Behavior Hijacking** — Anonymous | arXiv 2025 | [2509.05755](https://arxiv.org/abs/2509.05755) | — | `E` `risk:rf1` `risk:rf3` `type:E` `topic:tool-misuse` |
+| **Retrieval-Augmented Review Generation for Poisoning Recommender Systems** — Shiyi Yang, Xinshu Li, Guanglin Zhou et al. | arXiv 2025 | [2508.15252](https://arxiv.org/abs/2508.15252) | classical adversarial RecSys | `A` `component` `compromise` |
 
 ---
 
@@ -98,11 +99,23 @@ Evaluation is organised by **scope** and **setting**:
 | **Shilling Recommender Systems by Generating Side-feature-aware Fake User Profiles** — Anonymous | arXiv 2025 | [2509.17918](https://arxiv.org/abs/2509.17918) | — | `A` `risk:rf2` `type:A` `topic:shilling` `topic:recsys` |
 | **LLM-Powered Audits Expose Shilling Attacks in Recommender Systems** — Anonymous | arXiv 2025 | [2509.24961](https://arxiv.org/abs/2509.24961) | — | `A` `risk:rf2` `type:A` `topic:shilling` `topic:recsys` `topic:defence` |
 | **DrunkAgent: Stealthy Memory Corruption in LLM-Powered Recommender Agents** — Yang et al. | arXiv 2025 | [2503.23804](https://arxiv.org/abs/2503.23804) | — | `A` `risk:rf2` `risk:rf3` `type:A` `topic:memory` `topic:recsys` |
-| **Red-teaming LLM Agents via Poisoning Memory or Knowledge Bases** — Anonymous | arXiv 2025 | [2407.12784](https://arxiv.org/abs/2407.12784) | — | `A` `risk:rf2` `type:A` `topic:memory` `topic:rag` |
+| **Red-teaming LLM Agents via Poisoning Memory or Knowledge Bases** — Anonymous | arXiv 2024 | [2407.12784](https://arxiv.org/abs/2407.12784) | — | `A` `risk:rf2` `type:A` `topic:memory` `topic:rag` |
 | **Human-Imperceptible Retrieval Poisoning Attacks in LLM-Powered Applications** — Anonymous | arXiv 2024 | [2404.17196](https://arxiv.org/abs/2404.17196) | — | `A` `risk:rf2` `type:A` `topic:rag` `topic:retrieval` |
 | **Improving the Shortest Plank: Vulnerability-Aware Adversarial Training
-  for Robust Recommender System** — Kaike Zhang, Qi Cao, Yunfan Wu et al. | arXiv 2026 | [2409.17476](https://arxiv.org/abs/2409.17476) | via HuggingFace Papers | `A` `component` `compromise` |
+  for Robust Recommender System** — Kaike Zhang, Qi Cao, Yunfan Wu et al. | arXiv 2024 | [2409.17476](https://arxiv.org/abs/2409.17476) | via HuggingFace Papers | `A` `component` `compromise` |
 | **The Misattribution Gap: When Memory Poisoning Looks Like Model Failure in Agentic AI Systems** — Tanzim Ahad, Ismail Hossain, Md Jahangir Alam et al. | arXiv 2026 | [2605.22842](https://arxiv.org/abs/2605.22842) | — | `E` `composition` `compromise` |
+| **LoReTTA: A Low Resource Framework To Poison Continuous Time Dynamic Graphs** — Himanshu Pal, Venkata Sai Pranav Bachina, Ankit Gangwal et al. | arXiv 2025 | [2511.07379](https://arxiv.org/abs/2511.07379) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Enhancing Robustness of Graph Neural Networks through p-Laplacian** — Anuj Kumar Sirohi, Subhanu Halder, Kabir Kumar et al. | arXiv 2025 | [2511.06143](https://arxiv.org/abs/2511.06143) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Controllable and Stealthy Shilling Attacks via Dispersive Latent Diffusion** — Shutong Qiao, Wei Yuan, Junliang Yu et al. | arXiv 2025 | [2508.01987](https://arxiv.org/abs/2508.01987) | classical adversarial RecSys | `A` `component` `compromise` |
+| **AUV-Fusion: Cross-Modal Adversarial Fusion of User Interactions and Visual Perturbations Against VARS** — Hai Ling, Tianchi Wang, Xiaohao Liu et al. | arXiv 2025 | [2507.22880](https://arxiv.org/abs/2507.22880) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Spattack: Subgroup Poisoning Attacks on Federated Recommender Systems** — Bo Yan, Yurong Hao, Dingqi Liu et al. | arXiv 2025 | [2507.06258](https://arxiv.org/abs/2507.06258) | classical adversarial RecSys | `A` `component` `compromise` |
+| **IndirectAD: Practical Data Poisoning Attacks against Recommender Systems for Item Promotion** — Zihao Wang, Tianhao Mao, XiaoFeng Wang et al. | arXiv 2025 | [2511.05845](https://arxiv.org/abs/2511.05845) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Stealthy LLM-Driven Data Poisoning Attacks Against Embedding-Based Retrieval-Augmented Recommender Systems** — Fatemeh Nazary, Yashar Deldjoo, Tommaso Di Noia et al. | arXiv 2025 | [2505.05196](https://arxiv.org/abs/2505.05196) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Diversity-aware Dual-promotion Poisoning Attack on Sequential Recommendation** — Yuchuan Zhao, Tong Chen, Junliang Yu et al. | arXiv 2025 | [2504.06586](https://arxiv.org/abs/2504.06586) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Exploiting Meta-Learning-based Poisoning Attacks for Graph Link Prediction** — Mingchen Li, Di Zhuang, Keyu Chen et al. | arXiv 2025 | [2504.06492](https://arxiv.org/abs/2504.06492) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Poison-RAG: Adversarial Data Poisoning Attacks on Retrieval-Augmented Generation in Recommender Systems** — Fatemeh Nazary, Yashar Deldjoo, Tommaso di Noia | arXiv 2025 | [2501.11759](https://arxiv.org/abs/2501.11759) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Single-Node Trigger Backdoor Attacks in Graph-Based Recommendation Systems** — Runze Li, Di Jin, Xiaobao Wang et al. | arXiv 2025 | [2506.08401](https://arxiv.org/abs/2506.08401) | classical adversarial RecSys | `A` `component` `compromise` |
+| **LLM-Based User Simulation for Low-Knowledge Shilling Attacks on Recommender Systems** — Shengkang Gu, Jiahao Liu, Dongsheng Li et al. | arXiv 2025 | [2505.13528](https://arxiv.org/abs/2505.13528) | classical adversarial RecSys | `E` `component` `compromise` |
 
 ---
 
@@ -135,8 +148,11 @@ Evaluation is organised by **scope** and **setting**:
 | **The Sum Leaks More Than Its Parts: Compositional Privacy Risks in Multi-Agent Collaboration** — Anonymous | arXiv 2025 | [2509.14284](https://arxiv.org/abs/2509.14284) | — | `E` `risk:rf4` `risk:rf3` `type:E` `topic:compositional` |
 | **Your Language Model Can Secretly Be a Steganographic Privacy Leaking Agent (TrojanStego)** — Anonymous | arXiv 2025 | [2505.20118](https://arxiv.org/abs/2505.20118) | — | `A` `risk:rf4` `type:A` `topic:steganography` |
 | **A Privacy-Enhanced Development Paradigm for Multi-Agent Collaboration Systems** — Anonymous | arXiv 2025 | [2505.04799](https://arxiv.org/abs/2505.04799) | — | `A` `risk:rf4` `type:A` `topic:defence` |
-| **The 1st Workshop on Human-Centered Recommender Systems** — Kaike Zhang, Yunfan Wu, Yougang lyu et al. | arXiv 2026 | [2411.14760](https://arxiv.org/abs/2411.14760) | via HuggingFace Papers | `A` `component` `drift` |
-| **Robust Recommender System: A Survey and Future Directions** — Kaike Zhang, Qi Cao, Fei Sun et al. | arXiv 2026 | [2309.02057](https://arxiv.org/abs/2309.02057) | via HuggingFace Papers | `A` `component` `compromise` |
+| **The 1st Workshop on Human-Centered Recommender Systems** — Kaike Zhang, Yunfan Wu, Yougang lyu et al. | arXiv 2024 | [2411.14760](https://arxiv.org/abs/2411.14760) | via HuggingFace Papers | `A` `component` `drift` |
+| **Robust Recommender System: A Survey and Future Directions** — Kaike Zhang, Qi Cao, Fei Sun et al. | arXiv 2023 | [2309.02057](https://arxiv.org/abs/2309.02057) | via HuggingFace Papers | `A` `component` `compromise` |
+| **FedAU2: Attribute Unlearning for User-Level Federated Recommender Systems with Adaptive and Robust Adversarial Training** — Yuyuan Li, Junjie Fang, Fengyuan Yu et al. | arXiv 2025 | [2511.22872](https://arxiv.org/abs/2511.22872) | classical adversarial RecSys | `A` `component` `compromise` |
+| **ADAGE: Active Defenses Against GNN Extraction** — Jing Xu, Franziska Boenisch, Adam Dziedzic | arXiv 2025 | [2503.00065](https://arxiv.org/abs/2503.00065) | classical adversarial RecSys | `A` `component` `compromise` |
+| **RAID: An In-Training Defense against Attribute Inference Attacks in Recommender Systems** — Xiaohua Feng, Yuyuan Li, Fengyuan Yu et al. | arXiv 2025 | [2504.11510](https://arxiv.org/abs/2504.11510) | classical adversarial RecSys | `A` `component` `compromise` |
 
 ---
 
@@ -148,7 +164,7 @@ Evaluation is organised by **scope** and **setting**:
 |----|----|----|----|----|
 | **Bias Beware: The Impact of Cognitive Biases on LLM-Driven Product Recommendations** — Krasniqi et al. | EMNLP 2025 | [2502.01349](https://arxiv.org/abs/2502.01349) | — | `A` `risk:rf5` `type:A` `topic:cognitive-bias` `topic:recsys` |
 | **DarkBench: Benchmarking Dark Patterns in Large Language Models** — Kran et al. | arXiv 2025 | [2503.10728](https://arxiv.org/abs/2503.10728) | — | `A` `risk:rf5` `type:A` `topic:dark-patterns` `topic:benchmark` |
-| **An Inconspicuous Attack to Bias LLM Responses** — Anonymous | arXiv 2025 | [2406.04755](https://arxiv.org/abs/2406.04755) | — | `A` `risk:rf5` `type:A` `topic:stealthy` |
+| **An Inconspicuous Attack to Bias LLM Responses** — Anonymous | arXiv 2024 | [2406.04755](https://arxiv.org/abs/2406.04755) | — | `A` `risk:rf5` `type:A` `topic:stealthy` |
 | **Quantifying Cognitive Bias Induction in LLM-Generated Content** — Anonymous | arXiv 2025 | [2507.03194](https://arxiv.org/abs/2507.03194) | — | `A` `risk:rf5` `type:A` `topic:cognitive-bias` |
 | **Understanding Biases in ChatGPT-based Recommender Systems** — Anonymous | arXiv 2024 | [2401.10545](https://arxiv.org/abs/2401.10545) | — | `A` `risk:rf5` `type:A` `topic:recsys` |
 | **Stereotype or Personalization? User Identity Biases Chatbot Recommendations** — Anonymous | arXiv 2024 | [2410.05613](https://arxiv.org/abs/2410.05613) | — | `A` `risk:rf5` `type:A` `topic:recsys` `topic:stereotype` |
@@ -190,7 +206,7 @@ Evaluation is organised by **scope** and **setting**:
 |----|----|----|----|----|
 | **Retrieval Augmented Conversational Recommendation with Reinforcement Learning** — Zhenrui Yue, Honglei Zhuang, Zhen Qin et al. | arXiv 2026 | [2604.04457](https://arxiv.org/abs/2604.04457) | — | — |
 | **Beyond Static Best-of-N: Bayesian List-wise Alignment for LLM-based Recommendation** — Ruijun Chen, Chongming Gao, Jiawei Chen et al. | arXiv 2026 | [2605.04559](https://arxiv.org/abs/2605.04559) | — | `A` `component` `drift` |
-| **Multi-Agent Large Language Models for Conversational Task-Solving** — Jonas Becker | arXiv 2026 | [2410.22932](https://arxiv.org/abs/2410.22932) | via HuggingFace Papers | `E` `component` `drift` |
+| **Multi-Agent Large Language Models for Conversational Task-Solving** — Jonas Becker | arXiv 2024 | [2410.22932](https://arxiv.org/abs/2410.22932) | via HuggingFace Papers | `E` `component` `drift` |
 
 ---
 
@@ -206,7 +222,7 @@ Evaluation is organised by **scope** and **setting**:
 | **Towards Position-Robust Talent Recommendation via Large Language Models** — Silin Du, Hongyan Liu | arXiv 2026 | [2604.02200](https://arxiv.org/abs/2604.02200) | — | `A` |
 | **Bilateral Intent-Enhanced Sequential Recommendation with Embedding Perturbation-Based Contrastive Learning** — Shanfan Zhang, Yongyi Lin, Yuan Rao | arXiv 2026 | [2604.02833](https://arxiv.org/abs/2604.02833) | — | — |
 | **ERASE: Benchmarking Feature Selection Methods for Deep Recommender
-  Systems** — Pengyue Jia, Yejing Wang, Zhaocheng Du et al. | arXiv 2026 | [2403.12660](https://arxiv.org/abs/2403.12660) | via HuggingFace Papers | `component` `drift` |
+  Systems** — Pengyue Jia, Yejing Wang, Zhaocheng Du et al. | arXiv 2024 | [2403.12660](https://arxiv.org/abs/2403.12660) | via HuggingFace Papers | `component` `drift` |
 
 ---
 
@@ -225,7 +241,8 @@ Evaluation is organised by **scope** and **setting**:
 | **Securing Agentic AI: A Comprehensive Threat Model and Mitigation Framework** — Narajala & Narayan | arXiv 2025 | [2504.19956](https://arxiv.org/abs/2504.19956) | — | `topic:defence` `topic:threat-model` `topic:evaluation` |
 | **Towards Secure Systems of Interacting AI Agents** — Anonymous | arXiv 2025 | [2505.02077](https://arxiv.org/abs/2505.02077) | — | `topic:defence` `topic:formal` |
 | **With a Little Help From My Friends: Collective Manipulation in Risk-Controlling Recommender Systems** — Giovanni De Toni, Cristian Consonni, Erasmo Purificato et al. | arXiv 2026 | [2603.28476](https://arxiv.org/abs/2603.28476) | — | — |
-| **Agentic AI Frameworks: Architectures, Protocols, and Design Challenges** — Hana Derouiche, Zaki Brahmi, Haithem Mazeni | arXiv 2026 | [2508.10146](https://arxiv.org/abs/2508.10146) | via HuggingFace Papers | `composition` `drift` |
+| **Agentic AI Frameworks: Architectures, Protocols, and Design Challenges** — Hana Derouiche, Zaki Brahmi, Haithem Mazeni | arXiv 2025 | [2508.10146](https://arxiv.org/abs/2508.10146) | via HuggingFace Papers | `composition` `drift` |
+| **Two is Better than One: Efficient Ensemble Defense for Robust and Compact Models** — Yoojin Jung, Byung Cheol Song | arXiv 2025 | [2504.04747](https://arxiv.org/abs/2504.04747) | classical adversarial RecSys | `A` `component` `compromise` |
 
 ---
 
@@ -240,9 +257,9 @@ Evaluation is organised by **scope** and **setting**:
 | **A Guide to Known Attacks and Impacts** — Anonymous | arXiv 2025 | [2506.23296](https://arxiv.org/abs/2506.23296) | — | `topic:incident-catalogue` |
 | **A Taxonomy of Systemic Risks from General-Purpose AI** — Anonymous | arXiv 2024 | [2412.07780](https://arxiv.org/abs/2412.07780) | — | `topic:taxonomy` `topic:systemic-risk` |
 | **MI9 -- Agent Intelligence Protocol: Runtime Governance for Agentic AI
-  Systems** — Charles L. Wang, Trisha Singhal, Ameya Kelkar et al. | arXiv 2026 | [2508.03858](https://arxiv.org/abs/2508.03858) | via HuggingFace Papers | `E` `component` `drift` |
+  Systems** — Charles L. Wang, Trisha Singhal, Ameya Kelkar et al. | arXiv 2025 | [2508.03858](https://arxiv.org/abs/2508.03858) | via HuggingFace Papers | `E` `component` `drift` |
 | **Control Plane as a Tool: A Scalable Design Pattern for Agentic AI
-  Systems** — Sivasathivel Kandasamy | arXiv 2026 | [2505.06817](https://arxiv.org/abs/2505.06817) | via HuggingFace Papers | `component` `drift` |
+  Systems** — Sivasathivel Kandasamy | arXiv 2025 | [2505.06817](https://arxiv.org/abs/2505.06817) | via HuggingFace Papers | `component` `drift` |
 
 ---
 
@@ -254,9 +271,12 @@ Evaluation is organised by **scope** and **setting**:
 |----|----|----|----|----|
 | **Let the Agent Steer: Closed-Loop Ranking Optimization via Influence Exchange** — Yin Cheng, Liao Zhou, Xiyu Liang et al. | arXiv 2026 | [2603.27765](https://arxiv.org/abs/2603.27765) | — | `A` |
 | **Unbiased Recommender Learning from Missing-Not-At-Random Implicit
-  Feedback** — Yuta Saito, Suguru Yaginuma, Yuta Nishino et al. | arXiv 2026 | [1909.03601](https://arxiv.org/abs/1909.03601) | via HuggingFace Papers | `A` `component` `drift` |
+  Feedback** — Yuta Saito, Suguru Yaginuma, Yuta Nishino et al. | arXiv 2019 | [1909.03601](https://arxiv.org/abs/1909.03601) | via HuggingFace Papers | `A` `component` `drift` |
 | **Large Language Models are Competitive Near Cold-start Recommenders for
-  Language- and Item-based Preferences** — Scott Sanner, Krisztian Balog, Filip Radlinski et al. | arXiv 2026 | [2307.14225](https://arxiv.org/abs/2307.14225) | via HuggingFace Papers | `A` `component` `drift` |
+  Language- and Item-based Preferences** — Scott Sanner, Krisztian Balog, Filip Radlinski et al. | arXiv 2023 | [2307.14225](https://arxiv.org/abs/2307.14225) | via HuggingFace Papers | `A` `component` `drift` |
+| **Matrix-Free Two-to-Infinity and One-to-Two Norms Estimation** — Askar Tsyganov, Evgeny Frolov, Sergey Samsonov et al. | arXiv 2025 | [2508.04444](https://arxiv.org/abs/2508.04444) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Navigating the Black Box: Leveraging LLMs for Effective Text-Level Graph Injection Attacks** — Yuefei Lyu, Chaozhuo Li, Xi Zhang et al. | arXiv 2025 | [2506.13276](https://arxiv.org/abs/2506.13276) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Invariance Matters: Empowering Social Recommendation via Graph Invariant Learning** — Yonghui Yang, Le Wu, Yuxin Liao et al. | arXiv 2025 | [2504.10432](https://arxiv.org/abs/2504.10432) | classical adversarial RecSys | `A` `component` `compromise` |
 
 ---
 
@@ -273,4 +293,4 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**Last crawler run**: 2026-06-01
+**Last crawler run**: 2026-06-11
