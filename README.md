@@ -83,6 +83,8 @@ Evaluation is organised by **scope** and **setting**:
 | **Demystifying Prompt Injection Attacks on Agentic AI Coding Editors** — Anonymous | arXiv 2025 | [2509.22040](https://arxiv.org/abs/2509.22040) | — | `A` `risk:rf1` `type:A` `topic:tool-misuse` |
 | **Exploit Tool Invocation Prompt for Tool Behavior Hijacking** — Anonymous | arXiv 2025 | [2509.05755](https://arxiv.org/abs/2509.05755) | — | `E` `risk:rf1` `risk:rf3` `type:E` `topic:tool-misuse` |
 | **Retrieval-Augmented Review Generation for Poisoning Recommender Systems** — Shiyi Yang, Xinshu Li, Guanglin Zhou et al. | arXiv 2025 | [2508.15252](https://arxiv.org/abs/2508.15252) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Penetration Testing of Agentic AI: A Comparative Security Analysis Across Models and Frameworks** — Viet K. Nguyen, Mohammad I. Husain | arXiv 2025 | [2512.14860](https://arxiv.org/abs/2512.14860) | — | `A` `component` `compromise` |
+| **It's the Thought that Counts: Evaluating the Attempts of Frontier LLMs to Persuade on Harmful Topics** — Matthew Kowal, Jasper Timm, Jean-Francois Godbout et al. | arXiv 2025 | [2506.02873](https://arxiv.org/abs/2506.02873) | — | `A` `component` `compromise` |
 
 ---
 
@@ -116,6 +118,7 @@ Evaluation is organised by **scope** and **setting**:
 | **Poison-RAG: Adversarial Data Poisoning Attacks on Retrieval-Augmented Generation in Recommender Systems** — Fatemeh Nazary, Yashar Deldjoo, Tommaso di Noia | arXiv 2025 | [2501.11759](https://arxiv.org/abs/2501.11759) | classical adversarial RecSys | `A` `component` `compromise` |
 | **Single-Node Trigger Backdoor Attacks in Graph-Based Recommendation Systems** — Runze Li, Di Jin, Xiaobao Wang et al. | arXiv 2025 | [2506.08401](https://arxiv.org/abs/2506.08401) | classical adversarial RecSys | `A` `component` `compromise` |
 | **LLM-Based User Simulation for Low-Knowledge Shilling Attacks on Recommender Systems** — Shengkang Gu, Jiahao Liu, Dongsheng Li et al. | arXiv 2025 | [2505.13528](https://arxiv.org/abs/2505.13528) | classical adversarial RecSys | `E` `component` `compromise` |
+| **Membership Inference Attacks on LLM-based Recommender Systems** — Jiajie He, Min-Chun Chen, Xintong Chen et al. | arXiv 2025 | [2508.18665](https://arxiv.org/abs/2508.18665) | — | `A` `component` `compromise` |
 
 ---
 
@@ -153,6 +156,12 @@ Evaluation is organised by **scope** and **setting**:
 | **FedAU2: Attribute Unlearning for User-Level Federated Recommender Systems with Adaptive and Robust Adversarial Training** — Yuyuan Li, Junjie Fang, Fengyuan Yu et al. | arXiv 2025 | [2511.22872](https://arxiv.org/abs/2511.22872) | classical adversarial RecSys | `A` `component` `compromise` |
 | **ADAGE: Active Defenses Against GNN Extraction** — Jing Xu, Franziska Boenisch, Adam Dziedzic | arXiv 2025 | [2503.00065](https://arxiv.org/abs/2503.00065) | classical adversarial RecSys | `A` `component` `compromise` |
 | **RAID: An In-Training Defense against Attribute Inference Attacks in Recommender Systems** — Xiaohua Feng, Yuyuan Li, Fengyuan Yu et al. | arXiv 2025 | [2504.11510](https://arxiv.org/abs/2504.11510) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Membership Inference Attack against Large Language Model-based Recommendation Systems: A New Distillation-based Paradigm** — Li Cuihong, Huang Xiaowen, Yin Chuanhuan et al. | arXiv 2025 | [2511.14763](https://arxiv.org/abs/2511.14763) | — | `A` `component` `compromise` |
+| **LLM4MEA: Data-free Model Extraction Attacks on Sequential Recommenders via Large Language Models** — Shilong Zhao, Fei Sun, Kaike Zhang et al. | arXiv 2025 | [2507.16969](https://arxiv.org/abs/2507.16969) | — | `A` `component` `compromise` |
+| **From AutoRecSys to AutoRecLab: A Call to Build, Evaluate, and Govern Autonomous Recommender-Systems Research Labs** — Joeran Beel, Bela Gipp, Tobias Vente et al. | arXiv 2025 | [2510.18104](https://arxiv.org/abs/2510.18104) | — | `A` `composition` `drift` |
+| **Customized Retrieval-Augmented Generation with LLM for Debiasing Recommendation Unlearning** — Haichao Zhang, Chong Zhang, Peiyu Hu et al. | arXiv 2025 | [2511.05494](https://arxiv.org/abs/2511.05494) | — | `A` `component` `drift` |
+| **Audit the Whisper: Detecting Steganographic Collusion in Multi-Agent LLMs** — Om Tailor | arXiv 2025 | [2510.04303](https://arxiv.org/abs/2510.04303) | — | `E` `composition` `misalignment` |
+| **AGENTSAFE: A Unified Framework for Ethical Assurance and Governance in Agentic AI** — Rafflesia Khan, Declan Joyce, Mansura Habiba | arXiv 2025 | [2512.03180](https://arxiv.org/abs/2512.03180) | — | `E` `composition` `drift` |
 
 ---
 
@@ -170,6 +179,8 @@ Evaluation is organised by **scope** and **setting**:
 | **Stereotype or Personalization? User Identity Biases Chatbot Recommendations** — Anonymous | arXiv 2024 | [2410.05613](https://arxiv.org/abs/2410.05613) | — | `A` `risk:rf5` `type:A` `topic:recsys` `topic:stereotype` |
 | **Bias Mitigation for AI-Feedback Loops in Recommender Systems** — Anonymous | arXiv 2025 | [2509.00109](https://arxiv.org/abs/2509.00109) | — | `A` `risk:rf5` `risk:rf6` `type:A` `topic:feedback-loop` `topic:recsys` |
 | **Aligning Recommendations with User Popularity Preferences** — Mona Schirmer, Anton Thielmann, Pola Schwöbel et al. | arXiv 2026 | [2604.01036](https://arxiv.org/abs/2604.01036) | — | `A` |
+| **LLM as Explainable Re-Ranker for Recommendation System** — Yaqi Wang, Haojia Sun, Shuting Zhang | arXiv 2025 | [2512.03439](https://arxiv.org/abs/2512.03439) | — | `A` `component` `drift` |
+| **Toward Safe and Human-Aligned Game Conversational Recommendation via Multi-Agent Decomposition** — Zheng Hui, Xiaokai Wei, Yexi Jiang et al. | arXiv 2025 | [2504.20094](https://arxiv.org/abs/2504.20094) | — | `A` `component` `compromise` |
 
 ---
 
@@ -207,6 +218,16 @@ Evaluation is organised by **scope** and **setting**:
 | **Retrieval Augmented Conversational Recommendation with Reinforcement Learning** — Zhenrui Yue, Honglei Zhuang, Zhen Qin et al. | arXiv 2026 | [2604.04457](https://arxiv.org/abs/2604.04457) | — | — |
 | **Beyond Static Best-of-N: Bayesian List-wise Alignment for LLM-based Recommendation** — Ruijun Chen, Chongming Gao, Jiawei Chen et al. | arXiv 2026 | [2605.04559](https://arxiv.org/abs/2605.04559) | — | `A` `component` `drift` |
 | **Multi-Agent Large Language Models for Conversational Task-Solving** — Jonas Becker | arXiv 2024 | [2410.22932](https://arxiv.org/abs/2410.22932) | via HuggingFace Papers | `E` `component` `drift` |
+| **The 2nd Workshop on Human-Centered Recommender Systems** — Kaike Zhang, Jiakai Tang, Du Su et al. | arXiv 2025 | [2511.19979](https://arxiv.org/abs/2511.19979) | — | `A` `component` `drift` |
+| **UFO: Unfair-to-Fair Evolving Mitigates Unfairness in LLM-based Recommender Systems via Self-Play Fine-tuning** — Jiaming Zhang, Yuyuan Li, Xiaohua Feng et al. | arXiv 2025 | [2511.18342](https://arxiv.org/abs/2511.18342) | — | `A` `component` `drift` |
+| **Music Recommendation with Large Language Models: Challenges, Opportunities, and Evaluation** — Elena V. Epure, Yashar Deldjoo, Bruno Sguerra et al. | arXiv 2025 | [2511.16478](https://arxiv.org/abs/2511.16478) | — | `A` `component` `drift` |
+| **Vectorized Context-Aware Embeddings for GAT-Based Collaborative Filtering** — Danial Ebrat, Sepideh Ahmadian, Luis Rueda | arXiv 2025 | [2510.26461](https://arxiv.org/abs/2510.26461) | — | `A` `component` `drift` |
+| **Does LLM Focus on the Right Words? Mitigating Context Bias in LLM-based Recommenders** — Bohao Wang, Jiawei Chen, Feng Liu et al. | arXiv 2025 | [2510.10978](https://arxiv.org/abs/2510.10978) | — | `A` `component` `drift` |
+| **Ethical AI prompt recommendations in large language models using collaborative filtering** — Jordan Nelson, Almas Baimagambetov, Konstantinos Avgerinakis et al. | arXiv 2025 | [2510.06924](https://arxiv.org/abs/2510.06924) | — | `A` `component` `drift` |
+| **Where Should I Study? Biased Language Models Decide! Evaluating Fairness in LMs for Academic Recommendations** — Krithi Shailya, Akhilesh Kumar Mishra, Gokul S Krishnan et al. | arXiv 2025 | [2509.04498](https://arxiv.org/abs/2509.04498) | — | `A` `component` `drift` |
+| **Revealing Potential Biases in LLM-Based Recommender Systems in the Cold Start Setting** — Alexandre Andre, Gauthier Roy, Eva Dyer et al. | arXiv 2025 | [2508.20401](https://arxiv.org/abs/2508.20401) | — | `A` `component` `drift` |
+| **PerFairX: Is There a Balance Between Fairness and Personality in Large Language Model Recommendations?** — Chandan Kumar Sah | arXiv 2025 | [2509.08829](https://arxiv.org/abs/2509.08829) | — | `A` `component` `drift` |
+| **ViLLA-MMBench: A Unified Benchmark Suite for LLM-Augmented Multimodal Movie Recommendation** — Fatemeh Nazary, Ali Tourani, Yashar Deldjoo et al. | arXiv 2025 | [2508.04206](https://arxiv.org/abs/2508.04206) | — | `A` `component` `drift` |
 
 ---
 
@@ -223,6 +244,12 @@ Evaluation is organised by **scope** and **setting**:
 | **Bilateral Intent-Enhanced Sequential Recommendation with Embedding Perturbation-Based Contrastive Learning** — Shanfan Zhang, Yongyi Lin, Yuan Rao | arXiv 2026 | [2604.02833](https://arxiv.org/abs/2604.02833) | — | — |
 | **ERASE: Benchmarking Feature Selection Methods for Deep Recommender
   Systems** — Pengyue Jia, Yejing Wang, Zhaocheng Du et al. | arXiv 2024 | [2403.12660](https://arxiv.org/abs/2403.12660) | via HuggingFace Papers | `component` `drift` |
+| **CogRec: A Cognitive Recommender Agent Fusing Large Language Models and Soar for Explainable Recommendation** — Jiaxin Hu, Tao Wang, Bingsan Yang et al. | arXiv 2025 | [2512.24113](https://arxiv.org/abs/2512.24113) | — | `A` `component` `compromise` |
+| **The Mental World of Large Language Models in Recommendation: A Benchmark on Association, Personalization, and Knowledgeability** — Guangneng Hu | arXiv 2025 | [2512.17389](https://arxiv.org/abs/2512.17389) | — | `A` `component` `drift` |
+| **Reveal Hidden Pitfalls and Navigate Next Generation of Vector Similarity Search from Task-Centric Views** — Tingyang Chen, Cong Fu, Jiahua Wu et al. | arXiv 2025 | [2512.12980](https://arxiv.org/abs/2512.12980) | — | `composition` `drift` |
+| **Combining LLM Semantic Reasoning with GNN Structural Modeling for Multi-View Multi-Label Feature Selection** — Zhiqi Chen, Yuzhou Liu, Jiarui Liu et al. | arXiv 2025 | [2511.08008](https://arxiv.org/abs/2511.08008) | — | `component` `drift` |
+| **ECKGBench: Benchmarking Large Language Models in E-commerce Leveraging Knowledge Graph** — Langming Liu, Haibin Chen, Yuhao Wang et al. | arXiv 2025 | [2503.15990](https://arxiv.org/abs/2503.15990) | — | `A` `component` `drift` |
+| **MARCO: A Cooperative Knowledge Transfer Framework for Personalized Cross-domain Recommendations** — Lili Xie, Yi Zhang, Ruihong Qiu et al. | arXiv 2025 | [2510.04508](https://arxiv.org/abs/2510.04508) | — | `component` `drift` |
 
 ---
 
@@ -243,6 +270,9 @@ Evaluation is organised by **scope** and **setting**:
 | **With a Little Help From My Friends: Collective Manipulation in Risk-Controlling Recommender Systems** — Giovanni De Toni, Cristian Consonni, Erasmo Purificato et al. | arXiv 2026 | [2603.28476](https://arxiv.org/abs/2603.28476) | — | — |
 | **Agentic AI Frameworks: Architectures, Protocols, and Design Challenges** — Hana Derouiche, Zaki Brahmi, Haithem Mazeni | arXiv 2025 | [2508.10146](https://arxiv.org/abs/2508.10146) | via HuggingFace Papers | `composition` `drift` |
 | **Two is Better than One: Efficient Ensemble Defense for Robust and Compact Models** — Yoojin Jung, Byung Cheol Song | arXiv 2025 | [2504.04747](https://arxiv.org/abs/2504.04747) | classical adversarial RecSys | `A` `component` `compromise` |
+| **ASTRA: Agentic Steerability and Risk Assessment Framework** — Itay Hazan, Yael Mathov, Guy Shtar et al. | arXiv 2025 | [2511.18114](https://arxiv.org/abs/2511.18114) | — | `component` `compromise` |
+| **Simulating Filter Bubble on Short-video Recommender System with Large Language Model Agents** — Nicholas Sukiennik, Haoyu Wang, Zailin Zeng et al. | arXiv 2025 | [2504.08742](https://arxiv.org/abs/2504.08742) | — | `A` `component` `drift` |
+| **Explainable and Fine-Grained Safeguarding of LLM Multi-Agent Systems via Bi-Level Graph Anomaly Detection** — Junjun Pan, Yixin Liu, Rui Miao et al. | arXiv 2025 | [2512.18733](https://arxiv.org/abs/2512.18733) | — | `component` `compromise` |
 
 ---
 
@@ -277,6 +307,13 @@ Evaluation is organised by **scope** and **setting**:
 | **Matrix-Free Two-to-Infinity and One-to-Two Norms Estimation** — Askar Tsyganov, Evgeny Frolov, Sergey Samsonov et al. | arXiv 2025 | [2508.04444](https://arxiv.org/abs/2508.04444) | classical adversarial RecSys | `A` `component` `compromise` |
 | **Navigating the Black Box: Leveraging LLMs for Effective Text-Level Graph Injection Attacks** — Yuefei Lyu, Chaozhuo Li, Xi Zhang et al. | arXiv 2025 | [2506.13276](https://arxiv.org/abs/2506.13276) | classical adversarial RecSys | `A` `component` `compromise` |
 | **Invariance Matters: Empowering Social Recommendation via Graph Invariant Learning** — Yonghui Yang, Le Wu, Yuxin Liao et al. | arXiv 2025 | [2504.10432](https://arxiv.org/abs/2504.10432) | classical adversarial RecSys | `A` `component` `compromise` |
+| **Towards Efficient Hypergraph and Multi-LLM Agent Recommender Systems** — Tendai Mukande, Esraa Ali, Annalina Caputo et al. | arXiv 2025 | [2512.06590](https://arxiv.org/abs/2512.06590) | — | `A` `component` `drift` |
+| **Agentic Explainable Artificial Intelligence (Agentic XAI) Approach To Explore Better Explanation** — Tomoaki Yamaguchi, Yutong Zhou, Masahiro Ryo et al. | arXiv 2025 | [2512.21066](https://arxiv.org/abs/2512.21066) | — | `A` `component` `misalignment` |
+| **Selective LLM-Guided Regularization for Enhancing Recommendation Models** — Shanglin Yang, Zhan Shi | arXiv 2025 | [2512.21526](https://arxiv.org/abs/2512.21526) | — | `A` `component` `drift` |
+| **STEP: Stepwise Curriculum Learning for Context-Knowledge Fusion in Conversational Recommendation** — Zhenye Yang, Jinpeng Chen, Huan Li et al. | arXiv 2025 | [2508.10669](https://arxiv.org/abs/2508.10669) | — | `A` `component` `drift` |
+| **Multi-agents based User Values Mining for Recommendation** — Lijian Chen, Wei Yuan, Tong Chen et al. | arXiv 2025 | [2505.00981](https://arxiv.org/abs/2505.00981) | — | `A` `component` `drift` |
+| **Bridging Legal Knowledge and AI: Retrieval-Augmented Generation with Vector Stores, Knowledge Graphs, and Hierarchical Non-negative Matrix Factorization** — Ryan C. Barron, Maksim E. Eren, Olga M. Serafimova et al. | arXiv 2025 | [2502.20364](https://arxiv.org/abs/2502.20364) | — | `A` `component` `drift` |
+| **Journalism-Guided Agentic In-Context Learning for News Stance Detection** — Dahyun Lee, Jonghyeon Choi, Jiyoung Han et al. | arXiv 2025 | [2507.11049](https://arxiv.org/abs/2507.11049) | — | `A` `component` `drift` |
 
 ---
 
