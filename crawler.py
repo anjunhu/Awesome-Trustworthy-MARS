@@ -11,13 +11,22 @@ import argparse
 import json
 import os
 import re
+import ssl
 import subprocess
 import time
 import urllib.request
 import urllib.parse
 from datetime import date, datetime
 from pathlib import Path
+from typing import Optional
 from xml.etree import ElementTree as ET
+
+# SSL context — needed on macOS/Python < 3.10 where system certs may be missing
+try:
+    import certifi
+    _SSL_CTX = ssl.create_default_context(cafile=certifi.where())
+except ImportError:
+    _SSL_CTX = ssl.create_default_context()
 
 try:
     import openreview
@@ -130,16 +139,226 @@ RELEVANCE_RISK = [
 ]
 
 
-def is_relevant(title: str, abstract: str) -> bool:
+# ── RecSys+IR filter — applied at COMPILE TIME to get panel (a) from panel (b) ─
+# Each LoA raw JSON contains the BROAD (panel b) papers.
+# Papers that also match one of these terms are counted in panel (a).
+RECSYS_IR_FILTER = [
+    "recommender system", "recommendation system", "recsys",
+    "collaborative filtering", "matrix factorization",
+    "rating prediction", "user-item", "item recommendation",
+    "personalized recommendation",
+    "information retrieval", "retrieval system",
+    "search ranking", "document ranking",
+]
+
+
+# ── LoA-1: Pre-LLM+ICL adversarial AI/IR/RecSys ──────────────────────────────
+# panel (b) = all adversarial attacks on classical retrieval/ranking/RecSys systems
+# panel (a) = RecSys+IR subset (filtered by RECSYS_IR_FILTER at compile time)
+# No LLM or agent keyword required (these are pre-LLM papers).
+
+LOA1_SEARCH_GROUPS = {
+    "attack_recsys": [
+        "adversarial attack recommender system",
+        "data poisoning recommender",
+        "shilling attack recommender",
+        "profile injection attack recommender",
+        "poisoning attack collaborative filtering",
+        "fake profile recommender",
+        "backdoor attack recommender",
+    ],
+    "attack_ir": [
+        "adversarial attack information retrieval",
+        "query poisoning search engine",
+        "adversarial attack ranking",
+        "adversarial attack search",
+        "data poisoning search engine",
+    ],
+    "robustness": [
+        "robust collaborative filtering",
+        "robust recommendation",
+        "robust recommender system",
+        "adversarial robustness recommender",
+        "adversarial robustness information retrieval",
+    ],
+    "method": [
+        "matrix factorization adversarial",
+        "graph neural network recommender attack",
+        "adversarial training recommendation",
+    ],
+}
+
+# Broad relevance for LoA-1: any adversarial/attack signal suffices.
+# RecSys+IR restriction applied only at compile time (panel a filter).
+LOA1_RELEVANCE_RISK = [
+    "adversarial attack", "poisoning attack", "shilling attack",
+    "profile injection", "fake profile", "fake user",
+    "backdoor attack", "model poisoning", "data poisoning",
+    "membership inference", "model inversion", "privacy attack",
+    "inference attack",
+    "adversarial robustness", "robust against attack",
+    "robust to attack", "attack and defense", "attack and defence",
+    "defense against", "defence against",
+    "adversarial training",
+    "malicious user", "malicious item", "fraudster", "spammer",
+]
+
+# Keep CLASSICAL_* as aliases so existing code still works
+CLASSICAL_SEARCH_GROUPS = LOA1_SEARCH_GROUPS
+CLASSICAL_RELEVANCE_RISK = LOA1_RELEVANCE_RISK
+# Legacy: RecSys-only system filter (used by compile to split panel a from b)
+CLASSICAL_RELEVANCE_SYSTEM = [
+    "recommender system", "recommendation system", "recsys",
+    "collaborative filtering", "matrix factorization",
+    "rating prediction", "user-item", "item recommendation",
+    "personalized recommendation",
+]
+
+
+# ── LoA-2: Single-agent LLM systems (broad) ──────────────────────────────────
+# panel (b) = all single-agent LLM system safety (any domain)
+# panel (a) = RecSys+IR subset (RECSYS_IR_FILTER at compile time)
+# Multi-agent papers are excluded so they land in LoA-3.
+
+LOA2_SEARCH_GROUPS = {
+    "system_general": [
+        "LLM agent safety",
+        "LLM agent adversarial attack",
+        "RAG adversarial attack",
+        "retrieval augmented generation safety",
+        "LLM agent security vulnerability",
+        "large language model agent attack",
+        "LLM tool use safety",
+    ],
+    "system_recsys": [
+        "LLM-based recommender system",
+        "large language model recommender",
+        "conversational recommender LLM",
+        "LLM agent recommendation",
+        "retrieval-augmented recommendation",
+    ],
+    "risk": [
+        "prompt injection LLM agent",
+        "jailbreak LLM agent",
+        "adversarial LLM agent",
+        "privacy LLM agent",
+        "bias LLM agent",
+        "hallucination LLM agent",
+        "poisoning LLM recommender",
+        "membership inference LLM",
+        "attack LLM agent system",
+    ],
+}
+
+# Broad: any single-agent LLM system + risk signal (no RecSys required).
+LOA2_RELEVANCE_SYSTEM = [
+    "llm agent", "llm-based agent", "large language model agent",
+    "rag", "retrieval-augmented generation",
+    "llm tool", "agentic llm", "llm system",
+    "language model agent", "autonomous llm",
+    # RecSys-specific (for completeness — panel a filtered at compile)
+    "llm recommender", "llm-based recommender",
+    "large language model recommender", "recommendation",
+    "collaborative filtering",
+]
+
+LOA2_RELEVANCE_RISK = [
+    "prompt injection", "jailbreak", "adversarial attack",
+    "data poisoning", "backdoor", "privacy", "membership inference",
+    "bias", "hallucination", "robustness", "safety", "vulnerability",
+    "attack", "fairness", "inversion", "shilling",
+]
+
+# Exclude multi-agent papers (they belong to LoA-3)
+LOA2_EXCLUSION = [
+    "multi-agent", "multi agent", "multiagent",
+]
+
+
+# ── LoA-3: Multi-agent LLM systems (broad) ───────────────────────────────────
+# panel (b) = all multi-agent LLM system safety (any domain)
+# panel (a) = RecSys+IR subset (RECSYS_IR_FILTER at compile time)
+
+LOA3_SEARCH_GROUPS = {
+    "system_general": [
+        "multi-agent LLM safety",
+        "multi-agent LLM security",
+        "multi-agent LLM adversarial",
+        "LLM agent network safety",
+        "multi-agent system security LLM",
+        "agent swarm attack",
+        "multi-agent AI safety",
+    ],
+    "system_recsys": [
+        "multi-agent recommender system",
+        "multi-agent recommendation",
+        "multi-agent LLM recommendation",
+        "agent collaboration recommendation",
+        "MACRec",
+        "MACF recommendation",
+        "Matcha recommendation",
+    ],
+    "risk": [
+        "collusion multi-agent LLM",
+        "inter-agent attack",
+        "cascading attack multi-agent",
+        "emergent risk multi-agent",
+        "poisoning multi-agent LLM",
+        "prompt injection multi-agent",
+        "coordination failure multi-agent",
+    ],
+}
+
+# Broad: any multi-agent LLM system + risk signal (no RecSys required).
+LOA3_RELEVANCE_SYSTEM = [
+    "multi-agent llm", "multi-agent language model",
+    "multi-agent system", "llm agent network",
+    "agent swarm", "agent collaboration", "agent cooperation",
+    "multi-agent", "multiagent",
+    # RecSys-specific
+    "multi-agent recommender", "multi-agent recommendation",
+    "macrec", "macf", "matcha",
+    "agentic recommender", "agentic recommendation",
+]
+
+LOA3_RELEVANCE_RISK = [
+    "collusion", "inter-agent", "cascading", "emergent",
+    "adversarial attack", "poisoning", "prompt injection", "jailbreak",
+    "privacy", "bias", "hallucination", "robustness", "safety",
+    "vulnerability", "fairness", "coordination failure", "attack", "security",
+]
+
+
+def is_relevant(title: str, abstract: str, classical: bool = False,
+                loa2: bool = False, loa3: bool = False) -> bool:
+    """Broad relevance check — no RecSys restriction.
+    Panel (a) vs (b) split is done at compile time using RECSYS_IR_FILTER.
+    """
     combined = f"{title} {abstract}".lower()
-    has_system = any(kw in combined for kw in RELEVANCE_SYSTEM)
-    has_risk = any(kw in combined for kw in RELEVANCE_RISK)
-    return has_system and has_risk
+    if classical:
+        # LoA-1 broad: only need an adversarial/attack signal
+        # (search queries are already domain-specific enough)
+        return any(kw in combined for kw in LOA1_RELEVANCE_RISK)
+    elif loa2:
+        has_system = any(kw in combined for kw in LOA2_RELEVANCE_SYSTEM)
+        has_risk = any(kw in combined for kw in LOA2_RELEVANCE_RISK)
+        # Exclude multi-agent papers (those belong to LoA-3)
+        if any(kw in combined for kw in LOA2_EXCLUSION):
+            return False
+        return has_system and has_risk
+    elif loa3:
+        has_system = any(kw in combined for kw in LOA3_RELEVANCE_SYSTEM)
+        has_risk = any(kw in combined for kw in LOA3_RELEVANCE_RISK)
+        return has_system and has_risk
+    else:
+        has_system = any(kw in combined for kw in RELEVANCE_SYSTEM)
+        has_risk = any(kw in combined for kw in RELEVANCE_RISK)
+        return has_system and has_risk
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
-def _match_rules(text: str, rules: list) -> str | None:
+def _match_rules(text: str, rules: list) -> Optional[str]:
     text_lower = text.lower()
     for keywords, label in rules:
         if any(k in text_lower for k in keywords):
@@ -180,34 +399,42 @@ def known_ids(papers: list) -> set:
 
 def arxiv_search(query: str, max_results: int = 20,
                  date_from: str = DATE_FROM, date_to: str = DATE_TO) -> list:
-    # arXiv date filter format: [YYYYMMDD0000 TO YYYYMMDD2359]
+    # arXiv API quirk: multi-word queries with `all:phrase` are parsed as
+    # `all:first_word OR rest_of_words`, so the date filter gets ignored.
+    # Fix: give every word its own `all:` prefix joined by AND, then append date filter.
+    # The brackets in submittedDate:[...] must NOT be percent-encoded.
     date_filter = f"submittedDate:[{date_from}0000 TO {date_to}2359]"
-    params = urllib.parse.urlencode({
-        "search_query": f"all:{query} AND {date_filter}",
-        "start": 0,
-        "max_results": max_results,
-        "sortBy": "submittedDate",
-        "sortOrder": "descending",
-    })
-    url = f"{ARXIV_API}?{params}"
+    word_terms = " AND ".join(f"all:{w}" for w in query.split())
+    full_query = f"{word_terms} AND {date_filter}"
+    # Encode everything except chars arXiv needs literal: : [ ] + space
+    encoded = urllib.parse.quote(full_query, safe=":[]+ ")
+    encoded = encoded.replace(" ", "+")
+    url = (f"{ARXIV_API}?search_query={encoded}"
+           f"&start=0&max_results={max_results}"
+           f"&sortBy=submittedDate&sortOrder=descending")
     
     # Retry with exponential backoff on rate limit
     for attempt in range(3):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "AwesomeTrustworthyMARS/1.0 (research crawler)"})
-            with urllib.request.urlopen(req, timeout=30) as resp:
+            with urllib.request.urlopen(req, timeout=45, context=_SSL_CTX) as resp:
                 xml = resp.read()
-            time.sleep(5)  # arXiv requests 3s minimum, we use 5s to be safe
+            time.sleep(8)  # arXiv requests 3s minimum; 8s gives headroom to avoid 429
             break
         except urllib.error.HTTPError as e:
             if e.code == 429 and attempt < 2:
-                wait = 10 * (2 ** attempt)  # 10s, 20s
-                print(f"    Rate limited, waiting {wait}s...")
+                wait = 30 * (2 ** attempt)  # 30s, 60s — generous backoff
+                print(f"    Rate limited (429), waiting {wait}s...")
                 time.sleep(wait)
                 continue
             print(f"  [arXiv] request failed for '{query}': {e}")
             return []
         except Exception as e:
+            if attempt < 2:
+                wait = 15 * (2 ** attempt)
+                print(f"    Transient error ({e}), retrying in {wait}s...")
+                time.sleep(wait)
+                continue
             print(f"  [arXiv] request failed for '{query}': {e}")
             return []
 
@@ -234,26 +461,56 @@ def arxiv_search(query: str, max_results: int = 20,
     return results
 
 
-def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DATE_TO, 
-                filter_relevance: bool = True) -> list:
-    """Crawl arXiv. If filter_relevance=False, returns all results (high recall)."""
+def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DATE_TO,
+                filter_relevance: bool = True, classical: bool = False,
+                loa2: bool = False, loa3: bool = False) -> list:
+    """Crawl arXiv.
+
+    classical=True — LoA-1: CLASSICAL_SEARCH_GROUPS, pre-LLM adversarial RecSys.
+    loa2=True      — LoA-2: LOA2_SEARCH_GROUPS, single-agent LLM recommenders.
+    loa3=True      — LoA-3: LOA3_SEARCH_GROUPS, multi-agent LLM recommenders.
+    (default)      — original SEARCH_GROUPS for general agentic AI safety.
+    filter_relevance=False — returns all results (high-recall, for --save-raw).
+    """
+    if classical:
+        groups = CLASSICAL_SEARCH_GROUPS
+        mode_label = "loa1/classical"
+        notes_val = "classical adversarial RecSys"
+    elif loa2:
+        groups = LOA2_SEARCH_GROUPS
+        mode_label = "loa2"
+        notes_val = "single-agent LLM recommender"
+    elif loa3:
+        groups = LOA3_SEARCH_GROUPS
+        mode_label = "loa3"
+        notes_val = "multi-agent LLM recommender"
+    else:
+        groups = SEARCH_GROUPS
+        mode_label = ""
+        notes_val = ""
+
     new_papers = []
     seen_this_run = set()
-    for group, queries in SEARCH_GROUPS.items():
+    for group, queries in groups.items():
         for query in queries:
             print(f"  [arXiv] searching: {query}  ({date_from}–{date_to})")
-            results = arxiv_search(query, max_results=15, date_from=date_from, date_to=date_to)
+            results = arxiv_search(query, max_results=25, date_from=date_from, date_to=date_to)
             for r in results:
                 aid = r["id"]
                 if aid in existing_ids or aid in seen_this_run:
                     continue
-                if filter_relevance and not is_relevant(r["title"], r["abstract"]):
+                if filter_relevance and not is_relevant(
+                        r["title"], r["abstract"],
+                        classical=classical, loa2=loa2, loa3=loa3):
                     continue
                 seen_this_run.add(aid)
                 tags = classify_paper(r["title"], r["abstract"])
+                if classical:
+                    tags["risk_type"] = tags.get("risk_type") or "A"
                 paper = {
                     "id": aid,
                     "title": r["title"],
+                    "abstract": r["abstract"],
                     "authors": r["authors"],
                     "venue": f"arXiv {r['published'][:4]}",
                     "section": tags["section"],
@@ -262,12 +519,16 @@ def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DA
                     "threat_tier": tags["threat_tier"],
                     "github": None,
                     "doi": None,
-                    "notes": "",
-                    "is_relevant": is_relevant(r["title"], r["abstract"]) if not filter_relevance else True,
+                    "notes": notes_val,
+                    "is_relevant": is_relevant(
+                        r["title"], r["abstract"],
+                        classical=classical, loa2=loa2, loa3=loa3
+                    ) if not filter_relevance else True,
                 }
                 new_papers.append(paper)
                 status = "NEW" if filter_relevance else "RAW"
-                print(f"    + {status}: [{aid}] {r['title'][:70]}")
+                tag = f" [{mode_label}]" if mode_label else ""
+                print(f"    + {status}{tag}: [{aid}] {r['title'][:70]}")
     return new_papers
 
 
@@ -695,23 +956,63 @@ def main():
                         help=f"Start of arXiv date window (default: {DATE_FROM})")
     parser.add_argument("--to", dest="date_to", default=DATE_TO, metavar="YYYYMMDD",
                         help=f"End of arXiv date window (default: {DATE_TO})")
+    parser.add_argument("--classical", action="store_true",
+                        help=(
+                            "LoA-1: use classical (pre-LLM) adversarial RecSys search terms. "
+                            "Intended for crawling years ≤ 2022, where shilling/poisoning attacks "
+                            "dominate and no LLM/agent keywords appear. "
+                            "Automatically sets risk_type=A and notes='classical adversarial RecSys'."
+                        ))
+    parser.add_argument("--loa2", action="store_true",
+                        help=(
+                            "LoA-2: use single-agent LLM recommender search terms. "
+                            "Targets LLM-based / RAG-based / conversational recommenders (no multi-agent). "
+                            "Sets notes='single-agent LLM recommender'. "
+                            "Multi-agent papers are excluded via LOA2_EXCLUSION."
+                        ))
+    parser.add_argument("--loa3", action="store_true",
+                        help=(
+                            "LoA-3: use multi-agent LLM recommender search terms. "
+                            "Targets systems with ≥2 LLM agents composing for recommendation "
+                            "(MACRec, MACF, Matcha, agentic pipelines with inter-agent communication). "
+                            "Sets notes='multi-agent LLM recommender'."
+                        ))
+    parser.add_argument("--no-dedup", action="store_true",
+                        help=(
+                            "Skip deduplication against papers.json. "
+                            "Use for historical figure-count crawls so that already-curated "
+                            "papers are not silently excluded from the raw output."
+                        ))
     args = parser.parse_args()
 
+    if sum([args.classical, args.loa2, args.loa3]) > 1:
+        parser.error("--classical / --loa2 / --loa3 are mutually exclusive.")
+
     papers = load_papers()
-    existing = known_ids(papers)
+    existing = set() if args.no_dedup else known_ids(papers)
     new_papers = []
+
+    if args.classical:
+        print("  [mode] --classical (LoA-1): pre-LLM adversarial RecSys search terms")
+    elif args.loa2:
+        print("  [mode] --loa2: single-agent LLM recommender search terms")
+    elif args.loa3:
+        print("  [mode] --loa3: multi-agent LLM recommender search terms")
 
     if not args.no_crawl:
         if args.save_raw:
             # Stage 1: High-recall grab (no filtering)
             print(f"=== Stage 1: High-recall crawl (unfiltered) [{args.date_from}–{args.date_to}] ===")
             raw_papers = []
-            raw_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to, filter_relevance=False)
-            raw_papers += crawl_openreview(existing, filter_relevance=False)
-            raw_papers += crawl_huggingface(existing, filter_relevance=False)
+            raw_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to,
+                                      filter_relevance=False, classical=args.classical,
+                                      loa2=args.loa2, loa3=args.loa3)
+            if not (args.classical or args.loa2 or args.loa3):
+                raw_papers += crawl_openreview(existing, filter_relevance=False)
+                raw_papers += crawl_huggingface(existing, filter_relevance=False)
             Path(args.save_raw).write_text(json.dumps(raw_papers, indent=2))
             print(f"\nStage 1 complete: {len(raw_papers)} raw papers saved to {args.save_raw}")
-            
+
             # Stage 2: Precision filter
             print(f"\n=== Stage 2: Filtering for relevance ===")
             new_papers = [p for p in raw_papers if p.get("is_relevant", True)]
@@ -719,11 +1020,14 @@ def main():
         else:
             # Single-stage: filtered crawl only
             print(f"=== Crawling arXiv (filtered) [{args.date_from}–{args.date_to}] ===")
-            new_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to, filter_relevance=True)
-            print(f"\n=== Crawling OpenReview (filtered) ===")
-            new_papers += crawl_openreview(existing, filter_relevance=True)
-            print(f"\n=== Crawling HuggingFace Papers (filtered) ===")
-            new_papers += crawl_huggingface(existing, filter_relevance=True)
+            new_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to,
+                                      filter_relevance=True, classical=args.classical,
+                                      loa2=args.loa2, loa3=args.loa3)
+            if not (args.classical or args.loa2 or args.loa3):
+                print(f"\n=== Crawling OpenReview (filtered) ===")
+                new_papers += crawl_openreview(existing, filter_relevance=True)
+                print(f"\n=== Crawling HuggingFace Papers (filtered) ===")
+                new_papers += crawl_huggingface(existing, filter_relevance=True)
             print(f"\nFound {len(new_papers)} new papers.")
 
     if args.dry_run:

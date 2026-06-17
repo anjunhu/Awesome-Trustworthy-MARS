@@ -1,0 +1,41 @@
+{
+  "description": "Broad crawl: multi-agent LLM safety (any domain). panel_b = all relevant; panel_a = RecSys+IR subset via RECSYS_IR_FILTER.",
+  "generated": "2026-06-17",
+  "years": {
+    "2020": {
+      "raw": 30,
+      "panel_b": 0,
+      "panel_a": 0
+    },
+    "2021": {
+      "raw": 41,
+      "panel_b": 0,
+      "panel_a": 0
+    },
+    "2022": {
+      "raw": 44,
+      "panel_b": 0,
+      "panel_a": 0
+    },
+    "2023": {
+      "raw": 63,
+      "panel_b": 23,
+      "panel_a": 3
+    },
+    "2024": {
+      "raw": 176,
+      "panel_b": 75,
+      "panel_a": 4
+    },
+    "2025": {
+      "raw": 252,
+      "panel_b": 104,
+      "panel_a": 3
+    },
+    "2026": {
+      "raw": 280,
+      "panel_b": 124,
+      "panel_a": 3
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "description": "Broad crawl: single-agent LLM safety (any domain, multi-agent excluded). panel_b = relevant papers not claimed by LoA-3; panel_a = RecSys+IR subset.",
+  "generated": "2026-06-17",
+  "years": {
+    "2020": {
+      "raw": 30,
+      "panel_b": 0,
+      "panel_a": 0
+    },
+    "2021": {
+      "raw": 27,
+      "panel_b": 0,
+      "panel_a": 0
+    },
+    "2022": {
+      "raw": 36,
+      "panel_b": 6,
+      "panel_a": 1
+    },
+    "2023": {
+      "raw": 173,
+      "panel_b": 39,
+      "panel_a": 11
+    },
+    "2024": {
+      "raw": 361,
+      "panel_b": 131,
+      "panel_a": 12
+    },
+    "2025": {
+      "raw": 340,
+      "panel_b": 132,
+      "panel_a": 19
+    },
+    "2026": {
+      "raw": 346,
+      "panel_b": 160,
+      "panel_a": 12
+    }
+  }
+}

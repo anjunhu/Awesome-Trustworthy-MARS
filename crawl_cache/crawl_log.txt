@@ -1,0 +1,694 @@
+
+========================================
+  Crawling 2020  (20200101 → 20201231)
+========================================
+  [mode] --classical: using pre-LLM adversarial RecSys search terms (LoA-1 only)
+=== Stage 1: High-recall crawl (unfiltered) [20200101–20201231] ===
+  [arXiv] searching: adversarial attack recommender system  (20200101–20201231)
+    + RAW [classical]: [2012.02509] On Detecting Data Pollution Attacks On Recommender Systems Using Seque
+    + RAW [classical]: [2012.02048] Ethical Testing in the Real World: Evaluating Physical Testing of Adve
+    + RAW [classical]: [2011.12680] Adversarial Attack on Facial Recognition using Visible Light
+    + RAW [classical]: [2011.07633] Almost Tight L0-norm Certified Robustness of Top-k Predictions against
+    + RAW [classical]: [2010.08187] PrivNet: Safeguarding Private Attributes in Transfer Learning for Reco
+    + RAW [classical]: [2010.00984] An Empirical Study of DNNs Robustification Inefficacy in Protecting Vi
+    + RAW [classical]: [2009.13504] Information Obfuscation of Graph Neural Networks
+    + RAW [classical]: [2008.04876] Revisiting Adversarially Learned Injection Attacks Against Recommender
+    + RAW [classical]: [2006.07934] Adversarial Attacks and Detection on Reinforcement Learning-Based Inte
+    + RAW [classical]: [2006.01888] Adversarial Item Promotion: Vulnerabilities at the Core of Top-N Recom
+    + RAW [classical]: [2005.08164] Attacking Recommender Systems with Augmented User Profiles
+    + RAW [classical]: [2005.02131] Stealing Links from Graph Neural Networks
+    + RAW [classical]: [2004.14734] A Robust Hierarchical Graph Convolutional Network Model for Collaborat
+    + RAW [classical]: [2004.03728] Practical Data Poisoning Attack against Next-Item Recommendation
+    + RAW [classical]: [2002.03839] Adversarial Attacks on Linear Contextual Bandits
+  [arXiv] searching: data poisoning recommender  (20200101–20201231)
+    + RAW [classical]: [2007.11820] AI Data poisoning attack: Manipulating game AI of Go
+    + RAW [classical]: [2006.08259] Robust Federated Recommendation System
+    + RAW [classical]: [2005.08147] Attacking Black-box Recommendations via Copying Cross-domain User Prof
+    + RAW [classical]: [2002.08025] Influence Function based Data Poisoning Attacks to Top-N Recommender S
+  [arXiv] searching: shilling attack recommender  (20200101–20201231)
+    + RAW [classical]: [2007.07217] Non-IID Recommender Systems: A Review and Framework of Recommendation 
+    + RAW [classical]: [2005.10150] GCN-Based User Representation Learning for Unifying Robust Recommendat
+  [arXiv] searching: profile injection attack recommender  (20200101–20201231)
+  [arXiv] searching: poisoning attack collaborative filtering  (20200101–20201231)
+  [arXiv] searching: fake profile recommender  (20200101–20201231)
+  [arXiv] searching: robust collaborative filtering  (20200101–20201231)
+    + RAW [classical]: [2012.13670] Robust Collaborative Learning with Noisy Labels
+    + RAW [classical]: [2009.03376] Simplify and Robustify Negative Sampling for Implicit Collaborative Fi
+    + RAW [classical]: [2007.11233] Collaborative Localization of Aerial and Ground Mobile Robots through 
+    + RAW [classical]: [2006.13041] Byzantine-Resilient High-Dimensional Federated Learning
+    + RAW [classical]: [2006.00082] Meta Clustering for Collaborative Learning
+    + RAW [classical]: [2004.04402] Reliable Time Prediction in the Markov Stochastic Block Model
+    + RAW [classical]: [2002.09145] Leveraging Cross Feedback of User and Item Embeddings with Attention f
+    + RAW [classical]: [2002.05155] Learnable Bernoulli Dropout for Bayesian Deep Learning
+  [arXiv] searching: robust recommendation  (20200101–20201231)
+    + RAW [classical]: [2012.15005] Infer-AVAE: An Attribute Inference Model Based on Adversarial Variatio
+    + RAW [classical]: [2012.10858] Reinforcement Learning-based Product Delivery Frequency Control
+    + RAW [classical]: [2012.09442] Causality-Aware Neighborhood Methods for Recommender Systems
+    + RAW [classical]: [2012.07936] Minimum Robust Multi-Submodular Cover for Fairness
+    + RAW [classical]: [2012.06910] Learning over no-Preferred and Preferred Sequence of items for Robust 
+    + RAW [classical]: [2012.06822] Digital Twins Are Not Monozygotic -- Cross-Replicating ADAS Testing in
+    + RAW [classical]: [2012.04558] TADO: Time-varying Attention with Dual-Optimizer Model
+    + RAW [classical]: [2012.04555] Quantifying vegetation biophysical variables from imaging spectroscopy
+    + RAW [classical]: [2012.02476] Offline Meta-level Model-based Reinforcement Learning Approach for Col
+    + RAW [classical]: [2012.00877] Measuring Network Robustness by Average Network Flow
+    + RAW [classical]: [2012.02291] Cluster Based Deep Contextual Reinforcement Learning for top-k Recomme
+    + RAW [classical]: [2011.07484] Demonstration of the nearly continuous operation of an $^{171}$Yb opti
+    + RAW [classical]: [2011.06835] Improving Offline Contextual Bandits with Distributional Robustness
+    + RAW [classical]: [2011.06237] Goal-driven Command Recommendations for Analysts
+    + RAW [classical]: [2011.05533] Spoken Language Interaction with Robots: Research Issues and Recommend
+    + RAW [classical]: [2011.04418] Improved deep learning techniques in gravitational-wave data analysis
+    + RAW [classical]: [2011.03574] Single-Node Attacks for Fooling Graph Neural Networks
+    + RAW [classical]: [2011.01725] Recommendations for Bayesian hierarchical model specifications for cas
+    + RAW [classical]: [2011.00944] Deep Pairwise Hashing for Cold-start Recommendation
+    + RAW [classical]: [2011.00360] On the Use of Auxiliary Variables in Multilevel Regression and Poststr
+    + RAW [classical]: [2011.00133] Multi-stage transfer learning for lung segmentation using portable X-r
+    + RAW [classical]: [2010.15382] Learning to Actively Learn: A Robust Approach
+    + RAW [classical]: [2010.14555] Covariate-adjusted Fisher randomization tests for the average treatmen
+    + RAW [classical]: [2010.13904] Relative Contrast Estimation and Inference for Treatment Recommendatio
+  [arXiv] searching: robust recommender system  (20200101–20201231)
+    + RAW [classical]: [2010.10198] On Location Relevance and Diversity in Human Mobility Data
+    + RAW [classical]: [2010.06952] Consumer Behaviour in Retail: Next Logical Purchase using Deep Neural 
+    + RAW [classical]: [2010.05941] Active learning with RESSPECT: Resource allocation for extragalactic a
+    + RAW [classical]: [2010.04050] A survey of algorithmic recourse: definitions, formulations, solutions
+    + RAW [classical]: [2010.02186] On the accuracy of the ALMA flux calibration in the time domain and ac
+    + RAW [classical]: [2009.09352] A Hybrid Simulation-based Duopoly Game Framework for Analysis of Suppl
+    + RAW [classical]: [2008.13335] Quaternion-Based Self-Attentive Long Short-Term User Preference Encodi
+    + RAW [classical]: [2008.11672] DeepSOCIAL: Social Distancing Monitoring and Infection Risk Assessment
+    + RAW [classical]: [2008.11406] Making Neural Networks Interpretable with Attribution: Application to 
+    + RAW [classical]: [2008.09472] Offline Contextual Multi-armed Bandits for Mobile Health Interventions
+    + RAW [classical]: [2008.09514] Neural Logic Reasoning
+  [arXiv] searching: adversarial robustness recommender  (20200101–20201231)
+    + RAW [classical]: [2009.06111] Machine Learning's Dropout Training is Distributionally Robust Optimal
+    + RAW [classical]: [2004.10882] How to compare adversarial robustness of classifiers from a global per
+    + RAW [classical]: [2004.00410] Adversarial Attacks on Multivariate Time Series
+    + RAW [classical]: [2002.03899] K-bMOM: a robust Lloyd-type clustering algorithm based on bootstrap Me
+  [arXiv] searching: matrix factorization adversarial  (20200101–20201231)
+    + RAW [classical]: [2010.14563] Adversarial Dueling Bandits
+    + RAW [classical]: [2007.03893] Multi-Resolution Beta-Divergence NMF for Blind Spectral Unmixing
+    + RAW [classical]: [2006.06915] How Many Samples is a Good Initial Point Worth in Low-rank Matrix Reco
+    + RAW [classical]: [2002.01432] All-In-One Robust Estimator of the Gaussian Mean
+  [arXiv] searching: graph neural network recommender attack  (20200101–20201231)
+    + RAW [classical]: [2009.00163] Reinforcement Learning-based Black-Box Evasion Attacks to Link Predict
+  [arXiv] searching: adversarial training recommendation  (20200101–20201231)
+    + RAW [classical]: [2011.12566] ColdGAN: Resolving Cold Start User Recommendation by using Generative 
+    + RAW [classical]: [2011.02089] Extended Missing Data Imputation via GANs for Ranking Applications
+    + RAW [classical]: [2011.00956] Sampling-Decomposable Generative Adversarial Recommender
+    + RAW [classical]: [2009.06368] Searching for a Search Method: Benchmarking Search Algorithms for Gene
+    + RAW [classical]: [2009.04004] Fuzzy Unique Image Transformation: Defense Against Adversarial Attacks
+    + RAW [classical]: [2007.15356] What does BERT know about books, movies and music? Probing BERT for Co
+    + RAW [classical]: [2007.07269] Adversarial learning for product recommendation
+    + RAW [classical]: [2006.10815] Automatically Learning Compact Quality-aware Surrogates for Optimizati
+    + RAW [classical]: [2005.10602] Sequential Recommendation with Self-Attentive Multi-Adversarial Networ
+    + RAW [classical]: [2005.10050] Risk of Training Diagnostic Algorithms on Data with Demographic Bias
+    + RAW [classical]: [2004.02340] Enhancing Social Recommendation with Adversarial Graph Convolutional N
+  [arXiv] searching: backdoor attack recommender  (20200101–20201231)
+
+Stage 1 complete: 84 raw papers saved to /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2020_raw.json
+
+=== Stage 2: Filtering for relevance ===
+Stage 2 complete: 17 relevant papers (filtered from 84 raw)
+
+[dry-run] Not writing anything.
+  Saved: /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2020_raw.json
+
+========================================
+  Crawling 2021  (20210101 → 20211231)
+========================================
+  [mode] --classical: using pre-LLM adversarial RecSys search terms (LoA-1 only)
+=== Stage 1: High-recall crawl (unfiltered) [20210101–20211231] ===
+  [arXiv] searching: adversarial attack recommender system  (20210101–20211231)
+    + RAW [classical]: [2112.07512] Adversarial Examples for Extreme Multilabel Text Classification
+    + RAW [classical]: [2112.05495] How Private Is Your RL Policy? An Inverse RL Based Analysis Framework
+    + RAW [classical]: [2112.00973] Adversarial Robustness of Deep Reinforcement Learning based Dynamic Re
+    + RAW [classical]: [2110.10926] PipAttack: Poisoning Federated Recommender Systems forManipulating Ite
+    + RAW [classical]: [2109.08045] Membership Inference Attacks Against Recommender Systems
+    + RAW [classical]: [2109.01165] Black-Box Attacks on Sequential Recommenders via Data-Free Model Extra
+    + RAW [classical]: [2108.06504] LinkTeller: Recovering Private Edges from Graph Neural Networks via In
+    + RAW [classical]: [2107.12732] Towards Black-box Attacks on Deep Learning Apps
+    + RAW [classical]: [2107.10457] Ready for Emerging Threats to Recommender Systems? A Graph Convolution
+    + RAW [classical]: [2106.14152] Who is Responsible for Adversarial Defense?
+    + RAW [classical]: [2106.02978] Robust Stochastic Linear Contextual Bandits Under Adversarial Attacks
+    + RAW [classical]: [2103.10594] Comprehensive Survey and Taxonomies of False Injection Attacks in Smar
+    + RAW [classical]: [2102.12722] Combinatorial Bandits under Strategic Manipulations
+    + RAW [classical]: [2102.06020] Making Paper Reviewing Robust to Bid Manipulation Attacks
+  [arXiv] searching: data poisoning recommender  (20210101–20211231)
+    + RAW [classical]: [2107.01854] Poisoning Attack against Estimating from Pairwise Comparisons
+    + RAW [classical]: [2106.15730] Contamination mapping in Bangladesh using a multivariate spatial Bayes
+    + RAW [classical]: [2107.07334] Tournesol: A quest for a large, secure and trustworthy database of rel
+    + RAW [classical]: [2101.02644] Data Poisoning Attacks to Deep Learning Based Recommender Systems
+  [arXiv] searching: shilling attack recommender  (20210101–20211231)
+  [arXiv] searching: profile injection attack recommender  (20210101–20211231)
+  [arXiv] searching: poisoning attack collaborative filtering  (20210101–20211231)
+    + RAW [classical]: [2109.05872] Byzantine-robust Federated Learning through Collaborative Malicious Gr
+  [arXiv] searching: fake profile recommender  (20210101–20211231)
+  [arXiv] searching: robust collaborative filtering  (20210101–20211231)
+    + RAW [classical]: [2201.00692] Validation and Transparency in AI systems for pharmacovigilance: a cas
+    + RAW [classical]: [2111.03003] Scanflow: A multi-graph framework for Machine Learning workflow manage
+    + RAW [classical]: [2108.05552] Graph Trend Filtering Networks for Recommendations
+    + RAW [classical]: [2107.12677] Deep Variational Models for Collaborative Filtering-based Recommender 
+    + RAW [classical]: [2106.07453] Efficient Data-specific Model Search for Collaborative Filtering
+    + RAW [classical]: [2105.12876] A Hybrid Recommender System for Recommending Smartphones to Prospectiv
+    + RAW [classical]: [2103.09907] Collaborative Filtering Approach to Link Prediction
+    + RAW [classical]: [2103.07704] Simeon -- Secure Federated Machine Learning Through Iterative Filterin
+    + RAW [classical]: [2102.11628] FINE Samples for Learning with Noisy Labels
+    + RAW [classical]: [2102.03448] Federated Reconstruction: Partially Local Federated Learning
+    + RAW [classical]: [2101.06171] Probabilistic Inference for Learning from Untrusted Sources
+  [arXiv] searching: robust recommendation  (20210101–20211231)
+    + RAW [classical]: [2112.15221] Constraint Sampling Reinforcement Learning: Incorporating Expertise Fo
+    + RAW [classical]: [2112.11313] On the Adversarial Robustness of Causal Algorithmic Recourse
+    + RAW [classical]: [2112.11023] Robust Recommendation with Implicit Feedback via Eliminating the Effec
+    + RAW [classical]: [2112.11022] Synthetic Data and Simulators for Recommendation Systems: Current Stat
+    + RAW [classical]: [2112.07913] A Comparative Analysis of Machine Learning Approaches for Automated Fa
+    + RAW [classical]: [2112.07092] A Quantum Internet Architecture
+    + RAW [classical]: [2112.04828] Avoiding C-hacking when evaluating survival distribution predictions w
+    + RAW [classical]: [2112.03562] CMA-CLIP: Cross-Modality Attention CLIP for Image-Text Classification
+    + RAW [classical]: [2112.03057] Thinking Beyond Distributions in Testing Machine Learned Models
+    + RAW [classical]: [2112.02838] Visual Object Tracking with Discriminative Filters and Siamese Network
+    + RAW [classical]: [2112.02384] Marching with the Pink Parade: Evaluating Visual Search Recommendation
+    + RAW [classical]: [2112.02271] Cooperation, Retaliation and Forgiveness in Revision Games
+    + RAW [classical]: [2112.01160] Learning Robust Recommender from Noisy Implicit Feedback
+    + RAW [classical]: [2112.00626] The Effect of People Recommenders on Echo Chambers and Polarization
+    + RAW [classical]: [2111.13999] Exploring Low-Cost Transformer Model Compression for Large-Scale Comme
+    + RAW [classical]: [2111.13737] Let's practice what we preach: Planning and interpreting simulation st
+    + RAW [classical]: [2111.10536] Quaternion-Based Graph Convolution Network for Recommendation
+    + RAW [classical]: [2111.08862] Max-Min Grouped Bandits
+    + RAW [classical]: [2111.06042] Correlation Estimation in Hybrid Systems
+    + RAW [classical]: [2111.05567] VeSoNet: Traffic-Aware Content Caching for Vehicular Social Networks b
+    + RAW [classical]: [2111.04469] Mixed-Integer Optimization with Constraint Learning
+    + RAW [classical]: [2111.00926] Heterogeneous Graph Neural Networks for Large-Scale Bid Keyword Matchi
+    + RAW [classical]: [2111.00758] Single-Item Fashion Recommender: Towards Cross-Domain Recommendations
+  [arXiv] searching: robust recommender system  (20210101–20211231)
+    + RAW [classical]: [2110.13801] Endure: A Robust Tuning Paradigm for LSM Trees Under Workload Uncertai
+    + RAW [classical]: [2110.12648] Review-Based Domain Disentanglement without Duplicate Users or Context
+    + RAW [classical]: [2110.13653] Learning Speaker Representation with Semi-supervised Learning approach
+    + RAW [classical]: [2110.06523] Recommending POIs for Tourists by User Behavior Modeling and Pseudo-Ra
+    + RAW [classical]: [2110.04654] Complex Network-Based Approach for Feature Extraction and Classificati
+    + RAW [classical]: [2109.11679] Safe Policy Learning through Extrapolation: Application to Pre-trial R
+    + RAW [classical]: [2109.09658] FUTURE-AI: Guiding Principles and Consensus Recommendations for Trustw
+    + RAW [classical]: [2109.09527] An Improved and Optimized Practical Non-Blocking PageRank Algorithm fo
+  [arXiv] searching: adversarial robustness recommender  (20210101–20211231)
+    + RAW [classical]: [2109.06363] Sensor Adversarial Traits: Analyzing Robustness of 3D Object Detection
+    + RAW [classical]: [2107.01936] Adversarial Robustness of Probabilistic Network Embedding for Link Pre
+    + RAW [classical]: [2106.15779] Dual Adversarial Variational Embedding for Robust Recommendation
+    + RAW [classical]: [2106.09947] Indicators of Attack Failure: Debugging and Improving Optimization of 
+    + RAW [classical]: [2106.09467] Algorithmic Bias and Data Bias: Understanding the Relation between Dis
+    + RAW [classical]: [2106.08153] Now You See It, Now You Dont: Adversarial Vulnerabilities in Computati
+    + RAW [classical]: [2103.01428] Botcha: Detecting Malicious Non-Human Traffic in the Wild
+  [arXiv] searching: matrix factorization adversarial  (20210101–20211231)
+    + RAW [classical]: [2109.11154] Rank Overspecified Robust Matrix Recovery: Subgradient Method and Exac
+    + RAW [classical]: [2108.01998] Adversarial Energy Disaggregation for Non-intrusive Load Monitoring
+    + RAW [classical]: [2107.13876] Understanding the Effects of Adversarial Personalized Ranking Optimiza
+    + RAW [classical]: [2106.14952] Adversarial Robustness of Streaming Algorithms through Importance Samp
+    + RAW [classical]: [2106.08537] Clustering Mixture Models in Almost-Linear Time via List-Decodable Mea
+    + RAW [classical]: [2106.04488] Low-Rank Subspaces in GANs
+    + RAW [classical]: [2105.12584] A Comprehensive Survey on Community Detection with Deep Learning
+    + RAW [classical]: [2105.06535] Learning Robust Hierarchical Patterns of Human Brain across Many fMRI 
+    + RAW [classical]: [2104.04757] Adversarially-Trained Nonnegative Matrix Factorization
+  [arXiv] searching: graph neural network recommender attack  (20210101–20211231)
+  [arXiv] searching: adversarial training recommendation  (20210101–20211231)
+    + RAW [classical]: [2112.11136] Adversarial Gradient Driven Exploration for Deep Click-Through Rate Pr
+    + RAW [classical]: [2111.10093] RecGURU: Adversarial Learning of Generalized User Representations for 
+    + RAW [classical]: [2109.11731] Adversarial Neural Trip Recommendation
+    + RAW [classical]: [2107.02504] Memory-aware curriculum federated learning for breast cancer classific
+    + RAW [classical]: [2104.06077] An Adversarial Imitation Click Model for Information Retrieval
+    + RAW [classical]: [2103.10693] Adversarial and Contrastive Variational Autoencoder for Sequential Rec
+    + RAW [classical]: [2103.07849] Fairness-aware Personalized Ranking Recommendation via Adversarial Lea
+  [arXiv] searching: backdoor attack recommender  (20210101–20211231)
+    + RAW [classical]: [2111.03363] Federated Learning Attacks Revisited: A Critical Discussion of Gaps, A
+    + RAW [classical]: [2109.11677] Security Review of Ethereum Beacon Clients
+    + RAW [classical]: [2101.12549] Graph Embedding for Recommendation against Attribute Inference Attacks
+
+Stage 1 complete: 87 raw papers saved to /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2021_raw.json
+
+=== Stage 2: Filtering for relevance ===
+Stage 2 complete: 19 relevant papers (filtered from 87 raw)
+
+[dry-run] Not writing anything.
+  Saved: /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2021_raw.json
+
+========================================
+  Crawling 2022  (20220101 → 20221231)
+========================================
+  [mode] --classical: using pre-LLM adversarial RecSys search terms (LoA-1 only)
+=== Stage 1: High-recall crawl (unfiltered) [20220101–20221231] ===
+  [arXiv] searching: adversarial attack recommender system  (20220101–20221231)
+    + RAW [classical]: [2212.06822] Adversarial Attacks and Defences for Skin Cancer Classification
+    + RAW [classical]: [2211.11534] Towards Adversarially Robust Recommendation from Adaptive Fraudster De
+    + RAW [classical]: [2210.11237] Emerging Threats in Deep Learning-Based Autonomous Driving: A Comprehe
+    + RAW [classical]: [2210.03561] Empowering Graph Representation Learning with Test-Time Graph Transfor
+    + RAW [classical]: [2209.09688] Sparse Vicious Attacks on Graph Neural Networks
+    + RAW [classical]: [2209.08412] Characterizing Internal Evasion Attacks in Federated Learning
+    + RAW [classical]: [2209.05742] A Tale of HodgeRank and Spectral Method: Target Attack Against Rank Ag
+    + RAW [classical]: [2208.02435] Node Copying: A Random Graph Model for Effective Graph Sampling
+    + RAW [classical]: [2207.10307] Knowledge-enhanced Black-box Attacks for Recommendations
+    + RAW [classical]: [2207.11237] Defending Substitution-Based Profile Pollution Attacks on Sequential R
+    + RAW [classical]: [2206.12401] Debiasing Learning for Membership Inference Attacks Against Recommende
+    + RAW [classical]: [2206.11433] Shilling Black-box Recommender Systems by Learning to Generate Fake Us
+    + RAW [classical]: [2206.04500] Unlearning Protected User Attributes in Recommendations with Adversari
+    + RAW [classical]: [2205.13681] Sequential Nature of Recommender Systems Disrupts the Evaluation Proce
+    + RAW [classical]: [2205.12032] Defending a Music Recommender Against Hubness-Based Adversarial Attack
+    + RAW [classical]: [2205.07424] Trustworthy Graph Neural Networks: Aspects, Methods and Trends
+    + RAW [classical]: [2205.06085] From IP to transport and beyond: cross-layer attacks against applicati
+    + RAW [classical]: [2204.11357] Improving Deep Learning Model Robustness Against Adversarial Attack by
+    + RAW [classical]: [2203.02121] Adversarial Patterns: Building Robust Android Malware Classifiers
+    + RAW [classical]: [2202.10594] Adversarial Attacks on Speech Recognition Systems for Mission-Critical
+    + RAW [classical]: [2202.08388] Generalizable Information Theoretic Causal Representation
+    + RAW [classical]: [2201.12700] Coordinated Attacks against Contextual Bandits: Fundamental Limits and
+    + RAW [classical]: [2201.11152] Cyber Resilience: by Design or by Intervention?
+    + RAW [classical]: [2201.08318] Cheating Automatic Short Answer Grading: On the Adversarial Usage of A
+  [arXiv] searching: data poisoning recommender  (20220101–20221231)
+    + RAW [classical]: [2212.05399] Untargeted Attack against Federated Recommendation Systems via Poisono
+    + RAW [classical]: [2210.13762] Towards Robust Recommender Systems via Triple Cooperative Defense
+    + RAW [classical]: [2207.00295] The Dangers of Computational Law and Cybersecurity; Perspectives from 
+    + RAW [classical]: [2206.08661] Boosting Factorization Machines via Saliency-Guided Mixup
+    + RAW [classical]: [2204.13594] Poisoning Deep Learning Based Recommender Model in Federated Learning 
+    + RAW [classical]: [2204.01499] FedRecAttack: Model Poisoning Attack to Federated Recommendation
+    + RAW [classical]: [2203.03560] Targeted Data Poisoning Attack on News Recommendation System by Conten
+    + RAW [classical]: [2202.04975] FedAttack: Effective and Covert Poisoning Attack on Federated Recommen
+  [arXiv] searching: shilling attack recommender  (20220101–20221231)
+  [arXiv] searching: profile injection attack recommender  (20220101–20221231)
+    + RAW [classical]: [2201.04399] RGRecSys: A Toolkit for Robustness Evaluation of Recommender Systems
+  [arXiv] searching: poisoning attack collaborative filtering  (20220101–20221231)
+    + RAW [classical]: [2205.10848] Robust Quantity-Aware Aggregation for Federated Learning
+    + RAW [classical]: [2201.00763] DeepSight: Mitigating Backdoor Attacks in Federated Learning Through D
+  [arXiv] searching: fake profile recommender  (20220101–20221231)
+    + RAW [classical]: [2201.01815] An Evaluation Study of Generative Adversarial Networks for Collaborati
+  [arXiv] searching: robust collaborative filtering  (20220101–20221231)
+    + RAW [classical]: [2212.06428] Privacy-preserving Security Inference Towards Cloud-Edge Collaborative
+    + RAW [classical]: [2212.02077] DL-SLOT: Dynamic LiDAR SLAM and object tracking based on collaborative
+    + RAW [classical]: [2211.13912] Enhancing Recommender Systems: A Strategy to Mitigate False Negative I
+    + RAW [classical]: [2210.01437] Shielding Federated Learning: Mitigating Byzantine Attacks with Less C
+    + RAW [classical]: [2210.07817] Discussion about Attacks and Defenses for Fair and Robust Recommendati
+    + RAW [classical]: [2209.06669] Efficient Beam Search for Initial Access Using Collaborative Filtering
+    + RAW [classical]: [2208.09979] Revisiting Item Promotion in GNN-based Collaborative Filtering: A Mask
+    + RAW [classical]: [2207.14338] Self-Supervised Hypergraph Transformer for Recommender Systems
+    + RAW [classical]: [2207.08503] Auto-Positioning in Radio-based Localization Systems: A Bayesian Appro
+    + RAW [classical]: [2207.01346] Can Competition Outperform Collaboration? The Role of Misbehaving Agen
+    + RAW [classical]: [2206.11541] A Neuromorphic Vision-Based Measurement for Robust Relative Localizati
+    + RAW [classical]: [2205.04723] Robust Medical Image Classification from Noisy Labeled Data with Globa
+    + RAW [classical]: [2204.12200] Hypergraph Contrastive Collaborative Filtering
+    + RAW [classical]: [2204.03827] IA-GCN: Interactive Graph Convolutional Network for Recommendation
+    + RAW [classical]: [2201.11450] In Defense of Kalman Filtering for Polyp Tracking from Colonoscopy Vid
+    + RAW [classical]: [2201.03158] Collaborative Reflection-Augmented Autoencoder Network for Recommender
+  [arXiv] searching: robust recommendation  (20220101–20221231)
+    + RAW [classical]: [2212.14720] Learning from Data Streams: An Overview and Update
+    + RAW [classical]: [2212.13725] Robust Sequence Networked Submodular Maximization
+    + RAW [classical]: [2301.00767] A Survey on Federated Recommendation Systems
+    + RAW [classical]: [2212.10250] A robust dynamic mode decomposition methodology for an airfoil undergo
+    + RAW [classical]: [2212.09426] Multistep Multiappliance Load Prediction
+    + RAW [classical]: [2212.11136] It is not "accuracy vs. explainability" -- we need both for trustworth
+    + RAW [classical]: [2212.08319] Towards carbon neutral scientific societies: A case study with the Int
+    + RAW [classical]: [2212.08167] Evaluation of Synthetic Datasets for Conversational Recommender System
+    + RAW [classical]: [2212.04282] Mitigating Spurious Correlations for Self-supervised Recommendation
+    + RAW [classical]: [2212.03475] PyGFI: Analyzing and Enhancing Robustness of Graph Neural Networks Aga
+    + RAW [classical]: [2212.03351] The long-term effect of childhood exposure to technology using surroga
+    + RAW [classical]: [2212.03122] Robust convex biclustering with a tuning-free method
+    + RAW [classical]: [2212.02674] Good Practices and Common Pitfalls in Climate Time Series Changepoint 
+    + RAW [classical]: [2211.16938] Evaluating Digital Agriculture Recommendations with Causal Inference
+    + RAW [classical]: [2211.16918] Statistics for Spatially Stratified Heterogeneous Data
+    + RAW [classical]: [2211.15323] Security Analysis of the Consumer Remote SIM Provisioning Protocol
+    + RAW [classical]: [2211.11944] COVID-Net Assistant: A Deep Learning-Driven Virtual Assistant for COVI
+    + RAW [classical]: [2211.10782] Let Graph be the Go Board: Gradient-free Node Injection Attack for Gra
+    + RAW [classical]: [2211.07608] The out-of-sample prediction error of the square-root-LASSO and relate
+    + RAW [classical]: [2211.02894] Deep Factorization Model for Robust Recommendation
+    + RAW [classical]: [2211.01535] Reliable Malware Analysis and Detection using Topology Data Analysis
+    + RAW [classical]: [2210.16386] Non-Stationary Bandits with Auto-Regressive Temporal Dependency
+  [arXiv] searching: robust recommender system  (20220101–20221231)
+    + RAW [classical]: [2210.12098] Triplet Losses-based Matrix Factorization for Robust Recommendations
+    + RAW [classical]: [2210.10958] Federated Unlearning for On-Device Recommendation
+    + RAW [classical]: [2210.08136] A Utility-Preserving Obfuscation Approach for YouTube Recommendations
+    + RAW [classical]: [2210.07775] PrivMVMF: Privacy-Preserving Multi-View Matrix Factorization for Recom
+    + RAW [classical]: [2209.14443] Government Spending and Money Supply Roles in Alleviating Poverty in A
+    + RAW [classical]: [2209.10117] A Comprehensive Survey on Trustworthy Recommender Systems
+  [arXiv] searching: adversarial robustness recommender  (20220101–20221231)
+    + RAW [classical]: [2209.07399] A Light Recipe to Train Robust Vision Transformers
+    + RAW [classical]: [2208.02532] Prompt Tuning for Generative Multimodal Pretrained Models
+    + RAW [classical]: [2207.09239] Assaying Out-Of-Distribution Generalization in Transfer Learning
+    + RAW [classical]: [2207.01886] WeSinger 2: Fully Parallel Singing Voice Synthesis via Multi-Singer Co
+    + RAW [classical]: [2205.13042] How explainable are adversarially-robust CNNs?
+    + RAW [classical]: [2205.06064] Stalloris: RPKI Downgrade Attack
+    + RAW [classical]: [2205.04203] Robust Parameter Identifiability Analysis via Column Subset Selection
+    + RAW [classical]: [2205.00034] What do we Really Know about State of the Art NER?
+    + RAW [classical]: [2202.13711] Evaluating the Adversarial Robustness of Adaptive Test-time Defenses
+    + RAW [classical]: [2202.09039] Critical Checkpoints for Evaluating Defence Models Against Adversarial
+  [arXiv] searching: matrix factorization adversarial  (20220101–20221231)
+    + RAW [classical]: [2212.08018] Privately Estimating a Gaussian: Efficient, Robust and Optimal
+    + RAW [classical]: [2212.03559] GraphLearner: Graph Node Clustering with Fully Learnable Augmentation
+    + RAW [classical]: [2210.02235] Over-the-Air Federated Learning with Privacy Protection via Correlated
+    + RAW [classical]: [2209.08064] A Systematic Evaluation of Node Embedding Robustness
+    + RAW [classical]: [2205.08494] Covariance Estimation: Optimal Dimension-free Guarantees for Adversari
+    + RAW [classical]: [2204.02323] Nearly minimax robust estimator of the mean vector by iterative spectr
+    + RAW [classical]: [2203.01323] Benchmarking Robustness of Deep Learning Classifiers Using Two-Factor 
+    + RAW [classical]: [2201.08042] GAN-based Matrix Factorization for Recommender Systems
+    + RAW [classical]: [2201.05060] A robust kernel machine regression towards biomarker selection in mult
+  [arXiv] searching: graph neural network recommender attack  (20220101–20221231)
+    + RAW [classical]: [2211.06812] FedRule: Federated Rule Recommendation System with Graph Neural Networ
+    + RAW [classical]: [2210.13710] Motif-Backdoor: Rethinking the Backdoor Attack on Graph Neural Network
+    + RAW [classical]: [2210.00538] Heterogeneous Graph Neural Network for Privacy-Preserving Recommendati
+    + RAW [classical]: [2205.03105] LPGNet: Link Private Graph Networks for Node Classification
+    + RAW [classical]: [2202.09389] Black-box Node Injection Attack for Graph Neural Networks
+  [arXiv] searching: adversarial training recommendation  (20220101–20221231)
+    + RAW [classical]: [2212.00965] AL-iGAN: An Active Learning Framework for Tunnel Geological Reconstruc
+    + RAW [classical]: [2211.00366] Universal Perturbation Attack on Differentiable No-Reference Image- an
+    + RAW [classical]: [2210.16038] Deep Learning-Based Anomaly Detection in Synthetic Aperture Radar Imag
+    + RAW [classical]: [2209.02847] DC-Art-GAN: Stable Procedural Content Generation using DC-GANs for Dig
+    + RAW [classical]: [2208.05190] DVR: Micro-Video Recommendation Optimizing Watch-Time-Gain under Durat
+    + RAW [classical]: [2207.04153] Probing Classifiers are Unreliable for Concept Removal and Detection
+    + RAW [classical]: [2207.03689] Guiding the retraining of convolutional neural networks against advers
+    + RAW [classical]: [2206.15027] Interpretable Melody Generation from Lyrics with Discrete-Valued Adver
+    + RAW [classical]: [2206.05982] Learning Fashion Compatibility from In-the-wild Images
+    + RAW [classical]: [2206.04789] Comprehensive Fair Meta-learned Recommender System
+    + RAW [classical]: [2206.03851] Reconsidering Learning Objectives in Unbiased Recommendation with Unob
+    + RAW [classical]: [2206.02152] Which models are innately best at uncertainty estimation?
+  [arXiv] searching: backdoor attack recommender  (20220101–20221231)
+    + RAW [classical]: [2209.13288] A Benchmark Comparison of Python Malware Detection Approaches
+    + RAW [classical]: [2205.11857] Comprehensive Privacy Analysis on Federated Recommender System against
+
+Stage 1 complete: 118 raw papers saved to /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2022_raw.json
+
+=== Stage 2: Filtering for relevance ===
+Stage 2 complete: 24 relevant papers (filtered from 118 raw)
+
+[dry-run] Not writing anything.
+  Saved: /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2022_raw.json
+
+========================================
+  Crawling 2023  (20230101 → 20231231)
+========================================
+  [mode] --classical: using pre-LLM adversarial RecSys search terms (LoA-1 only)
+=== Stage 1: High-recall crawl (unfiltered) [20230101–20231231] ===
+  [arXiv] searching: adversarial attack recommender system  (20230101–20231231)
+    + RAW [classical]: [2312.15826] Adversarial Item Promotion on Visually-Aware Recommender Systems by Gu
+    + RAW [classical]: [2312.11571] Model Stealing Attack against Recommender System
+    + RAW [classical]: [2311.07127] Multi-agent Attacks for Black-box Social Recommendations
+    + RAW [classical]: [2311.04078] A Lightweight and Secure PUF-Based Authentication and Key-exchange Pro
+    + RAW [classical]: [2310.19163] RAIFLE: Reconstruction Attacks on Interaction-based Federated Learning
+    + RAW [classical]: [2310.16335] Defense Against Model Extraction Attacks on Recommender Systems
+    + RAW [classical]: [2309.17278] Toward Robust Recommendation via Real-time Vicinal Defense
+    + RAW [classical]: [2308.15614] Everything Perturbed All at Once: Enabling Differentiable Graph Attack
+    + RAW [classical]: [2310.02164] A Survey of Graph Unlearning
+    + RAW [classical]: [2308.10467] Single-User Injection for Invisible Shilling Attack against Recommende
+    + RAW [classical]: [2307.13787] The GANfather: Controllable generation of malicious activity to improv
+    + RAW [classical]: [2307.01411] Web3Recommend: Decentralised recommendations with trust and relevance
+    + RAW [classical]: [2306.16526] Shilling Black-box Review-based Recommender Systems through Fake Revie
+    + RAW [classical]: [2306.13115] A Model Based Framework for Testing Safety and Security in Operational
+    + RAW [classical]: [2306.08929] Inferring Communities of Interest in Collaborative Learning-based Reco
+    + RAW [classical]: [2306.07992] Securing Visually-Aware Recommender Systems: An Adversarial Image Reco
+    + RAW [classical]: [2305.14553] Adversarial Machine Learning and Cybersecurity: Risks, Challenges, and
+    + RAW [classical]: [2305.08183] Manipulating Visually-aware Federated Recommender Systems and Its Coun
+    + RAW [classical]: [2305.05355] Turning Privacy-preserving Mechanisms against Federated Learning
+    + RAW [classical]: [2305.04694] Evaluating Impact of User-Cluster Targeted Attacks in Matrix Factorisa
+    + RAW [classical]: [2303.05575] Evaluating the Robustness of Conversational Recommender Systems by Adv
+    + RAW [classical]: [2302.07145] Practical Cross-System Shilling Attacks with Limited Access to Data
+    + RAW [classical]: [2302.01595] Deep Reinforcement Learning for Cyber System Defense under Dynamic Adv
+    + RAW [classical]: [2301.12595] Adversarial Attacks on Adversarial Bandits
+  [arXiv] searching: data poisoning recommender  (20230101–20231231)
+    + RAW [classical]: [2308.08461] CDR: Conservative Doubly Robust Learning for Debiased Recommendation
+    + RAW [classical]: [2305.00574] The Dark Side of Explanations: Poisoning Recommender Systems with Coun
+    + RAW [classical]: [2304.10704] Interactive System-wise Anomaly Detection
+    + RAW [classical]: [2304.03054] Manipulating Federated Recommender Systems: Poisoning with Synthetic U
+    + RAW [classical]: [2303.14601] PORE: Provably Robust Recommender Systems against Data Poisoning Attac
+  [arXiv] searching: shilling attack recommender  (20230101–20231231)
+    + RAW [classical]: [2312.00512] Attack Detection Using Item Vector Shift in Matrix Factorisation Recom
+  [arXiv] searching: profile injection attack recommender  (20230101–20231231)
+  [arXiv] searching: poisoning attack collaborative filtering  (20230101–20231231)
+    + RAW [classical]: [2312.04432] FreqFed: A Frequency Analysis-Based Approach for Mitigating Poisoning 
+    + RAW [classical]: [2311.06996] AGRAMPLIFIER: Defending Federated Learning Against Poisoning Attacks T
+    + RAW [classical]: [2310.13424] FLTracer: Accurate Poisoning Attack Provenance in Federated Learning
+    + RAW [classical]: [2310.08097] Sentinel: An Aggregation Function to Secure Decentralized Federated Le
+    + RAW [classical]: [2308.11333] FilterFL: Knowledge Filtering-based Data-Free Backdoor Defense for Fed
+  [arXiv] searching: fake profile recommender  (20230101–20231231)
+  [arXiv] searching: robust collaborative filtering  (20230101–20231231)
+    + RAW [classical]: [2312.16279] Cloud-Device Collaborative Learning for Multimodal Large Language Mode
+    + RAW [classical]: [2312.09901] Temporally and Distributionally Robust Optimization for Cold-Start Rec
+    + RAW [classical]: [2311.08010] Improving the Robustness of Distantly-Supervised Named Entity Recognit
+    + RAW [classical]: [2310.10696] Robust Collaborative Filtering to Popularity Distribution Shift
+    + RAW [classical]: [2310.02294] Beyond-Accuracy: A Review on Diversity, Serendipity and Fairness in Re
+    + RAW [classical]: [2309.01453] Interactive Graph Convolutional Filtering
+    + RAW [classical]: [2308.15926] IDVT: Interest-aware Denoising and View-guided Tuning for Social Recom
+    + RAW [classical]: [2309.08613] Multimodal Recommender Systems in the Prediction of Disease Comorbidit
+    + RAW [classical]: [2308.13541] Adversarial Collaborative Filtering for Free
+    + RAW [classical]: [2308.08434] A Bi-Step Grounding Paradigm for Large Language Models in Recommendati
+    + RAW [classical]: [2308.07284] Cross-Attribute Matrix Factorization Model with Shared User Embedding
+    + RAW [classical]: [2308.06878] AutoSeqRec: Autoencoder for Efficient Sequential Recommendation
+    + RAW [classical]: [2308.04067] Online Distillation-enhanced Multi-modal Transformer for Sequential Re
+    + RAW [classical]: [2307.04322] Graph Contrastive Learning with Multi-Objective for Personalized Produ
+    + RAW [classical]: [2306.16496] Exploring chemical compound space with a graph-based recommender syste
+    + RAW [classical]: [2306.05292] Safe Collaborative Filtering
+    + RAW [classical]: [2305.14449] Graph Meets LLM: A Novel Approach to Collaborative Filtering for Robus
+    + RAW [classical]: [2305.14435] Reassessing the Constraints from SH0ES Extragalactic Cepheid Amplitude
+    + RAW [classical]: [2305.11084] Preference or Intent? Double Disentangled Collaborative Filtering
+    + RAW [classical]: [2305.02759] Disentangled Contrastive Collaborative Filtering
+    + RAW [classical]: [2303.15946] Item Graph Convolution Collaborative Filtering for Inductive Recommend
+    + RAW [classical]: [2303.07797] Automated Self-Supervised Learning for Recommendation
+  [arXiv] searching: robust recommendation  (20230101–20231231)
+    + RAW [classical]: [2312.16890] DiffKG: Knowledge Graph Diffusion Model for Recommendation
+    + RAW [classical]: [2312.16697] Multi-channel Sensor Network Construction, Data Fusion and Challenges 
+    + RAW [classical]: [2312.16400] LGMRec: Local and Global Graph Learning for Multimodal Recommendation
+    + RAW [classical]: [2312.15903] An Incremental Update Framework for Online Recommenders with Data-Driv
+    + RAW [classical]: [2312.15150] The Inner Workings of Windows Security
+    + RAW [classical]: [2312.15097] Recourse under Model Multiplicity via Argumentative Ensembling (Techni
+    + RAW [classical]: [2312.14433] Attribute-driven Disentangled Representation Learning for Multimodal R
+    + RAW [classical]: [2312.12882] BSL: Understanding and Improving Softmax Loss for Recommendation
+    + RAW [classical]: [2312.16183] LightGCN: Evaluated and Enhanced
+    + RAW [classical]: [2312.09602] Multi-Modality is All You Need for Transferable Recommender Systems
+    + RAW [classical]: [2312.08169] Efficiency of Multivariate Tests in Trials in Progressive Supranuclear
+    + RAW [classical]: [2312.07036] Debiasing Sequential Recommenders through Distributionally Robust Opti
+    + RAW [classical]: [2312.06853] LLF-Bench: Benchmark for Interactive Learning from Language Feedback
+    + RAW [classical]: [2312.06270] Testing Correctness, Fairness, and Robustness of Speech Emotion Recogn
+    + RAW [classical]: [2312.05968] Jumpstarting Surgical Computer Vision
+    + RAW [classical]: [2312.05568] Sparse Variational Student-t Processes
+    + RAW [classical]: [2312.10073] Data Scarcity in Recommendation Systems: A Survey
+    + RAW [classical]: [2312.03979] Node-aware Bi-smoothing: Certified Robustness against Graph Injection 
+    + RAW [classical]: [2312.02550] An empirical study of next-basket recommendations
+    + RAW [classical]: [2311.18244] Unveiling Vulnerabilities of Contrastive Recommender Systems to Poison
+    + RAW [classical]: [2311.16833] 1-Lipschitz Layers Compared: Memory, Speed, and Certifiable Robustness
+    + RAW [classical]: [2311.16716] GraphPro: Graph Pre-training and Prompt Learning for Recommendation
+    + RAW [classical]: [2311.16705] Development of a Bankruptcy Prediction Model for the Banking Sector in
+    + RAW [classical]: [2312.03731] MultiGPrompt for Multi-Task Pre-Training and Prompting on Graphs
+  [arXiv] searching: robust recommender system  (20230101–20231231)
+    + RAW [classical]: [2311.16388] Understanding the Process of Data Labeling in Cybersecurity
+    + RAW [classical]: [2311.16334] Robust Basket Recommendation via Noise-tolerated Graph Contrastive Lea
+    + RAW [classical]: [2311.13691] Next-Generation Earth System Models: Towards Reliable Hybrid Models fo
+    + RAW [classical]: [2311.13121] GENET: Unleashing the Power of Side Information for Recommendation via
+    + RAW [classical]: [2311.11351] Scaling Law of Large Sequential Recommendation Models
+    + RAW [classical]: [2311.10236] Latent Feature-based Data Splits to Improve Generalisation Evaluation:
+    + RAW [classical]: [2311.10005] Towards Flexibility and Robustness of LSM Trees
+    + RAW [classical]: [2312.09454] Uncertainty Quantification in Machine Learning for Biosignal Applicati
+    + RAW [classical]: [2310.18866] Astrometry with PRAIA
+    + RAW [classical]: [2310.15950] Representation Learning with Large Language Models for Recommendation
+    + RAW [classical]: [2310.15895] A roadmap for the atmospheric characterization of terrestrial exoplane
+    + RAW [classical]: [2310.15492] Robust Representation Learning for Unified Online Top-K Recommendation
+    + RAW [classical]: [2310.14743] The Safety Challenges of Deep Learning in Real-World Type 1 Diabetes M
+    + RAW [classical]: [2310.08135] Time-Variable Diffuse $γ$-ray Foreground
+  [arXiv] searching: adversarial robustness recommender  (20230101–20231231)
+    + RAW [classical]: [2311.04731] Robust Best-arm Identification in Linear Bandits
+    + RAW [classical]: [2311.04503] Constrained Adaptive Attacks: Realistic Evaluation of Adversarial Exam
+    + RAW [classical]: [2310.08808] Attacks Meet Interpretability (AmI) Evaluation and Findings
+    + RAW [classical]: [2308.16015] Influence of adversarial training on super-resolution turbulence recon
+    + RAW [classical]: [2307.13165] Investigating the Robustness of Sequential Recommender Systems Against
+    + RAW [classical]: [2306.09951] You Don't Need Robust Machine Learning to Manage Adversarial Attack Ri
+    + RAW [classical]: [2306.04528] PromptRobust: Towards Evaluating the Robustness of Large Language Mode
+    + RAW [classical]: [2306.04064] Transferable Adversarial Robustness for Categorical Data via Universal
+    + RAW [classical]: [2305.18081] Game of Tones: Faculty detection of GPT-4 generated content in univers
+    + RAW [classical]: [2305.10388] Raising the Bar for Certified Adversarial Robustness with Diffusion Mo
+    + RAW [classical]: [2305.16163] PPGenCDR: A Stable and Robust Framework for Privacy-Preserving Cross-D
+    + RAW [classical]: [2304.05492] Towards More Robust and Accurate Sequential Recommendation with Cascad
+    + RAW [classical]: [2304.09096] Privacy-Preserving Matrix Factorization for Recommendation Systems usi
+    + RAW [classical]: [2303.16308] Provable Robustness for Streaming Models with a Sliding Window
+    + RAW [classical]: [2303.06302] Adversarial Attacks and Defenses in Machine Learning-Powered Networks:
+  [arXiv] searching: matrix factorization adversarial  (20230101–20231231)
+    + RAW [classical]: [2311.18670] Local Geometry Determines Global Landscape in Low-rank Factorization f
+    + RAW [classical]: [2311.07876] Learning Adversarial Low-rank Markov Decision Processes with Unknown T
+    + RAW [classical]: [2309.14586] Speech Audio Synthesis from Tagged MRI and Non-Negative Matrix Factori
+    + RAW [classical]: [2307.08012] Householder Projector for Unsupervised Latent Semantics Discovery
+    + RAW [classical]: [2306.01485] Robust low-rank training via approximate orthonormal constraints
+    + RAW [classical]: [2305.14744] Block Coordinate Descent on Smooth Manifolds: Convergence Theory and T
+    + RAW [classical]: [2305.01758] Adversarial Generative NMF for Single Channel Source Separation
+    + RAW [classical]: [2303.10030] How robust is randomized blind deconvolution via nuclear norm minimiza
+    + RAW [classical]: [2301.09024] Statistically Optimal Robust Mean and Covariance Estimation for Anisot
+  [arXiv] searching: graph neural network recommender attack  (20230101–20231231)
+  [arXiv] searching: adversarial training recommendation  (20230101–20231231)
+    + RAW [classical]: [2311.03488] Multi-Resolution Diffusion for Privacy-Sensitive Recommender Systems
+    + RAW [classical]: [2310.18700] Empowering Collaborative Filtering with Principled Adversarial Contras
+    + RAW [classical]: [2310.16152] Gradient-Free Privacy Leakage in Federated Language Models through Sel
+    + RAW [classical]: [2310.00335] Anomaly Detection in Power Generation Plants with Generative Adversari
+    + RAW [classical]: [2309.15418] Automatic Feature Fairness in Recommendation via Adversaries
+    + RAW [classical]: [2309.07026] APICom: Automatic API Completion via Prompt Learning and Adversarial T
+    + RAW [classical]: [2308.06296] Classification of White Blood Cells Using Machine and Deep Learning Mo
+    + RAW [classical]: [2306.02842] Improving Conversational Recommendation Systems via Counterfactual Dat
+  [arXiv] searching: backdoor attack recommender  (20230101–20231231)
+    + RAW [classical]: [2310.09827] VFLAIR: A Research Library and Benchmark for Vertical Federated Learni
+    + RAW [classical]: [2305.05503] BadCS: A Backdoor Attack Framework for Code search
+    + RAW [classical]: [2305.03995] Attacking Pre-trained Recommendation
+
+Stage 1 complete: 130 raw papers saved to /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2023_raw.json
+
+=== Stage 2: Filtering for relevance ===
+Stage 2 complete: 31 relevant papers (filtered from 130 raw)
+
+[dry-run] Not writing anything.
+  Saved: /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2023_raw.json
+
+========================================
+  Crawling 2024  (20240101 → 20241231)
+========================================
+  [mode] --classical: using pre-LLM adversarial RecSys search terms (LoA-1 only)
+=== Stage 1: High-recall crawl (unfiltered) [20240101–20241231] ===
+  [arXiv] searching: adversarial attack recommender system  (20240101–20241231)
+    + RAW [classical]: [2412.06556] Vulnerability, Where Art Thou? An Investigation of Vulnerability Manag
+    + RAW [classical]: [2411.11677] Few-shot Model Extraction Attacks against Sequential Recommender Syste
+    + RAW [classical]: [2411.01717] A General Recipe for Contractive Graph Neural Networks -- Technical Re
+    + RAW [classical]: [2410.22844] Understanding and Improving Adversarial Collaborative Filtering for Ro
+    + RAW [classical]: [2410.21163] Resilience in Knowledge Graph Embeddings
+    + RAW [classical]: [2410.11188] Fast Second-Order Online Kernel Learning through Incremental Matrix Sk
+    + RAW [classical]: [2410.09936] The Role of Fake Users in Sequential Recommender Systems
+    + RAW [classical]: [2410.09078] Knowledge-Augmented Reasoning for EUAIA Compliance and Adversarial Rob
+    + RAW [classical]: [2409.19096] Enhancing Robustness of Graph Neural Networks through p-Laplacian
+    + RAW [classical]: [2409.07500] DV-FSR: A Dual-View Target Attack Framework for Federated Sequential R
+    + RAW [classical]: [2408.10666] Accelerating the Surrogate Retraining for Poisoning Attacks against Re
+    + RAW [classical]: [2408.01931] Sharpness-Aware Cross-Domain Recommendation to Cold-Start Users
+    + RAW [classical]: [2408.00312] Adversarial Text Rewriting for Text-aware Recommender Systems
+    + RAW [classical]: [2407.00062] A First Principles Approach to Trust-Based Recommendation Systems in S
+    + RAW [classical]: [2406.10573] Graph Neural Backdoor: Fundamentals, Methodologies, Applications, and 
+    + RAW [classical]: [2406.05933] A Relevance Model for Threat-Centric Ranking of Cybersecurity Vulnerab
+    + RAW [classical]: [2405.04756] Red-Teaming for Inducing Societal Bias in Large Language Models
+    + RAW [classical]: [2405.04010] Explainability-Informed Targeted Malware Misclassification
+    + RAW [classical]: [2405.01849] Stability of Explainable Recommendation
+    + RAW [classical]: [2404.17844] Towards Robust Recommendation: A Review and an Adversarial Robustness 
+    + RAW [classical]: [2404.01177] Poisoning Decentralized Collaborative Recommender System and Its Count
+    + RAW [classical]: [2402.09023] Review-Incorporated Model-Agnostic Profile Injection Attacks on Recomm
+    + RAW [classical]: [2402.08653] SAGMAN: Stability Analysis of Graph Neural Networks on the Manifolds
+  [arXiv] searching: data poisoning recommender  (20240101–20241231)
+    + RAW [classical]: [2412.04627] Game-Theoretic Foundations for Cyber Resilience Against Deceptive Info
+    + RAW [classical]: [2409.01563] Blockchain-based Federated Recommendation with Incentive Mechanism
+    + RAW [classical]: [2407.18937] Advancements in Recommender Systems: A Comprehensive Analysis Based on
+    + RAW [classical]: [2406.01022] Poisoning Attacks and Defenses in Recommender Systems: A Survey
+    + RAW [classical]: [2403.20107] Robust Federated Contrastive Recommender System against Model Poisonin
+    + RAW [classical]: [2402.14124] Fake Resume Attacks: Data Poisoning on Online Job Platforms
+    + RAW [classical]: [2402.11637] Poisoning Federated Recommender Systems with Fake Users
+    + RAW [classical]: [2402.01920] Preference Poisoning Attacks on Reward Model Learning
+    + RAW [classical]: [2401.12700] Securing Recommender System via Cooperative Training
+    + RAW [classical]: [2401.01527] Poisoning Attacks against Recommender Systems: A Survey
+  [arXiv] searching: shilling attack recommender  (20240101–20241231)
+    + RAW [classical]: [2412.10850] Defending Collaborative Filtering Recommenders via Adversarial Robustn
+    + RAW [classical]: [2410.16838] Neural Collaborative Filtering Classification Model to Obtain Predicti
+    + RAW [classical]: [2404.16177] Advancing Recommender Systems by mitigating Shilling attacks
+    + RAW [classical]: [2401.12578] ToDA: Target-oriented Diffusion Attacker against Recommendation System
+  [arXiv] searching: profile injection attack recommender  (20240101–20241231)
+    + RAW [classical]: [2407.11785] Defining 'Good': Evaluation Framework for Synthetic Smart Meter Data
+  [arXiv] searching: poisoning attack collaborative filtering  (20240101–20241231)
+    + RAW [classical]: [2410.06509] PFAttack: Stealthy Attack Bypassing Group Fairness in Federated Learni
+  [arXiv] searching: fake profile recommender  (20240101–20241231)
+    + RAW [classical]: [2412.20802] Robust Matrix Completion for Discrete Rating-Scale Data: Coping with F
+    + RAW [classical]: [2412.15621] Pirates of Charity: Exploring Donation-based Abuses in Social Media Pl
+    + RAW [classical]: [2406.12020] When Box Meets Graph Neural Network in Tag-aware Recommendation
+    + RAW [classical]: [2405.07580] DynLLM: When Large Language Models Meet Dynamic Graph Recommendation
+    + RAW [classical]: [2402.09660] User Modeling and User Profiling: A Comprehensive Survey
+  [arXiv] searching: robust collaborative filtering  (20240101–20241231)
+    + RAW [classical]: [2501.00332] MAIN-RAG: Multi-Agent Filtering Retrieval-Augmented Generation
+    + RAW [classical]: [2412.20250] Recommender Engine Driven Client Selection in Federated Brain Tumor Se
+    + RAW [classical]: [2412.18731] Position-aware Graph Transformer for Recommendation
+    + RAW [classical]: [2412.18176] Molar: Multimodal LLMs with Collaborative Filtering Alignment for Enha
+    + RAW [classical]: [2412.18168] From Pairwise to Ranking: Climbing the Ladder to Ideal Collaborative F
+    + RAW [classical]: [2412.08467] Bootstrapping Language-Guided Navigation Learning with Self-Refining D
+    + RAW [classical]: [2412.04942] A Federated Approach to Few-Shot Hate Speech Detection for Marginalize
+    + RAW [classical]: [2412.03097] Enhancing Recommendation Systems with GNNs and Addressing Over-Smoothi
+    + RAW [classical]: [2412.03095] Decentralized Mobile Target Tracking Using Consensus-Based Estimation 
+    + RAW [classical]: [2411.18905] FedRGL: Robust Federated Graph Learning for Label Noise
+    + RAW [classical]: [2411.17662] RoboPEPP: Vision-Based Robot Pose and Joint Angle Estimation through E
+    + RAW [classical]: [2411.09181] DeBaTeR: Denoising Bipartite Temporal Graph for Recommendation
+    + RAW [classical]: [2411.06374] Metric Learning for Tag Recommendation: Tackling Data Sparsity and Col
+    + RAW [classical]: [2410.20642] Collaborative Knowledge Fusion: A Novel Approach for Multi-task Recomm
+    + RAW [classical]: [2410.15137] Collaborative State Fusion in Partially Known Multi-agent Environments
+    + RAW [classical]: [2410.05017] Enhanced Multi-Robot SLAM System with Cross-Validation Matching and Ex
+    + RAW [classical]: [2410.04168] R-ACP: Real-Time Adaptive Collaborative Perception Leveraging Robust T
+    + RAW [classical]: [2409.19370] MambaEviScrib: Mamba and Evidence-Guided Consistency Enhance CNN Robus
+    + RAW [classical]: [2409.18427] Neural Collaborative Filtering to Detect Anomalies in Human Semantic T
+    + RAW [classical]: [2409.10509] Pennsieve: A Collaborative Platform for Translational Neuroscience and
+    + RAW [classical]: [2409.02334] YoloTag: Vision-based Robust UAV Navigation with Fiducial Markers
+    + RAW [classical]: [2409.03793] Safeguarding AI Agents: Developing and Analyzing Safety Architectures
+  [arXiv] searching: robust recommendation  (20240101–20241231)
+    + RAW [classical]: [2501.01984] Leveraging AI for Automatic Classification of PCOS Using Ultrasound Im
+    + RAW [classical]: [2412.20498] Regulating radiology AI medical devices that evolve in their lifecycle
+    + RAW [classical]: [2503.13450] The Future of IPTV: Security, AI Integration, 5G, and Next-Gen Streami
+    + RAW [classical]: [2412.19420] A Matrix Logic Approach to Efficient Frequent Itemset Discovery in Lar
+    + RAW [classical]: [2501.01441] Explanatory Debiasing: Involving Domain Experts in the Data Generation
+    + RAW [classical]: [2412.18962] Don't Lose Yourself: Boosting Multimodal Recommendation via Reducing N
+    + RAW [classical]: [2412.18803] Trustworthy assessment of heterogeneous treatment effect estimator
+    + RAW [classical]: [2412.18735] Automatic Self-supervised Learning for Social Recommendations
+    + RAW [classical]: [2412.18218] On the Effectiveness of Adversarial Training on Malware Classifiers
+    + RAW [classical]: [2412.17180] COVID-19 on YouTube: A Data-Driven Analysis of Sentiment, Toxicity, an
+    + RAW [classical]: [2412.17129] Uncovering the Visual Contribution in Audio-Visual Speech Recognition
+    + RAW [classical]: [2412.16369] Navigating AI to Unpack Youth Privacy Concerns: An In-Depth Exploratio
+    + RAW [classical]: [2412.15973] Legommenders: A Comprehensive Content-Based Recommendation Library wit
+    + RAW [classical]: [2412.15348] Autonomous Vehicle Security: A Deep Dive into Threat Modeling
+    + RAW [classical]: [2412.14619] Pitfalls of topology-aware image segmentation
+    + RAW [classical]: [2412.13541] Spatio-Temporal Fuzzy-oriented Multi-Modal Meta-Learning for Fine-grai
+    + RAW [classical]: [2412.12836] A Survey on Recommendation Unlearning: Fundamentals, Taxonomy, Evaluat
+    + RAW [classical]: [2412.12350] A multi-factor market-neutral investment strategy for New York Stock E
+    + RAW [classical]: [2412.11944] User-Centered Course Reengineering: An Analytical Approach to Enhancin
+    + RAW [classical]: [2412.11747] Beyond Graph Convolution: Multimodal Recommendation with Topology-awar
+  [arXiv] searching: robust recommender system  (20240101–20241231)
+    + RAW [classical]: [2412.11698] On Large Language Models in Mission-Critical IT Governance: Are We Rea
+    + RAW [classical]: [2412.08911] Goal-Conditioned Supervised Learning for Multi-Objective Recommendatio
+    + RAW [classical]: [2412.12154] PyOD 2: A Python Library for Outlier Detection with LLM-powered Model 
+    + RAW [classical]: [2412.08071] A Tutorial of Personalized Federated Recommender Systems: Recent Advan
+    + RAW [classical]: [2412.04950] Bed-Attached Vibration Sensor System: A Machine Learning Approach for 
+    + RAW [classical]: [2412.01946] The Reality of AI and Biorisk
+    + RAW [classical]: [2412.01011] e-Fold Cross-Validation for Recommender-System Evaluation
+    + RAW [classical]: [2412.00608] Leveraging LLM for Automated Ontology Extraction and Knowledge Graph G
+    + RAW [classical]: [2411.18526] NeuroAI for AI Safety
+    + RAW [classical]: [2411.18324] RITA: Automatic Framework for Designing of Resilient IoT Applications
+    + RAW [classical]: [2411.16034] VisualLens: Personalization through Task-Agnostic Visual History
+  [arXiv] searching: adversarial robustness recommender  (20240101–20241231)
+    + RAW [classical]: [2412.12373] Quantum Adversarial Machine Learning and Defense Strategies: Challenge
+    + RAW [classical]: [2412.08282] How Does the Smoothness Approximation Method Facilitate Generalization
+    + RAW [classical]: [2411.13553] AI-generated Image Detection: Passive or Watermark?
+    + RAW [classical]: [2410.19429] Generative Diffusion Models for Sequential Recommendations
+    + RAW [classical]: [2410.10452] Principled Bayesian Optimisation in Collaboration with Human Experts
+    + RAW [classical]: [2410.07675] Adversarial Robustness Overestimation and Instability in TRADES
+    + RAW [classical]: [2409.15173] Recommendation with Generative Models
+    + RAW [classical]: [2408.10795] Adversarial Attack for Explanation Robustness of Rationalization Model
+    + RAW [classical]: [2408.09671] GANPrompt: Enhancing Robustness in LLM-Based Recommendations with GAN-
+    + RAW [classical]: [2407.10184] Towards Robust Recommendation via Decision Boundary-aware Graph Contra
+  [arXiv] searching: matrix factorization adversarial  (20240101–20241231)
+    + RAW [classical]: [2412.17412] Silencer: Robust Community Detection by Silencing of Noisy Pixels
+    + RAW [classical]: [2409.09100] Convergence rate of opinion dynamics with complex interaction types
+    + RAW [classical]: [2409.08255] LoRID: Low-Rank Iterative Diffusion for Adversarial Purification
+    + RAW [classical]: [2408.03909] LaFA: Latent Feature Attacks on Non-negative Matrix Factorization
+    + RAW [classical]: [2406.12041] Outer Space Cyberattacks: Generating Novel Scenarios to Avoid Surprise
+    + RAW [classical]: [2404.15296] Maximum Discrepancy Generative Regularization and Non-Negative Matrix 
+    + RAW [classical]: [2403.16405] Ensemble Adversarial Defense via Integration of Multiple Dispersed Low
+    + RAW [classical]: [2402.18800] BlockEcho: Retaining Long-Range Dependencies for Imputing Block-Wise M
+    + RAW [classical]: [2402.07445] Top-$K$ ranking with a monotone adversary
+    + RAW [classical]: [2402.04038] PAC-Bayesian Adversarially Robust Generalization Bounds for Graph Neur
+  [arXiv] searching: graph neural network recommender attack  (20240101–20241231)
+    + RAW [classical]: [2411.03364] DM4Steal: Diffusion Model For Link Stealing Attack On Graph Neural Net
+    + RAW [classical]: [2406.16963] Large Language Models for Link Stealing Attacks Against Graph Neural N
+  [arXiv] searching: adversarial training recommendation  (20240101–20241231)
+    + RAW [classical]: [2412.04799] Estimating the treatment effect over time under general interference t
+    + RAW [classical]: [2410.20965] Simultaneous Unlearning of Multiple Protected User Attributes From Var
+    + RAW [classical]: [2410.17555] FairDgcl: Fairness-aware Recommendation with Dynamic Graph Contrastive
+    + RAW [classical]: [2410.06462] Hallucinating AI Hijacking Attack: Large Language Models and Malicious
+    + RAW [classical]: [2409.04339] How Fair is Your Diffusion Recommender Model?
+    + RAW [classical]: [2409.06719] Dual Adversarial Perturbators Generate rich Views for Recommendation
+    + RAW [classical]: [2408.04261] Unveiling Hidden Visual Information: A Reconstruction Attack Against A
+    + RAW [classical]: [2408.00030] A New Type of Foundation Model Based on Recordings of People's Emotion
+    + RAW [classical]: [2407.16729] PateGail: A Privacy-Preserving Mobility Trajectory Generator with Imit
+    + RAW [classical]: [2407.03210] Combining AI Control Systems and Human Decision Support via Robustness
+    + RAW [classical]: [2406.13569] Bayes' capacity as a measure for reconstruction attacks in federated l
+    + RAW [classical]: [2405.10986] Benchmark Early and Red Team Often: A Framework for Assessing and Mana
+  [arXiv] searching: backdoor attack recommender  (20240101–20241231)
+
+Stage 1 complete: 131 raw papers saved to /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2024_raw.json
+
+=== Stage 2: Filtering for relevance ===
+Stage 2 complete: 35 relevant papers (filtered from 131 raw)
+
+[dry-run] Not writing anything.
+  Saved: /Users/anjunhu/recsys-cikm-tutorial/Awesome-Trustworthy-MARS/crawl_cache/classical_2024_raw.json
+
+========================================
+  Crawling 2025  (20250101 → 20251231)
+========================================
