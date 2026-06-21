@@ -20,22 +20,22 @@
     "2023": {
       "raw": 173,
       "panel_b": 39,
-      "panel_a": 11
+      "panel_a": 10
     },
     "2024": {
       "raw": 361,
       "panel_b": 131,
-      "panel_a": 12
+      "panel_a": 8
     },
     "2025": {
       "raw": 340,
       "panel_b": 132,
-      "panel_a": 19
+      "panel_a": 15
     },
     "2026": {
       "raw": 346,
       "panel_b": 160,
-      "panel_a": 12
+      "panel_a": 7
     }
   }
 }

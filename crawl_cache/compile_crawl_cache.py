@@ -21,10 +21,35 @@ from pathlib import Path
 from collections import defaultdict
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from crawler import RECSYS_IR_FILTER
+from crawler import RECSYS_IR_FILTER   # kept for reference; is_recsys_ir uses a two-tier version
 
 CACHE = Path(__file__).parent
 YEARS = [2020, 2021, 2022, 2023, 2024, 2025, 2026]
+
+# Two-tier RecSys/IR filter:
+#   STRONG  — specific enough to accept in title OR abstract (any count)
+#   REPEATED — accept in title, or if appearing ≥2× in abstract to rule out
+#              one-sentence incidental mentions in general surveys
+#   TITLE_ONLY — too generic for abstract: "matrix factorization" is NMF/NNMF in
+#                image/medical papers; only trusted when it appears in the title
+RECSYS_IR_STRONG = [
+    "recsys",
+    "collaborative filtering", "rating prediction",
+    "user-item", "item recommendation", "personalized recommendation",
+    "search ranking", "document ranking",
+    "shilling attack",              # RecSys-specific attack term
+    "sequential recommendation",
+    "information retrieval",        # includes music/audio IR — intentionally broad
+    "retrieval system",
+]
+RECSYS_IR_REPEATED = [
+    "recommender system",           # require ≥2× in abstract to exclude one-sentence
+    "recommendation system",        # incidental mentions in general surveys
+]
+RECSYS_IR_TITLE_ONLY = [
+    "matrix factorization",         # NMF/NNMF is used in image/neuro decomposition;
+                                    # only trusted when focal in the title
+]
 
 # Later re-submissions of papers already counted in an earlier year bucket.
 # Keep the earliest arXiv ID; exclude these duplicates from counting.
@@ -64,8 +89,19 @@ LOA_META = {
 
 
 def is_recsys_ir(paper: dict) -> bool:
-    combined = f"{paper.get('title','')} {paper.get('abstract', '')}".lower()
-    return any(kw in combined for kw in RECSYS_IR_FILTER)
+    title    = paper.get('title', '').lower()
+    abstract = paper.get('abstract', '').lower()
+    combined = f"{title} {abstract}"
+    if any(kw in combined for kw in RECSYS_IR_STRONG):
+        return True
+    for kw in RECSYS_IR_REPEATED:
+        if kw in title:
+            return True
+        if abstract.count(kw) >= 2:   # ≥2 occurrences rules out one-sentence survey mentions
+            return True
+    if any(kw in title for kw in RECSYS_IR_TITLE_ONLY):
+        return True
+    return False
 
 
 # ── Step 1: load raw relevant sets per tier per year ──────────────────────────

@@ -5,37 +5,37 @@
     "2020": {
       "raw": 141,
       "panel_b": 62,
-      "panel_a": 18
+      "panel_a": 14
     },
     "2021": {
       "raw": 150,
       "panel_b": 67,
-      "panel_a": 19
+      "panel_a": 12
     },
     "2022": {
       "raw": 186,
       "panel_b": 91,
-      "panel_a": 27
+      "panel_a": 20
     },
     "2023": {
       "raw": 200,
       "panel_b": 95,
-      "panel_a": 38
+      "panel_a": 29
     },
     "2024": {
       "raw": 203,
       "panel_b": 87,
-      "panel_a": 41
+      "panel_a": 33
     },
     "2025": {
       "raw": 215,
       "panel_b": 74,
-      "panel_a": 23
+      "panel_a": 19
     },
     "2026": {
       "raw": 198,
       "panel_b": 45,
-      "panel_a": 9
+      "panel_a": 4
     }
   }
 }
