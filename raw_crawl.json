@@ -45,21 +45,6 @@
     "is_relevant": false
   },
   {
-    "id": "2603.25821",
-    "title": "Doctorina MedBench: End-to-End Evaluation of Agent-Based Medical AI",
-    "abstract": "We present Doctorina MedBench, a comprehensive evaluation framework for agent-based medical AI based on the simulation of realistic physician-patient interactions. Unlike traditional medical benchmarks that rely on solving standardized test questions, the proposed approach models a multi-step clinical dialogue in which either a physician or an AI system must collect medical history, analyze attached materials (including laboratory reports, images, and medical documents), formulate differential diagnoses, and provide personalized recommendations. System performance is evaluated using the D.O.T.S. metric, which consists of four components: Diagnosis, Observations/Investigations, Treatment, and Step Count, enabling assessment of both clinical correctness and dialogue efficiency.   The system also incorporates a multi-level testing and quality monitoring architecture designed to detect model degradation during both development and deployment. The framework supports safety-oriented trap cases, category-based random sampling of clinical scenarios, and full regression testing. The dataset currently contains more than 1,000 clinical cases covering over 750 diagnoses. The universality of the evaluation metrics allows the framework to be used not only to assess medical AI systems, but also to evaluate physicians and support the development of clinical reasoning skills. Our results suggest that simulation of clinical dialogue may provide a more realistic assessment of clinical competence compared to traditional examination-style benchmarks.",
-    "authors": "Anna Kozlova, Stanislau Salavei, Pavel Satalkin et al.",
-    "venue": "arXiv 2026",
-    "section": "evaluation",
-    "risk_type": null,
-    "scope": "composition",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2603.23884",
     "title": "POSIM: A Multi-Agent Simulation Framework for Social Media Public Opinion Evolution and Governance",
     "abstract": "Modeling social media public opinion evolution is essential for governance decision-making. Traditional epidemic models and rule-based agent-based models (ABMs) fail to capture the cognitive processes and adaptive behaviors of real users. Recent large language model (LLM)-based social simulations can reproduce group-level phenomena like polarization and conformity, yet remain unable to recreate the irrational interactions and multi-phase dynamics of real public opinion events. We present POSIM (Public Opinion Simulator), a multi-agent simulation framework for social media public opinion evolution and governance. POSIM integrates LLM-driven agents with a Belief--Desire--Intention (BDI) cognitive architecture that accounts for irrational factors, places them in a virtual social media environment with social networks and recommendation mechanisms, and drives temporal dynamics through a Hawkes point process engine that captures the co-evolution of agents and the environment across event phases. To validate the framework, we collect real-world public opinion datasets from the Weibo platform covering the full interaction chain of users. Experiments show that POSIM successfully reproduces key characteristics of public opinion evolution from individual mechanisms to collective phenomena, and its effectiveness is further supported by multiple statistical metrics. Building on POSIM, governance-oriented guidance and intervention experiments uncover a counterintuitive empathy paradox: empathetic guidance deepens negative sentiment instead of easing it under certain conditions, offering new insights for governance strategy design. These results demonstrate that the proposed framework can fully serve as a computational experimentation platform for proactive strategy evaluation and evidence-based governance. All source code is available at https://github.com/DeepCogLab/posim/.",
@@ -253,21 +238,6 @@
     "doi": null,
     "notes": "",
     "is_relevant": false
-  },
-  {
-    "id": "2603.10673",
-    "title": "Breaking User-Centric Agency: A Tri-Party Framework for Agent-Based Recommendation",
-    "abstract": "Recent advances in large language models (LLMs) have stimulated growing interest in agent-based recommender systems, enabling language-driven interaction and reasoning for more expressive preference modeling. However, most existing agentic approaches remain predominantly user-centric, treating items as passive entities and neglecting the interests of other critical stakeholders. This limitation exacerbates exposure concentration and long-tail under-representation, threatening long-term system sustainability. In this work, we identify this fundamental limitation and propose the first Tri-party LLM-agent Recommendation framework (TriRec) that explicitly coordinates user utility, item exposure, and platform-level fairness. The framework employs a two-stage architecture: Stage 1 empowers item agents with personalized self-promotion to improve matching quality and alleviate cold-start barriers, while Stage 2 performs platform-level sequential multi-objective re-ranking, balancing user relevance, item utility, and exposure fairness. Experiments show consistent gains in accuracy, fairness, and item-level utility. Moreover, we find that item self-promotion can simultaneously enhance fairness and effectiveness, challenging the conventional trade-off assumption between relevance and fairness. Our code is available at https://github.com/Marfekey/TriRec.",
-    "authors": "Yaxin Gong, Chongming Gao, Chenxiao Fan et al.",
-    "venue": "arXiv 2026",
-    "section": "fairness",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
   },
   {
     "id": "2603.07605",
@@ -495,36 +465,6 @@
     "is_relevant": false
   },
   {
-    "id": "2603.17179",
-    "title": "Ablation Study of a Fairness Auditing Agentic System for Bias Mitigation in Early-Onset Colorectal Cancer Detection",
-    "abstract": "Artificial intelligence (AI) is increasingly used in clinical settings, yet limited oversight and domain expertise can allow algorithmic bias and safety risks to persist. This study evaluates whether an agentic AI system can support auditing biomedical machine learning models for fairness in early-onset colorectal cancer (EO-CRC), a condition with documented demographic disparities. We implemented a two-agent architecture consisting of a Domain Expert Agent that synthesizes literature on EO-CRC disparities and a Fairness Consultant Agent that recommends sensitive attributes and fairness metrics for model evaluation. An ablation study compared three Ollama large language models (8B, 20B, and 120B parameters) across three configurations: pretrained LLM-only, Agent without Retrieval-Augmented Generation (RAG), and Agent with RAG. Across models, the Agent with RAG achieved the highest semantic similarity to expert-derived reference statements, particularly for disparity identification, suggesting agentic systems with retrieval may help scale fairness auditing in clinical AI.",
-    "authors": "Amalia Ionescu, Jose Guadalupe Hernandez, Jui-Hsuan Chang et al.",
-    "venue": "arXiv 2026",
-    "section": "fairness",
-    "risk_type": "A",
-    "scope": "composition",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
-    "id": "2604.13049",
-    "title": "Hijacking online reviews: sparse manipulation and behavioral buffering in popularity-biased rating systems",
-    "abstract": "Online reviews and recommendation systems help users navigate overwhelming choice, but they are vulnerable to self-reinforcing distortions. This paper examines how a single malicious reviewer can exploit popularity-biased rating dynamics and whether behavioral heterogeneity in user responses can reduce the damage. We develop a minimal agent-based model in which users choose what to rate partly on the basis of currently displayed averages. We compare broad attacks that perturb many items with sparse attacks that selectively boost low-quality items and suppress high-quality items. Additional analyses not shown here indicate that sparse attacks are substantially more harmful than broad attacks because they better exploit popularity-based exposure. The main text then focuses on sparse attacks and asks how their effects change as the fraction of contrarian users increases. Three results stand out. First, attack-induced damage is strongest when prior honest reviews are scarce, revealing a transition from a fragile low-information regime to a more robust high-information regime. Second, sparse attacks are especially effective at artificially promoting low-quality items. Third, moderate contrarian diversity partially buffers these distortions, primarily by suppressing the rise of low-quality items rather than fully restoring high-quality items to the top. The findings suggest that recommendation robustness depends not only on attack detection and predictive accuracy, but also on review density, popularity feedback, and user response heterogeneity.",
-    "authors": "Itsuki Fujisaki, Kunhao Yang",
-    "venue": "arXiv 2026",
-    "section": "misc",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "compromise",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2603.14864",
     "title": "Shopping Companion: Benchmarking and Training LLM Agents for Long-Horizon Preference-Grounded E-Commerce Tasks",
     "abstract": "In e-commerce, LLM agents show promise for shopping tasks such as recommendations, budget management, and bundle deals, where accurately capturing user preferences from long-horizon conversations is critical. However, progress is limited by two key challenges: (1) the absence of benchmarks for evaluating long-term preference-aware shopping tasks, and (2) the lack of fine-grained supervision for shopping agent training. To fill the benchmark gap, we introduce Shopping Companion Bench, a novel benchmark comprising two shopping tasks that require cross-session preference memory, grounded in a product pool of over 1.2 million real-world items. Our analysis further identifies two major sources of failure on this benchmark: cascading errors caused by preference hallucination, and insufficient verification of product attributes against user requirements. To address these failure modes, we design annotation-free, tool-wise rewards that provide process supervision for each tool call, alleviating reward sparsity in long-horizon tasks. Experimental results demonstrate that even state-of-the-art models such as GPT-5 achieve success rates below 70%, highlighting the difficulty of our benchmark. Notably, our fine-tuned lightweight 4B model consistently outperforms strong baselines in both preference capture and task performance, suggesting the effectiveness of our reward design.",
@@ -658,36 +598,6 @@
     "doi": null,
     "notes": "",
     "is_relevant": false
-  },
-  {
-    "id": "2604.16379",
-    "title": "LLMAR: A Tuning-Free Recommendation Framework for Sparse and Text-Rich Industrial Domains",
-    "abstract": "Industrial B2B applications (e.g., construction site risk prediction, material procurement) face extreme data sparsity yet feature rich textual interactions. In such environments, traditional ID-based collaborative filtering fails lacking co-occurrence signals, while fine-tuning standard Large Language Models (LLMs) incurs high operational costs and struggles with frequent data drift.   We propose LLMAR (LLM-Annotated Recommendation), a tuning-free framework. Moving beyond simple embeddings, LLMAR systematically integrates LLM reasoning to capture user \"latent motives\" without any training process. We introduce three core contributions: (1) Inference-Driven Annotation: uses LLMs to transform behavioral history into structured semantic motives, enabling reasoning-based matching unattainable by ID-based methods; (2) Reflection Loop: a self-correction mechanism that refines generated queries to mitigate hallucinations and resolve \"context competition\" between past history and current instructions; and (3) Cost-Effective Architecture: relies on tuning-free components and asynchronous batch processing to minimize maintenance costs.   Evaluations on public benchmarks (MovieLens-1M, Amazon Prime Pantry) and a sparse industrial dataset (construction risk prediction) demonstrate that LLMAR outperforms state-of-the-art learning-based models (SASRecF), achieving up to a 54.6% nDCG@10 improvement on the industrial dataset. Inference costs remain highly practical (~$1 per 1,000 users). For B2B domains where strict real-time latency is not critical, combining LLM reasoning with self-verification offers a superior alternative to training-based approaches across accuracy, explainability, and operational cost.",
-    "authors": "Ryogo Hishikawa, Ichiro Kataoka, Shinya Yuda",
-    "venue": "arXiv 2026",
-    "section": "evaluation",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
-    "id": "2603.23780",
-    "title": "Lightweight Fairness for LLM-Based Recommendations via Kernelized Projection and Gated Adapters",
-    "abstract": "Large Language Models (LLMs) have introduced new capabilities to recommender systems, enabling dynamic, context-aware, and conversational recommendations. However, LLM-based recommender systems inherit and may amplify social biases embedded in their pre-training data, especially when demographic cues are present. Existing fairness solutions either require extra parameters fine-tuning, or suffer from optimization instability. We propose a lightweight and scalable bias mitigation method that combines a kernelized Iterative Null-space Projection (INLP) with a gated Mixture-of-Experts (MoE) adapter. Our approach estimates a closed-form projection that removes single or multiple sensitive attributes from LLM representations with no additional trainable parameters. To preserve task utility, we introduce a two-level MoE adapter that selectively restores useful signals without reintroducing bias. Experiments on two public datasets show that our method reduces attribute leakage across multiple protected variables while maintaining competitive recommendation accuracy.",
-    "authors": "Nan Cui, Wendy Hui Wang, Yue Ning",
-    "venue": "arXiv 2026",
-    "section": "rf4_privacy",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
   },
   {
     "id": "2603.23183",
@@ -840,21 +750,6 @@
     "is_relevant": false
   },
   {
-    "id": "2603.17450",
-    "title": "VLM2Rec: Resolving Modality Collapse in Vision-Language Model Embedders for Multimodal Sequential Recommendation",
-    "abstract": "Sequential Recommendation (SR) in multimodal settings typically relies on small frozen pretrained encoders, which limits semantic capacity and prevents Collaborative Filtering (CF) signals from being fully integrated into item representations. Inspired by the recent success of Large Language Models (LLMs) as high-capacity embedders, we investigate the use of Vision-Language Models (VLMs) as CF-aware multimodal encoders for SR. However, we find that standard contrastive supervised fine-tuning (SFT), which adapts VLMs for embedding generation and injects CF signals, can amplify its inherent modality collapse. In this state, optimization is dominated by a single modality while the other degrades, ultimately undermining recommendation accuracy. To address this, we propose VLM2Rec, a VLM embedder-based framework for multimodal sequential recommendation designed to ensure balanced modality utilization. Specifically, we introduce Weak-modality Penalized Contrastive Learning to rectify gradient imbalance during optimization and Cross-Modal Relational Topology Regularization to preserve geometric consistency between modalities. Extensive experiments demonstrate that VLM2Rec consistently outperforms state-of-the-art baselines in both accuracy and robustness across diverse scenarios.",
-    "authors": "Junyoung Kim, Woojoo Kim, Jaehyung Lim et al.",
-    "venue": "arXiv 2026",
-    "section": "misc",
-    "risk_type": null,
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2602.13568",
     "title": "Who Do LLMs Trust? Human Experts Matter More Than Other LLMs",
     "abstract": "Large language models (LLMs) increasingly operate in environments where they encounter social information such as other agents' answers, tool outputs, or human recommendations. In humans, such inputs influence judgments in ways that depend on the source's credibility and the strength of consensus. This paper investigates whether LLMs exhibit analogous patterns of influence and whether they privilege feedback from humans over feedback from other LLMs. Across three binary decision-making tasks, reading comprehension, multi-step reasoning, and moral judgment, we present four instruction-tuned LLMs with prior responses attributed either to friends, to human experts, or to other LLMs. We manipulate whether the group is correct and vary the group size. In a second experiment, we introduce direct disagreement between a single human and a single LLM. Across tasks, models conform significantly more to responses labeled as coming from human experts, including when that signal is incorrect, and revise their answers toward experts more readily than toward other LLMs. These results reveal that expert framing acts as a strong prior for contemporary LLMs, suggesting a form of credibility-sensitive social influence that generalizes across decision domains.",
@@ -900,21 +795,6 @@
     "is_relevant": false
   },
   {
-    "id": "2604.20848",
-    "title": "MATRAG: Multi-Agent Transparent Retrieval-Augmented Generation for Explainable Recommendations",
-    "abstract": "Large Language Model (LLM)-based recommendation systems have demonstrated remarkable capabilities in understanding user preferences and generating personalized suggestions. However, existing approaches face critical challenges in transparency, knowledge grounding, and the ability to provide coherent explanations that foster user trust. We introduce MATRAG (Multi-Agent Transparent Retrieval-Augmented Generation), a novel framework that combined multi-agent collaboration with knowledge graph-augmented retrieval to deliver explainable recommendations. MATRAG employs four specialized agents: a User Modeling Agent that constructs dynamic preference profiles, an Item Analysis Agent that extracts semantic features from knowledge graphs, a Reasoning Agent that synthesizes collaborative and content-based signals, and an Explanation Agent that generates natural language justifications grounded in retrieved knowledge. Our framework incorporates a transparency scoring mechanism that quantifies explanation faithfulness and relevance. Extensive experiments on three benchmark datasets (Amazon Reviews, MovieLens-1M, and Yelp) demonstrate that MATRAG achieves state-of-the-art performance, improving recommendation accuracy by 12.7\\% (Hit Rate) and 15.3\\% (NDCG) over leading baselines, while human evaluation confirms that 87.4\\% of generated explanations are rated as helpful and trustworthy by domain experts. Our work establishes new benchmarks for transparent, agentic recommendation systems and provides actionable insights for deploying LLM-based recommenders in production environments.",
-    "authors": "Sushant Mehta",
-    "venue": "arXiv 2026",
-    "section": "evaluation",
-    "risk_type": null,
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2602.09829",
     "title": "Internalizing Multi-Agent Reasoning for Accurate and Efficient LLM-based Recommendation",
     "abstract": "Large Language Models (LLMs) are reshaping recommender systems by leveraging extensive world knowledge and semantic reasoning to interpret user intent. However, effectively integrating these capabilities with collaborative signals while avoiding prohibitive inference latency remains a critical bottleneck. To address this, we propose a trajectory-driven internalization framework to develop a Single-agent Trajectory-Aligned Recommender (STAR). Specifically, to internalize complex reasoning capabilities into a single efficient model, we first design a multi-agent teacher system capable of multi-turn tool usage and reflection. This teacher utilizes a Collaborative Signal Translation mechanism to explicitly convert latent behavioral patterns into descriptive natural language evidence to enhance reasoning accuracy. Subsequently, a trajectory-driven distillation pipeline transfers this agentic logic, including planning, tool usage, and self-reflection, into the compact STAR model. Extensive experiments demonstrate that STAR surpasses its teacher by 8.7% to 39.5% while eliminating iterative latency, paving the way for real-time, reasoning-enhanced recommendation.",
@@ -958,36 +838,6 @@
     "doi": null,
     "notes": "",
     "is_relevant": false
-  },
-  {
-    "id": "2601.19121",
-    "title": "LLMs as Orchestrators: Constraint-Compliant Multi-Agent Optimization for Recommendation Systems",
-    "abstract": "Recommendation systems must optimize multiple objectives while satisfying hard business constraints such as fairness and coverage. For example, an e-commerce platform may require every recommendation list to include items from multiple sellers and at least one newly listed product; violating such constraints--even once--is unacceptable in production. Prior work on multi-objective recommendation and recent LLM-based recommender agents largely treat constraints as soft penalties or focus on item scoring and interaction, leading to frequent violations in real-world deployments. How to leverage LLMs for coordinating constrained optimization in recommendation systems remains underexplored. We propose DualAgent-Rec, an LLM-coordinated dual-agent framework for constrained multi-objective e-commerce recommendation. The framework separates optimization into an Exploitation Agent that prioritizes accuracy under hard constraints and an Exploration Agent that promotes diversity through unconstrained Pareto search. An LLM-based coordinator adaptively allocates resources between agents based on optimization progress and constraint satisfaction, while an adaptive epsilon-relaxation mechanism guarantees feasibility of final solutions. Experiments on the Amazon Reviews 2023 dataset demonstrate that DualAgent-Rec achieves 100% constraint satisfaction and improves Pareto hypervolume by 4-6% over strong baselines, while maintaining competitive accuracy-diversity trade-offs. These results indicate that LLMs can act as effective orchestration agents for deployable and constraint-compliant recommendation systems.",
-    "authors": "Guilin Zhang, Kai Zhao, Jeffrey Friedman et al.",
-    "venue": "arXiv 2026",
-    "section": "fairness",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
-    "id": "2601.19120",
-    "title": "RobustExplain: Evaluating Robustness of LLM-Based Explanation Agents for Recommendation",
-    "abstract": "Large Language Models (LLMs) are increasingly used to generate natural-language explanations in recommender systems, acting as explanation agents that reason over user behavior histories. While prior work has focused on explanation fluency and relevance under fixed inputs, the robustness of LLM-generated explanations to realistic user behavior noise remains largely unexplored. In real-world web platforms, interaction histories are inherently noisy due to accidental clicks, temporal inconsistencies, missing values, and evolving preferences, raising concerns about explanation stability and user trust. We present RobustExplain, the first systematic evaluation framework for measuring the robustness of LLM-generated recommendation explanations. RobustExplain introduces five realistic user behavior perturbations evaluated across multiple severity levels and a multi-dimensional robustness metric capturing semantic, keyword, structural, and length consistency. Our goal is to establish a principled, task-level evaluation framework and initial robustness baselines, rather than to provide a comprehensive leaderboard across all available LLMs. Experiments on four representative LLMs (7B--70B) show that current models exhibit only moderate robustness, with larger models achieving up to 8% higher stability. Our results establish the first robustness benchmarks for explanation agents and highlight robustness as a critical dimension for trustworthy, agent-driven recommender systems at web scale.",
-    "authors": "Guilin Zhang, Kai Zhao, Jeffrey Friedman et al.",
-    "venue": "arXiv 2026",
-    "section": "evaluation",
-    "risk_type": null,
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
   },
   {
     "id": "2601.17346",
@@ -1095,36 +945,6 @@
     "is_relevant": false
   },
   {
-    "id": "2603.18972",
-    "title": "Best-of-Both-Worlds Multi-Dueling Bandits: Unified Algorithms for Stochastic and Adversarial Preferences under Condorcet and Borda Objectives",
-    "abstract": "Multi-dueling bandits, where a learner selects $m \\geq 2$ arms per round and observes only the winner, arise naturally in many applications including ranking and recommendation systems, yet a fundamental question has remained open: can a single algorithm perform optimally in both stochastic and adversarial environments, without knowing which regime it faces? We answer this affirmatively, providing the first best-of-both-worlds algorithms for multi-dueling bandits under both Condorcet and Borda objectives. For the Condorcet setting, we propose $\\texttt{MetaDueling}$, a black-box reduction that converts any dueling bandit algorithm into a multi-dueling bandit algorithm by transforming multi-way winner feedback into an unbiased pairwise signal. Instantiating our reduction with $\\texttt{Versatile-DB}$ yields the first best-of-both-worlds algorithm for multi-dueling bandits: it achieves $O(\\sqrt{KT})$ pseudo-regret against adversarial preferences and the instance-optimal $O\\left(\\sum_{i \\neq a^\\star} \\frac{\\log T}{\u0394_i}\\right)$ pseudo-regret under stochastic preferences, both simultaneously and without prior knowledge of the regime. For the Borda setting, we propose $\\texttt{SA-MiDEX}$, a stochastic-and-adversarial algorithm that achieves $O\\left(K^2 \\log KT + K \\log^2 T + \\sum_{i: \u0394_i^{\\mathrm{B}} > 0} \\frac{K\\log KT}{(\u0394_i^{\\mathrm{B}})^2}\\right)$ regret in stochastic environments and $O\\left(K \\sqrt{T \\log KT} + K^{1/3} T^{2/3} (\\log K)^{1/3}\\right)$ regret against adversaries, again without prior knowledge of the regime. We complement our upper bounds with matching lower bounds for the Condorcet setting. For the Borda setting, our upper bounds are near-optimal with respect to the lower bounds (within a factor of $K$) and match the best-known results in the literature.",
-    "authors": "S Akash, Pratik Gajane, Jawar Singh",
-    "venue": "arXiv 2026",
-    "section": "misc",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "compromise",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
-    "id": "2603.18570",
-    "title": "Attack by Unlearning: Unlearning-Induced Adversarial Attacks on Graph Neural Networks",
-    "abstract": "Graph neural networks (GNNs) are widely used for learning from graph-structured data in domains such as social networks, recommender systems, and financial platforms. To comply with privacy regulations like the GDPR, CCPA, and PIPEDA, approximate graph unlearning, which aims to remove the influence of specific data points from trained models without full retraining, has become an increasingly important component of trustworthy graph learning. However, approximate unlearning often incurs subtle performance degradation, which may incur negative and unintended side effects. In this work, we show that such degradations can be amplified into adversarial attacks. We introduce the notion of \\textbf{unlearning corruption attacks}, where an adversary injects carefully chosen nodes into the training graph and later requests their deletion. Because deletion requests are legally mandated and cannot be denied, this attack surface is both unavoidable and stealthy: the model performs normally during training, but accuracy collapses only after unlearning is applied. Technically, we formulate this attack as a bi-level optimization problem: to overcome the challenges of black-box unlearning and label scarcity, we approximate the unlearning process via gradient-based updates and employ a surrogate model to generate pseudo-labels for the optimization. Extensive experiments across benchmarks and unlearning algorithms demonstrate that small, carefully designed unlearning requests can induce significant accuracy degradation, raising urgent concerns about the robustness of GNN unlearning under real-world regulatory demands. The source code will be released upon paper acceptance.",
-    "authors": "Jiahao Zhang, Yilong Wang, Suhang Wang",
-    "venue": "arXiv 2026",
-    "section": "rf4_privacy",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "compromise",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2603.16137",
     "title": "SIA: A Synthesize-Inject-Align Framework for Knowledge-Grounded and Secure E-commerce Search LLMs with Industrial Deployment",
     "abstract": "Large language models offer transformative potential for e-commerce search by enabling intent-aware recommendations. However, their industrial deployment is hindered by two critical challenges: (1) knowledge hallucination due to insufficient encoding of dynamic, fine-grained product knowledge, and (2) security vulnerabilities under jailbreak attacks that threaten compliance. To address these issues, we propose SIA--a Synthesize-Inject-Align framework for building knowledgeable and secure e-commerce search LLMs. Our approach first synthesizes high-quality natural language corpus by combining structured knowledge graphs with unstructured behavioral logs, augmented with reasoning chains and safety-aware data. We then introduce a parameter-efficient pre-training strategy based on Depth Up-Scaling to inject domain knowledge while preserving general capabilities. Finally, a dual-path alignment method via multi-task instruction tuning and adversarial training strengthens both task performance and safety robustness. The framework has been deployed at JD.com, China's largest self-operated e-commerce platform, where A/B tests across five core search scenarios demonstrate significant improvements in key business metrics, validating its industrial effectiveness and scalability.",
@@ -1230,21 +1050,6 @@
     "is_relevant": false
   },
   {
-    "id": "2602.20418",
-    "title": "CITED: A Decision Boundary-Aware Signature for GNNs Towards Model Extraction Defense",
-    "abstract": "Graph neural networks (GNNs) have demonstrated superior performance in various applications, such as recommendation systems and financial risk management. However, deploying large-scale GNN models locally is particularly challenging for users, as it requires significant computational resources and extensive property data. Consequently, Machine Learning as a Service (MLaaS) has become increasingly popular, offering a convenient way to deploy and access various models, including GNNs. However, an emerging threat known as Model Extraction Attacks (MEAs) presents significant risks, as adversaries can readily obtain surrogate GNN models exhibiting similar functionality. Specifically, attackers repeatedly query the target model using subgraph inputs to collect corresponding responses. These input-output pairs are subsequently utilized to train their own surrogate models at minimal cost. Many techniques have been proposed to defend against MEAs, but most are limited to specific output levels (e.g., embedding or label) and suffer from inherent technical drawbacks. To address these limitations, we propose a novel ownership verification framework CITED which is a first-of-its-kind method to achieve ownership verification on both embedding and label levels. Moreover, CITED is a novel signature-based method that neither harms downstream performance nor introduces auxiliary models that reduce efficiency, while still outperforming all watermarking and fingerprinting approaches. Extensive experiments demonstrate the effectiveness and robustness of our CITED framework. Code is available at: https://github.com/LabRAI/CITED.",
-    "authors": "Bolin Shen, Md Shamim Seraj, Zhan Cheng et al.",
-    "venue": "arXiv 2026",
-    "section": "defence",
-    "risk_type": null,
-    "scope": "component",
-    "threat_tier": "compromise",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2602.18304",
     "title": "FeatureBleed: Inferring Private Enriched Attributes From Sparsity-Optimized AI Accelerators",
     "abstract": "Backend enrichment is now widely deployed in sensitive domains such as product recommendation pipelines, healthcare, and finance, where models are trained on confidential data and retrieve private features whose values influence inference behavior while remaining hidden from the API caller. This paper presents the first hardware-level backend retrieval data-stealing attack, showing that accelerator optimizations designed for performance can directly undermine data confidentiality and bypass state-of-the-art privacy defenses.   Our attack, FEATUREBLEED, exploits zero-skipping in AI accelerators to infer private backend-retrieved features solely through end-to-end timing, without relying on power analysis, DVFS manipulation, or shared-cache side channels. We evaluate FEATUREBLEED on three datasets spanning medical and non-medical domains: Texas-100X (clinical records), OrganAMNIST (medical imaging), and Census-19 (socioeconomic data). We further evaluate FEATUREBLEED across three hardware backends (Intel AVX, Intel AMX, and NVIDIA A100) and three model architectures (DNNs, CNNs, and hybrid CNN-MLP pipelines), demonstrating that the leakage generalizes across CPU and GPU accelerators, data modalities, and application domains, with an adversarial advantage of up to 98.87 percentage points.   Finally, we identify the root cause of the leakage as sparsity-driven zero-skipping in modern hardware. We quantify the privacy-performance-power trade-off: disabling zero-skipping increases Intel AMX per-operation energy by up to 25 percent and incurs 100 percent performance overhead. We propose a padding-based defense that masks timing leakage by equalizing responses to the worst-case execution time, achieving protection with only 7.24 percent average performance overhead and no additional power cost.",
@@ -1261,8 +1066,8 @@
   },
   {
     "id": "2602.11391",
-    "title": "Advancing AI Trustworthiness Through Patient Simulation: Risk Assessment of Conversational Agents for Antidepressant Selection",
-    "abstract": "Objective: This paper introduces a patient simulator for scalable, automated evaluation of healthcare conversational agents, generating realistic, controllable interactions that systematically vary across medical, linguistic, and behavioral dimensions to support risk assessment across populations. Methods: Grounded in the NIST AI Risk Management Framework, the simulator integrates three profile components: (1) medical profiles constructed from All of Us electronic health records using risk-ratio gating; (2) linguistic profiles modeling health literacy and condition-specific communication; and (3) behavioral profiles representing cooperative, distracted, and adversarial engagement. Profiles were evaluated against NIST AI RMF trustworthiness requirements and assessed against an AI Decision Aid for antidepressant selection. Results: Across 500 simulated conversations, the simulator revealed monotonic degradation in AI Decision Aid performance across health literacy levels: Rank-1 concept retrieval ranged from 47.6% (limited) to 81.9% (proficient), with corresponding recommendation degradation. Medical concept fidelity was high (96.6% across 8,210 concepts), validated by human annotators (0.73 kappa) and an LLM judge with comparable agreement (0.78 kappa). Behavioral profiles were reliably distinguished (0.93 kappa), and linguistic profiles showed moderate agreement (0.61 kappa). Conclusions: The simulator exposes measurable performance risks in conversational healthcare AI. Health literacy emerged as a primary risk factor with direct implications for equitable AI deployment.",
+    "title": "A Patient Simulation Framework for Risk Assessment of Conversational Healthcare AI: Evaluation of an Antidepressant Decision Aid",
+    "abstract": "Objective: This study develops and validates a patient simulation framework that aligns with the National Institute of Standards and Technology (NIST) AI Risk Management Framework (AI RMF) MAP and MEASURE functions, providing an empirical basis for identifying and characterizing performance risks in conversational clinical AI across medical, linguistic, and behavioral patient variation. We applied the framework to a conversational decision aid for antidepressant selection in major depressive disorder (the AI Decision Aid). Methods: The simulator integrates three profile dimensions: (1) medical profiles constructed from All of Us electronic health records using risk-ratio gating; (2) linguistic profiles modeling a health literacy gradient and condition-specific communication; and (3) behavioral profiles representing cooperative, distracted, and adversarial engagement. We generated 500 simulated conversations and evaluated profile fidelity through human annotation and an LLM judge, then assessed downstream effects on the AI Decision Aid's concept retrieval and antidepressant recommendations. Results: The patient simulator expressed medical concepts with high fidelity (96.6% accurate across 8,210 concepts), with human inter-annotator agreement of 0.73 $\u03ba$ and LLM-judge agreement against human annotators of 0.78 $\u03ba$. Behavioral profiles were reliably distinguished (0.93 $\u03ba$), and linguistic profiles showed moderate agreement (0.61 $\u03ba$). The framework revealed monotonic degradation in AI Decision Aid performance across the health literacy gradient. Rank-1 concept retrieval increased from 47.6% for limited health literacy to 81.9% for proficient health literacy, with corresponding declines in antidepressant recommendation accuracy.",
     "authors": "Md Tanvir Rouf Shawon, Mohammad Sabik Irbaz, Hadeel R. A. Elyazori et al.",
     "venue": "arXiv 2026",
     "section": "evaluation",
@@ -1273,21 +1078,6 @@
     "doi": null,
     "notes": "",
     "is_relevant": false
-  },
-  {
-    "id": "2602.10633",
-    "title": "A Cognitive Distribution and Behavior-Consistent Framework for Black-Box Attacks on Recommender Systems",
-    "abstract": "With the growing deployment of sequential recommender systems in e-commerce and other fields, their black-box interfaces raise security concerns: models are vulnerable to extraction and subsequent adversarial manipulation. Existing black-box extraction attacks primarily rely on hard labels or pairwise learning, often ignoring the importance of ranking positions, which results in incomplete knowledge transfer. Moreover, adversarial sequences generated via pure gradient methods lack semantic consistency with real user behavior, making them easily detectable. To overcome these limitations, this paper proposes a dual-enhanced attack framework. First, drawing on primacy effects and position bias, we introduce a cognitive distribution-driven extraction mechanism that maps discrete rankings into continuous value distributions with position-aware decay, thereby advancing from order alignment to cognitive distribution alignment. Second, we design a behavior-aware noisy item generation strategy that jointly optimizes collaborative signals and gradient signals. This ensures both semantic coherence and statistical stealth while effectively promoting target item rankings. Extensive experiments on multiple datasets demonstrate that our approach significantly outperforms existing methods in both attack success rate and evasion rate, validating the value of integrating cognitive modeling and behavioral consistency for secure recommender systems.",
-    "authors": "Hongyue Zhang, Mingming Li, Dongqin Liu et al.",
-    "venue": "arXiv 2026",
-    "section": "misc",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "compromise",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
   },
   {
     "id": "2602.09306",
@@ -1365,6 +1155,21 @@
     "is_relevant": false
   },
   {
+    "id": "2602.16304",
+    "title": "An Evaluation of Large Language Models for Detection of Malicious Python Packages",
+    "abstract": "Modern software development relies on open-source package repositories. Attackers use these to distribute malicious packages. Large Language Models (LLMs) can automatically detect these packages, but their ability to pinpoint specific malicious behaviors remains unclear. We evaluate 13 LLMs on two tasks using a dataset of 4,070 PyPI packages (370 malicious, 3,700 benign). The first task detects whether a package is malicious. The second identifies specific malicious indicators (lines of code). We evaluate each LLM across five prompt strategies and three temperatures.   For the first task, LLMs achieve mean F1 scores from 0.40 to 0.99, detecting most malicious packages but frequently flagging safe ones. For the second task, LLMs achieve a weighted F1 score of 0.69 for recognizing behavior types, dropping to 0.48 when identifying specific indicators. LLMs recognize standard code patterns but miss indicators requiring broader context or the author's intent. LLMs also report absent indicators. Evaluating the association between performance and model size, context width, prompt strategy, temperature, and code complexity reveals only code complexity has a meaningful impact: longer packages are harder to analyze. We recommend using LLMs for initial triage to flag suspicious packages for human review, rather than identifying specific malicious mechanisms.",
+    "authors": "Ahmed Ryan, Ibrahim Khalil, Abdullah Al Jahid et al.",
+    "venue": "arXiv 2026",
+    "section": "evaluation",
+    "risk_type": null,
+    "scope": "component",
+    "threat_tier": "compromise",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": false
+  },
+  {
     "id": "2602.12806",
     "title": "RAT-Bench: A Comprehensive Benchmark for Text Anonymization",
     "abstract": "Data containing personal information is increasingly used to train, fine-tune, or query Large Language Models (LLMs). Text is typically scrubbed of identifying information prior to use, often with tools such as Microsoft's Presidio or Anthropic's PII purifier. These tools have traditionally been evaluated on their ability to remove specific identifiers (e.g., names), yet their effectiveness at preventing re-identification remains unclear. We introduce RAT-Bench, a comprehensive benchmark for text anonymization tools based on re-identification risk. Using U.S. demographic statistics, we generate synthetic text containing various direct and indirect identifiers across domains, languages, and difficulty levels. We evaluate a range of NER- and LLM-based text anonymization tools and, based on the attributes an LLM-based attacker is able to correctly infer from the anonymized text, we report the risk of re-identification in the U.S. population, while properly accounting for the disparate impact of identifiers. We find that, while capabilities vary widely, even the best tools are far from perfect in particular when direct identifiers are not written in standard ways and when indirect identifiers enable re-identification. Overall we find LLM-based anonymizers, including new iterative anonymizers, to provide a better privacy-utility trade-off albeit at a higher computational cost. Importantly, we also find them to work well across languages. We conclude with recommendations for future anonymization tools and will release the benchmark and encourage community efforts to expand it, in particular to other geographies.",
@@ -1382,7 +1187,7 @@
   {
     "id": "2602.06409",
     "title": "VENOMREC: Cross-Modal Interactive Poisoning for Targeted Promotion in Multimodal LLM Recommender Systems",
-    "abstract": "Multimodal large language models (MLLMs) are pushing recommender systems (RecSys) toward content-grounded retrieval and ranking via cross-modal fusion. We find that while cross-modal consensus often mitigates conventional poisoning that manipulates interaction logs or perturbs a single modality, it also introduces a new attack surface where synchronised multimodal poisoning can reliably steer fused representations along stable semantic directions during fine-tuning. To characterise this threat, we formalise cross-modal interactive poisoning and propose VENOMREC, which performs Exposure Alignment to identify high-exposure regions in the joint embedding space and Cross-modal Interactive Perturbation to craft attention-guided coupled token-patch edits. Experiments on three real-world multimodal datasets demonstrate that VENOMREC consistently outperforms strong baselines, achieving 0.73 mean ER@20 and improving over the strongest baseline by +0.52 absolute ER points on average, while maintaining comparable recommendation utility.",
+    "abstract": "Multimodal large language models (MLLMs) are pushing recommender systems (RecSys) toward content-grounded retrieval and ranking via cross-modal fusion. We find that while cross-modal consensus often mitigates conventional poisoning that manipulates interaction logs or perturbs a single modality, it also introduces a new attack surface where synchronised multimodal poisoning can reliably steer fused representations along stable semantic directions during fine-tuning. To characterise this threat, we formalise cross-modal interactive poisoning and propose VENOMREC, which performs Exposure Alignment to identify high-exposure regions in the joint embedding space and Cross-modal Interactive Perturbation to craft attention-guided coupled token--patch edits. Experiments on four real-world multimodal datasets demonstrate that VENOMREC consistently outperforms strong baselines, achieving 0.73 mean ER@20 and improving over the strongest baseline by +0.52 absolute ER points on average, while maintaining comparable recommendation utility. Code is available at https://github.com/GuoweiGuan666/VenomRec.",
     "authors": "Guowei Guan, Yurong Hao, Jiaming Zhang et al.",
     "venue": "arXiv 2026",
     "section": "rf2_poisoning",
@@ -1472,7 +1277,7 @@
   {
     "id": "2512.18542",
     "title": "SecureCode: A Production-Grade Multi-Turn Dataset for Training Security-Aware Code Generation Models",
-    "abstract": "AI coding assistants produce vulnerable code in 45\\% of security-relevant scenarios~\\cite{veracode2025}, yet no public training dataset teaches both traditional web security and AI/ML-specific defenses in a format suitable for instruction tuning.   We present SecureCode, a production-grade dataset of 2,185 multi-turn security training examples spanning two domains: web application security (1,435 examples covering the OWASP Top 10 2021 across 11 languages and 9 frameworks, 100\\% grounded in documented CVEs and security incidents) and AI/ML security (750 examples covering all 10 OWASP LLM Top 10 2025 categories across more than 40 frameworks, including LangChain, OpenAI, and Hugging Face). Every example follows a 4-turn conversational structure -- feature request; vulnerable and secure implementations with attack demonstrations; advanced probing; and defense-in-depth operational guidance -- designed for direct use in instruction tuning pipelines.   Quality assurance combines automated structural validation with multi-agent review from seven specialist AI perspectives (more than 10{,}500 assessments) and an 8-phase remediation pipeline, producing a rubric-calibrated mean quality score of 93.8/100 ($\u03c3= 0.93$) for the AI/ML component. Each example provides SIEM integration strategies, infrastructure hardening recommendations, and testing approaches using production frameworks.   We release the unified dataset on Hugging Face with domain-specific loading configurations (web, aiml, default), alongside eight fine-tuned open-source models (3B--20B parameters, QLoRA), and an evaluation framework with four security-specific metrics. To our knowledge, SecureCode is the first public dataset that jointly provides OWASP Top 10 2021 web coverage and OWASP LLM Top 10 2025 AI/ML coverage in a unified conversational schema suitable for instruction tuning.",
+    "abstract": "AI coding assistants produce vulnerable code in 45\\% of security-relevant scenarios~\\cite{veracode2025}, yet no public training dataset teaches both traditional web security and AI/ML-specific defenses in a format suitable for instruction tuning. We present SecureCode, a production-grade dataset of 2,185 multi-turn security training examples spanning two domains: web application security (1,435 examples covering the OWASP Top 10 2021 across 11 languages and 9 frameworks, 100\\% grounded in documented CVEs and security incidents) and AI/ML security (750 examples covering all 10 OWASP LLM Top 10 2025 categories across more than 40 frameworks, including LangChain, OpenAI, and Hugging Face). Every example follows a 4-turn conversational structure -- feature request; vulnerable and secure implementations with attack demonstrations; advanced probing; and defense-in-depth operational guidance -- designed for direct use in instruction tuning pipelines.   Quality assurance combines automated structural validation with multi-agent review from seven specialist AI perspectives (more than 10{,}500 assessments) and an 8-phase remediation pipeline, producing a rubric-calibrated mean quality score of 93.8/100 ($\u03c3= 0.93$) for the AI/ML component. Each example provides SIEM integration strategies, infrastructure hardening recommendations, and testing approaches using production frameworks. We release the unified dataset on Hugging Face with domain-specific loading configurations (web, aiml, default), alongside eight fine-tuned open-source models (3B--20B parameters, QLoRA), and an evaluation framework with four security-specific metrics. To our knowledge, SecureCode is the first public dataset that jointly provides OWASP Top 10 2021 web coverage and OWASP LLM Top 10 2025 AI/ML coverage in a unified conversational schema suitable for instruction tuning.",
     "authors": "Scott Thornton",
     "venue": "arXiv 2025",
     "section": "evaluation",
@@ -1680,36 +1485,6 @@
     "is_relevant": false
   },
   {
-    "id": "2601.19142",
-    "title": "Length-Adaptive Interest Network for Balancing Long and Short Sequence Modeling in CTR Prediction",
-    "abstract": "User behavior sequences in modern recommendation systems exhibit significant length heterogeneity, ranging from sparse short-term interactions to rich long-term histories. While longer sequences provide more context, we observe that increasing the maximum input sequence length in existing CTR models paradoxically degrades performance for short-sequence users due to attention polarization and length imbalance in training data. To address this, we propose LAIN(Length-Adaptive Interest Network), a plug-and-play framework that explicitly incorporates sequence length as a conditioning signal to balance long- and short-sequence modeling. LAIN consists of three lightweight components: a Spectral Length Encoder that maps length into continuous representations, Length-Conditioned Prompting that injects global contextual cues into both long- and short-term behavior branches, and Length-Modulated Attention that adaptively adjusts attention sharpness based on sequence length. Extensive experiments on three real-world benchmarks across five strong CTR backbones show that LAIN consistently improves overall performance, achieving up to 1.15% AUC gain and 2.25% log loss reduction. Notably, our method significantly improves accuracy for short-sequence users without sacrificing longsequence effectiveness. Our work offers a general, efficient, and deployable solution to mitigate length-induced bias in sequential recommendation.",
-    "authors": "Zhicheng Zhang, Zhaocheng Du, Jieming Zhu et al.",
-    "venue": "arXiv 2026",
-    "section": "evaluation",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
-    "id": "2601.16356",
-    "title": "The Behavioral Fabric of LLM-Powered GUI Agents: Human Values and Interaction Outcomes",
-    "abstract": "Large Language Model (LLM)-powered web GUI agents are increasingly automating everyday online tasks. Despite their popularity, little is known about how users' preferences and values impact agents' reasoning and behavior. In this work, we investigate how both explicit and implicit user preferences, as well as the underlying user values, influence agent decision-making and action trajectories. We built a controlled testbed of 14 common interactive web tasks, spanning shopping, travel, dining, and housing, each replicated from real websites and integrated with a low-fidelity LLM-based recommender system. We injected 12 human preferences and values as personas into four state-of-the-art agents and systematically analyzed their task behaviors. Our results show that preference and value-infused prompts consistently guided agents toward outcomes that reflected these preferences and values. While the absence of user preference or value guidance led agents to exhibit a strong efficiency bias and employ shortest-path strategies, their presence steered agents' behavior trajectories through the greater use of corresponding filters and interactive web features. Despite their influence, dominant interface cues, such as discounts and advertisements, frequently overrode these effects, shortening the agents' action trajectories and inducing rationalizations that masked rather than reflected value-consistent reasoning. The contributions of this paper are twofold: (1) an open-source testbed for studying the influence of values in agent behaviors, and (2) an empirical investigation of how user preferences and values shape web agent behaviors.",
-    "authors": "Simret Araya Gebreegziabher, Yukun Yang, Charles Chiang et al.",
-    "venue": "arXiv 2026",
-    "section": "misc",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2512.00742",
     "title": "On the Regulatory Potential of User Interfaces for AI Agent Governance",
     "abstract": "AI agents that take actions in their environment autonomously over extended time horizons require robust governance interventions to curb their potentially consequential risks. Prior proposals for governing AI agents primarily target system-level safeguards (e.g., prompt injection monitors) or agent infrastructure (e.g., agent IDs). In this work, we explore a complementary approach: regulating user interfaces of AI agents as a way of enforcing transparency and behavioral requirements that then demand changes at the system and/or infrastructure levels. Specifically, we analyze 22 existing agentic systems to identify UI elements that play key roles in human-agent interaction and communication. We then synthesize those elements into six high-level interaction design patterns that hold regulatory potential (e.g., requiring agent memory to be editable). We conclude with policy recommendations based on our analysis. Our work exposes a new surface for regulatory action that supplements previous proposals for practical AI agent governance.",
@@ -1845,21 +1620,6 @@
     "is_relevant": false
   },
   {
-    "id": "2601.02002",
-    "title": "Exploring Approaches for Detecting Memorization of Recommender System Data in Large Language Models",
-    "abstract": "Large Language Models (LLMs) are increasingly applied in recommendation scenarios due to their strong natural language understanding and generation capabilities. However, they are trained on vast corpora whose contents are not publicly disclosed, raising concerns about data leakage. Recent work has shown that the MovieLens-1M dataset is memorized by both the LLaMA and OpenAI model families, but the extraction of such memorized data has so far relied exclusively on manual prompt engineering. In this paper, we pose three main questions: Is it possible to enhance manual prompting? Can LLM memorization be detected through methods beyond manual prompting? And can the detection of data leakage be automated? To address these questions, we evaluate three approaches: (i) jailbreak prompt engineering; (ii) unsupervised latent knowledge discovery, probing internal activations via Contrast-Consistent Search (CCS) and Cluster-Norm; and (iii) Automatic Prompt Engineering (APE), which frames prompt discovery as a meta-learning process that iteratively refines candidate instructions. Experiments on MovieLens-1M using LLaMA models show that jailbreak prompting does not improve the retrieval of memorized items and remains inconsistent; CCS reliably distinguishes genuine from fabricated movie titles but fails on numerical user and rating data; and APE retrieves item-level information with moderate success yet struggles to recover numerical interactions. These findings suggest that automatically optimizing prompts is the most promising strategy for extracting memorized samples.",
-    "authors": "Antonio Colacicco, Vito Guida, Dario Di Palma et al.",
-    "venue": "arXiv 2026",
-    "section": "rf1_injection",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "compromise",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2512.06387",
     "title": "Beyond Model Jailbreak: Systematic Dissection of the \"Ten DeadlySins\" in Embodied Intelligence",
     "abstract": "Embodied AI systems integrate language models with real world sensing, mobility, and cloud connected mobile apps. Yet while model jailbreaks have drawn significant attention, the broader system stack of embodied intelligence remains largely unexplored. In this work, we conduct the first holistic security analysis of the Unitree Go2 platform and uncover ten cross layer vulnerabilities the \"Ten Sins of Embodied AI Security.\" Using BLE sniffing, traffic interception, APK reverse engineering, cloud API testing, and hardware probing, we identify systemic weaknesses across three architectural layers: wireless provisioning, core modules, and external interfaces. These include hard coded keys, predictable handshake tokens, WiFi credential leakage, missing TLS validation, static SSH password, multilingual safety bypass behavior, insecure local relay channels, weak binding logic, and unrestricted firmware access. Together, they allow adversaries to hijack devices, inject arbitrary commands, extract sensitive information, or gain full physical control.Our findings show that securing embodied AI requires far more than aligning the model itself. We conclude with system level lessons learned and recommendations for building embodied platforms that remain robust across their entire software hardware ecosystem.",
@@ -1963,21 +1723,6 @@
     "doi": null,
     "notes": "",
     "is_relevant": false
-  },
-  {
-    "id": "2602.16034",
-    "title": "FeDecider: An LLM-Based Framework for Federated Cross-Domain Recommendation",
-    "abstract": "Federated cross-domain recommendation (Federated CDR) aims to collaboratively learn personalized recommendation models across heterogeneous domains while preserving data privacy. Recently, large language model (LLM)-based recommendation models have demonstrated impressive performance by leveraging LLMs' strong reasoning capabilities and broad knowledge. However, adopting LLM-based recommendation models in Federated CDR scenarios introduces new challenges. First, there exists a risk of overfitting with domain-specific local adapters. The magnitudes of locally optimized parameter updates often vary across domains, causing biased aggregation and overfitting toward domain-specific distributions. Second, unlike traditional recommendation models (e.g., collaborative filtering, bipartite graph-based methods) that learn explicit and comparable user/item representations, LLMs encode knowledge implicitly through autoregressive text generation training. This poses additional challenges for effectively measuring the cross-domain similarities under heterogeneity. To address these challenges, we propose an LLM-based framework for federated cross-domain recommendation, FeDecider. Specifically, FeDecider tackles the challenge of scale-specific noise by disentangling each client's low-rank updates and sharing only their directional components. To handle the need for flexible and effective integration, each client further learns personalized weights that achieve the data-aware integration of updates from other domains. Extensive experiments across diverse datasets validate the effectiveness of our proposed FeDecider.",
-    "authors": "Xinrui He, Ting-Wei Li, Tianxin Wei et al.",
-    "venue": "arXiv 2026",
-    "section": "rf4_privacy",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
   },
   {
     "id": "2602.08997",
@@ -2220,21 +1965,6 @@
     "is_relevant": false
   },
   {
-    "id": "2603.12935",
-    "title": "Can Fairness Be Prompted? Prompt-Based Debiasing Strategies in High-Stakes Recommendations",
-    "abstract": "Large Language Models (LLMs) can infer sensitive attributes such as gender or age from indirect cues like names and pronouns, potentially biasing recommendations. While several debiasing methods exist, they require access to the LLMs' weights, are computationally costly, and cannot be used by lay users. To address this gap, we investigate implicit biases in LLM Recommenders (LLMRecs) and explore whether prompt-based strategies can serve as a lightweight and easy-to-use debiasing approach. We contribute three bias-aware prompting strategies for LLMRecs. To our knowledge, this is the first study on prompt-based debiasing approaches in LLMRecs that focuses on group fairness for users. Our experiments with 3 LLMs, 4 prompt templates, 9 sensitive attribute values, and 2 datasets show that our proposed debiasing approach, which instructs an LLM to be fair, can improve fairness by up to 74% while retaining comparable effectiveness, but might overpromote specific demographic groups in some cases.",
-    "authors": "Mihaela Rotar, Theresia Veronika Rampisela, Maria Maistro",
-    "venue": "arXiv 2026",
-    "section": "fairness",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2602.01779",
     "title": "LingLanMiDian: Systematic Evaluation of LLMs on TCM Knowledge and Clinical Reasoning",
     "abstract": "Large language models (LLMs) are advancing rapidly in medical NLP, yet Traditional Chinese Medicine (TCM) with its distinctive ontology, terminology, and reasoning patterns requires domain-faithful evaluation. Existing TCM benchmarks are fragmented in coverage and scale and rely on non-unified or generation-heavy scoring that hinders fair comparison. We present the LingLanMiDian (LingLan) benchmark, a large-scale, expert-curated, multi-task suite that unifies evaluation across knowledge recall, multi-hop reasoning, information extraction, and real-world clinical decision-making. LingLan introduces a consistent metric design, a synonym-tolerant protocol for clinical labels, a per-dataset 400-item Hard subset, and a reframing of diagnosis and treatment recommendation into single-choice decision recognition. We conduct comprehensive, zero-shot evaluations on 14 leading open-source and proprietary LLMs, providing a unified perspective on their strengths and limitations in TCM commonsense knowledge understanding, reasoning, and clinical decision support; critically, the evaluation on Hard subset reveals a substantial gap between current models and human experts in TCM-specialized reasoning. By bridging fundamental knowledge and applied reasoning through standardized evaluation, LingLan establishes a unified, quantitative, and extensible foundation for advancing TCM LLMs and domain-specific medical AI research. All evaluation data and code are available at https://github.com/TCMAI-BJTU/LingLan and http://tcmnlp.com.",
@@ -2248,21 +1978,6 @@
     "doi": null,
     "notes": "",
     "is_relevant": false
-  },
-  {
-    "id": "2602.02582",
-    "title": "Uncertainty and Fairness Awareness in LLM-Based Recommendation Systems",
-    "abstract": "Large language models (LLMs) enable powerful zero-shot recommendations by leveraging broad contextual knowledge, yet predictive uncertainty and embedded biases threaten reliability and fairness. This paper studies how uncertainty and fairness evaluations affect the accuracy, consistency, and trustworthiness of LLM-generated recommendations. We introduce a benchmark of curated metrics and a dataset annotated for eight demographic attributes (31 categorical values) across two domains: movies and music. Through in-depth case studies, we quantify predictive uncertainty (via entropy) and demonstrate that Google DeepMind's Gemini 1.5 Flash exhibits systematic unfairness for certain sensitive attributes; measured similarity-based gaps are SNSR at 0.1363 and SNSV at 0.0507. These disparities persist under prompt perturbations such as typographical errors and multilingual inputs. We further integrate personality-aware fairness into the RecLLM evaluation pipeline to reveal personality-linked bias patterns and expose trade-offs between personalization and group fairness. We propose a novel uncertainty-aware evaluation methodology for RecLLMs, present empirical insights from deep uncertainty case studies, and introduce a personality profile-informed fairness benchmark that advances explainability and equity in LLM recommendations. Together, these contributions establish a foundation for safer, more interpretable RecLLMs and motivate future work on multi-model benchmarks and adaptive calibration for trustworthy deployment.",
-    "authors": "Chandan Kumar Sah, Xiaoli Lian, Li Zhang et al.",
-    "venue": "arXiv 2026",
-    "section": "fairness",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
   },
   {
     "id": "2604.09553",
@@ -2280,36 +1995,6 @@
     "is_relevant": false
   },
   {
-    "id": "2601.19197",
-    "title": "HELM: A Human-Centered Evaluation Framework for LLM-Powered Recommender Systems",
-    "abstract": "The integration of Large Language Models (LLMs) into recommendation systems has introduced unprecedented capabilities for natural language understanding, explanation generation, and conversational interactions. However, existing evaluation methodologies focus predominantly on traditional accuracy metrics, failing to capture the multifaceted human-centered qualities that determine the real-world user experience. We introduce \\framework{} (\\textbf{H}uman-centered \\textbf{E}valuation for \\textbf{L}LM-powered reco\\textbf{M}menders), a comprehensive evaluation framework that systematically assesses LLM-powered recommender systems across five human-centered dimensions: \\textit{Intent Alignment}, \\textit{Explanation Quality}, \\textit{Interaction Naturalness}, \\textit{Trust \\& Transparency}, and \\textit{Fairness \\& Diversity}. Through extensive experiments involving three state-of-the-art LLM-based recommenders (GPT-4, LLaMA-3.1, and P5) across three domains (movies, books, and restaurants), and rigorous evaluation by 12 domain experts using 847 recommendation scenarios, we demonstrate that \\framework{} reveals critical quality dimensions invisible to traditional metrics. Our results show that while GPT-4 achieves superior explanation quality (4.21/5.0) and interaction naturalness (4.35/5.0), it exhibits a significant popularity bias (Gini coefficient 0.73) compared to traditional collaborative filtering (0.58). We release \\framework{} as an open-source toolkit to advance human-centered evaluation practices in the recommender systems community.",
-    "authors": "Sushant Mehta",
-    "venue": "arXiv 2026",
-    "section": "rf5_bias",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
-    "id": "2601.17492",
-    "title": "Towards Fair Large Language Model-based Recommender Systems without Costly Retraining",
-    "abstract": "Large Language Models (LLMs) have revolutionized Recommender Systems (RS) through advanced generative user modeling. However, LLM-based RS (LLM-RS) often inadvertently perpetuates bias present in the training data, leading to severe fairness issues. Addressing these fairness problems in LLM-RS faces two significant challenges. 1) Existing debiasing methods, designed for specific bias types, lack the generality to handle diverse or emerging biases in real-world applications. 2) Debiasing methods relying on retraining are computationally infeasible given the massive parameter scale of LLMs. To overcome these challenges, we propose FUDLR (Fast Unified Debiasing for LLM-RS). The core idea is to reformulate the debiasing problem as an efficient machine unlearning task with two stages. First, FUDLR identifies bias-inducing samples to unlearn through a novel bias-agnostic mask, optimized to balance fairness improvement with accuracy preservation. Its bias-agnostic design allows adaptability to various or co-existing biases simply by incorporating different fairness metrics. Second, FUDLR performs efficient debiasing by estimating and removing the influence of identified samples on model parameters. Extensive experiments demonstrate that FUDLR effectively and efficiently improves fairness while preserving recommendation accuracy, offering a practical path toward socially responsible LLM-RS. The code and data are available at https://github.com/JinLi-i/FUDLR.",
-    "authors": "Jin Li, Huilin Gu, Shoujin Wang et al.",
-    "venue": "arXiv 2026",
-    "section": "fairness",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2601.09869",
     "title": "A Scoping Review of the Ethical Perspectives on Anthropomorphising Large Language Model-Based Conversational Agents",
     "abstract": "Anthropomorphisation -- the phenomenon whereby non-human entities are ascribed human-like qualities -- has become increasingly salient with the rise of large language model (LLM)-based conversational agents (CAs). Unlike earlier chatbots, LLM-based CAs routinely generate interactional and linguistic cues, such as first-person self-reference, epistemic and affective expressions that empirical work shows can increase engagement. On the other hand, anthropomorphisation raises ethical concerns, including deception, overreliance, and exploitative relationship framing, while some authors argue that anthropomorphic interaction may support autonomy, well-being, and inclusion. Despite increasing interest in the phenomenon, literature remains fragmented across domains and varies substantially in how it defines, operationalizes, and normatively evaluates anthropomorphisation. This scoping review maps ethically oriented work on anthropomorphising LLM-based CAs across five databases and three preprint repositories. We synthesize (1) conceptual foundations, (2) ethical challenges and opportunities, and (3) methodological approaches. We find convergence on attribution-based definitions but substantial divergence in operationalization, a predominantly risk-forward normative framing, and limited empirical work that links observed interaction effects to actionable governance guidance. We conclude with a research agenda and design/governance recommendations for ethically deploying anthropomorphic cues in LLM-based conversational agents.",
@@ -2323,21 +2008,6 @@
     "doi": null,
     "notes": "",
     "is_relevant": false
-  },
-  {
-    "id": "2601.09478",
-    "title": "Bridging Semantic Understanding and Popularity Bias with LLMs",
-    "abstract": "Semantic understanding of popularity bias is a crucial yet underexplored challenge in recommender systems, where popular items are often favored at the expense of niche content. Most existing debiasing methods treat the semantic understanding of popularity bias as a matter of diversity enhancement or long-tail coverage, neglecting the deeper semantic layer that embodies the causal origins of the bias itself. Consequently, such shallow interpretations limit both their debiasing effectiveness and recommendation accuracy. In this paper, we propose FairLRM, a novel framework that bridges the gap in the semantic understanding of popularity bias with Recommendation via Large Language Model (RecLLM). FairLRM decomposes popularity bias into item-side and user-side components, using structured instruction-based prompts to enhance the model's comprehension of both global item distributions and individual user preferences. Unlike traditional methods that rely on surface-level features such as \"diversity\" or \"debiasing\", FairLRM improves the model's ability to semantically interpret and address the underlying bias. Through empirical evaluation, we show that FairLRM significantly enhances both fairness and recommendation accuracy, providing a more semantically aware and trustworthy approach to enhance the semantic understanding of popularity bias. The implementation is available at https://github.com/LuoRenqiang/FairLRM.",
-    "authors": "Renqiang Luo, Dong Zhang, Yupeng Gao et al.",
-    "venue": "arXiv 2026",
-    "section": "rf5_bias",
-    "risk_type": "A",
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
   },
   {
     "id": "2601.10719",
@@ -2473,36 +2143,6 @@
     "doi": null,
     "notes": "",
     "is_relevant": false
-  },
-  {
-    "id": "2601.11369",
-    "title": "Institutional AI: Governing LLM Collusion in Multi-Agent Cournot Markets via Public Governance Graphs",
-    "abstract": "Multi-agent LLM ensembles can converge on coordinated, socially harmful equilibria. This paper advances an experimental framework for evaluating Institutional AI, our system-level approach to AI alignment that reframes alignment from preference engineering in agent-space to mechanism design in institution-space. Central to this approach is the governance graph, a public, immutable manifest that declares legal states, transitions, sanctions, and restorative paths; an Oracle/Controller runtime interprets this manifest, attaching enforceable consequences to evidence of coordination while recording a cryptographically keyed, append-only governance log for audit and provenance. We apply the Institutional AI framework to govern the Cournot collusion case documented by prior work and compare three regimes: Ungoverned (baseline incentives from the structure of the Cournot market), Constitutional (a prompt-only policy-as-prompt prohibition implemented as a fixed written anti-collusion constitution, and Institutional (governance-graph-based). Across six model configurations including cross-provider pairs (N=90 runs/condition), the Institutional regime produces large reductions in collusion: mean tier falls from 3.1 to 1.8 (Cohen's d=1.28), and severe-collusion incidence drops from 50% to 5.6%. The prompt-only Constitutional baseline yields no reliable improvement, illustrating that declarative prohibitions do not bind under optimisation pressure. These results suggest that multi-agent alignment may benefit from being framed as an institutional design problem, where governance graphs can provide a tractable abstraction for alignment-relevant collective behavior.",
-    "authors": "Marcantonio Bracale Syrnikov, Federico Pierucci, Marcello Galisai et al.",
-    "venue": "arXiv 2026",
-    "section": "collusion",
-    "risk_type": "E",
-    "scope": "composition",
-    "threat_tier": "misalignment",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
-    "id": "2601.04583",
-    "title": "Autonomous Agents on Blockchains: Standards, Execution Models, and Trust Boundaries",
-    "abstract": "Advances in large language models have enabled agentic AI systems that can reason, plan, and interact with external tools to execute multi-step workflows, while public blockchains have evolved into a programmable substrate for value transfer, access control, and verifiable state transitions. Their convergence introduces a high-stakes systems challenge: designing standard, interoperable, and secure interfaces that allow agents to observe on-chain state, formulate transaction intents, and authorize execution without exposing users, protocols, or organizations to unacceptable security, governance, or economic risks. This survey systematizes the emerging landscape of agent-blockchain interoperability through a systematic literature review, identifying 317 relevant works from an initial pool of over 3000 records. We contribute a five-part taxonomy of integration patterns spanning read-only analytics, simulation and intent generation, delegated execution, autonomous signing, and multi-agent workflows; a threat model tailored to agent-driven transaction pipelines that captures risks ranging from prompt injection and policy misuse to key compromise, adversarial execution dynamics, and multi-agent collusion; and a comparative capability matrix analyzing more than 20 representative systems across 13 dimensions, including custody models, permissioning, policy enforcement, observability, and recovery. Building on the gaps revealed by this analysis, we outline a research roadmap centered on two interface abstractions: a Transaction Intent Schema for portable and unambiguous goal specification, and a Policy Decision Record for auditable, verifiable policy enforcement across execution environments. We conclude by proposing a reproducible evaluation suite and benchmarks for assessing the safety, reliability, and economic robustness of agent-mediated on-chain execution.",
-    "authors": "Saad Alqithami",
-    "venue": "arXiv 2026",
-    "section": "rf1_injection",
-    "risk_type": "E",
-    "scope": "composition",
-    "threat_tier": "compromise",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
   },
   {
     "id": "2601.03061",
@@ -2715,24 +2355,9 @@
     "is_relevant": false
   },
   {
-    "id": "2602.08837",
-    "title": "AMEM4Rec: Leveraging Cross-User Similarity for Memory Evolution in Agentic LLM Recommenders",
-    "abstract": "Agentic systems powered by Large Language Models (LLMs) have shown strong potential in recommender systems but remain hindered by several challenges. Fine-tuning LLMs is parameter-inefficient, and prompt-based agentic reasoning is limited by context length and hallucination risk. Moreover, existing agentic recommendation systems predominantly leverages semantic knowledge while neglecting the collaborative filtering (CF) signals essential for implicit preference modeling. To address these limitations, we propose AMEM4Rec, an agentic LLM-based recommender that learns collaborative signals in an end-to-end manner through cross-user memory evolution. AMEM4Rec stores abstract user behavior patterns from user histories in a global memory pool. Within this pool, memories are linked to similar existing ones and iteratively evolved to reinforce shared cross-user patterns, enabling the system to become aware of CF signals without relying on a pre-trained CF model. Extensive experiments on Amazon and MIND datasets show that AMEM4Rec consistently outperforms state-of-the-art LLM-based recommenders, demonstrating the effectiveness of evolving memory-guided collaborative filtering.",
-    "authors": "Minh-Duc Nguyen, Hai-Dang Kieu, Dung D. Le",
-    "venue": "arXiv 2026",
-    "section": "misc",
-    "risk_type": "A",
-    "scope": "composition",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": true
-  },
-  {
     "id": "2602.13213",
     "title": "Agentic AI for Commercial Insurance Underwriting with Adversarial Self-Critique",
-    "abstract": "Commercial insurance underwriting is a labor-intensive process that requires manual review of extensive documentation to assess risk and determine policy pricing. While AI offers substantial efficiency improvements, existing solutions lack comprehensive reasoning capabilities and internal mechanisms to ensure reliability within regulated, high-stakes environments. Full automation remains impractical and inadvisable in scenarios where human judgment and accountability are critical. This study presents a decision-negative, human-in-the-loop agentic system that incorporates an adversarial self-critique mechanism as a bounded safety architecture for regulated underwriting workflows. Within this system, a critic agent challenges the primary agent's conclusions prior to submitting recommendations to human reviewers. This internal system of checks and balances addresses a critical gap in AI safety for regulated workflows. Additionally, the research develops a formal taxonomy of failure modes to characterize potential errors by decision-negative agents. This taxonomy provides a structured framework for risk identification and risk management in high-stakes applications. Experimental evaluation using 500 expert-validated underwriting cases demonstrates that the adversarial critique mechanism reduces AI hallucination rates from 11.3% to 3.8% and increases decision accuracy from 92% to 96%. At the same time, the framework enforces strict human authority over all binding decisions by design. These findings indicate that adversarial self-critique supports safer AI deployment in regulated domains and offers a model for responsible integration where human oversight is indispensable.",
+    "abstract": "Commercial insurance underwriting is a labor-intensive process that requires manual review of extensive documentation to assess risk and determine policy pricing. While AI offers substantial efficiency improvements, existing solutions lack comprehensive reasoning and internal mechanisms to ensure reliability in regulated, high-stakes environments. Full automation remains impractical and inadvisable when human judgment and accountability are critical. This study presents a decision-negative, human-in-the-loop agentic system that incorporates an adversarial self-critique mechanism as a bounded safety architecture for regulated underwriting workflows. In this system, a critic agent challenges the primary agent's conclusions prior to submitting recommendations to human reviewers. This internal system of checks and balances addresses a critical gap in AI safety for regulated workflows. Additionally, the research develops a formal taxonomy of failure modes to characterize potential errors by decision-negative agents. This taxonomy provides a structured framework for risk identification and management in high-stakes applications. Experimental evaluation using 500 expert-validated underwriting cases demonstrates that the adversarial critique mechanism reduces AI hallucination rates from 11.3% to 3.8% and increases decision accuracy from 92% to 96%. At the same time, the framework enforces strict human authority over all binding decisions by design. These findings indicate that adversarial self-critique supports safer AI deployment in regulated domains and offers a model for responsible integration where human oversight is indispensable.",
     "authors": "Joyjit Roy, Samaresh Kumar Singh",
     "venue": "arXiv 2026",
     "section": "evaluation",
@@ -2881,8 +2506,8 @@
   },
   {
     "id": "2508.00923",
-    "title": "Beyond Benchmarks: Dynamic, Automatic And Systematic Red-Teaming Agents For Trustworthy Medical Language Models",
-    "abstract": "Ensuring the safety and reliability of large language models (LLMs) in clinical practice is critical to prevent patient harm. However, LLMs are advancing so rapidly that static benchmarks quickly become obsolete or prone to overfitting, yielding a misleading picture of model trustworthiness. Here we introduce a Dynamic, Automatic, and Systematic (DAS) red-teaming framework that continuously stress-tests LLMs across four safety-critical axes: robustness, privacy, bias/fairness, and hallucination. Validated against board-certified clinicians with high concordance, a suite of adversarial agents autonomously mutates clinical test cases to uncover vulnerabilities in real time. Applying DAS to 15 proprietary and open-source LLMs revealed a profound gap between high static benchmark performance and low dynamic reliability - the ``Benchmarking Gap''. Despite median MedQA accuracy exceeding 80\\%, 94\\% of previously correct answers failed our dynamic robustness tests. Crucially, this brittleness generalized to the realistic, open-ended HealthBench dataset, where top-tier models exhibited failure rates exceeding 70\\% and stark shifts in model rankings across evaluations, suggesting that high scores on established static benchmarks may reflect superficial memorization. We observed similarly high failure rates across other domains: privacy leaks were elicited in 86\\% of scenarios, cognitive-bias priming altered clinical recommendations in 81\\% of fairness tests, and we identified hallucination rates exceeding 74\\% in widely used models. By converting medical LLM safety analysis from a static checklist into a dynamic stress-test, DAS provides a foundational, scalable, and living platform to surface the latent risks that must be addressed before the next generation of medical AI can be safely deployed.",
+    "title": "Addressing Benchmarking Gaps in Large Language Models for Health and Medicine with Dynamic Red-Teaming",
+    "abstract": "Large language models (LLMs) are increasingly used to answer health-related questions and support healthcare workflows, yet evidence for their safety still relies heavily on static benchmarks that can rapidly become obsolete or be optimized against. Here we introduce a Dynamic, Automatic, and Systematic (DAS) red-teaming audit framework that continuously stress-tests LLMs for health across four safety-critical axes: robustness, privacy, bias/fairness, and hallucination/factual inaccuracies. Validated against board-certified clinicians with high concordance, a suite of adversarial agents autonomously mutates health-related test cases to uncover vulnerabilities in real time. Applying DAS to 15 proprietary and open-source LLMs revealed a profound gap between high static benchmark performance and low dynamic reliability--the \"Benchmarking Gap\". Despite median MedQA accuracy exceeding 80\\%, 94\\% of previously correct answers failed under dynamic robustness testing. This brittleness generalized to the realistic, open-ended HealthBench dataset, where top-tier models exhibited failure rates exceeding 70\\% and sharp shifts in model rankings across evaluations, suggesting that high scores on established static benchmarks may reflect superficial memorization. We observed similarly high failure rates across other domains: privacy leaks were elicited in 86\\% of scenarios, cognitive-bias priming altered recommendations in 81\\% of fairness tests, and hallucination rates exceeded 74\\% in widely used models. By converting LLM safety evaluation for health from a static checklist into a living adversarial audit, DAS provides a scalable framework for surfacing latent risks before such systems are deployed in consumer-facing health assistants, clinician-facing tools, and broader healthcare workflows. Code is available at https://github.com/JZPeterPan/DAS-Medical-Red-Teaming-Agents.",
     "authors": "Jiazhen Pan, Bailiang Jian, Paul Hager et al.",
     "venue": "arXiv 2025",
     "section": "rf4_privacy",
@@ -3091,8 +2716,8 @@
   },
   {
     "id": "2601.14660",
-    "title": "NeuroFilter: Privacy Guardrails for Conversational LLM Agents",
-    "abstract": "This work addresses the computational challenge of enforcing privacy for agentic Large Language Models (LLMs), where privacy is governed by the contextual integrity framework. Indeed, existing defenses rely on LLM-mediated checking stages that add substantial latency and cost, and that can be undermined in multi-turn interactions through manipulation or benign-looking conversational scaffolding. Contrasting this background, this paper makes a key observation: internal representations associated with privacy-violating intent can be separated from benign requests using linear structure. Using this insight, the paper proposes NeuroFilter, a guardrail framework that operationalizes contextual integrity by mapping norm violations to simple directions in the model's activation space, enabling detection even when semantic filters are bypassed. The proposed filter is also extended to capture threats arising during long conversations using the concept of activation velocity, which measures cumulative drift in internal representations across turns. A comprehensive evaluation across over 150,000 interactions and covering models from 7B to 70B parameters, illustrates the strong performance of NeuroFilter in detecting privacy attacks while maintaining zero false positives on benign prompts, all while reducing the computational inference cost by several orders of magnitude when compared to LLM-based agentic privacy defenses.",
+    "title": "NeuroFilter: Activation-Based Guardrails for Privacy-Conscious LLM Agents",
+    "abstract": "Agentic Large Language Models (LLMs) are models able to reason, plan, and execute tools over unstructured data. These abilities are enabling transformative applications in domains spanning from personal assistant, financial, and legal domains. While these systems can substantially improve productivity and service quality, effective agency typically requires access to sensitive personal or organizational information. However, this access introduces critical inference-time privacy risks, specifically regarding contextually appropriate information disclosure. While recent studies highlight the inability of agentic LLMs to consistently adhere to privacy norms, existing defenses often rely on auxiliary LLM-based monitors. However, these defenses are expensive and offer limited protection against attacks that are robust to semantic censorship. To contrast this background, this paper proposes a notion of privacy filters based on activation probing. We show that these filters are both computationally efficient and effective for both single-turn and multi-turn conversational settings. Furthermore, this work provides the first systematic investigation into probing model internals across a conversation trajectory, moving beyond static, single-prompt analysis to capture the evolving state of privacy-sensitive interactions.",
     "authors": "Saswat Das, Ferdinando Fioretto",
     "venue": "arXiv 2026",
     "section": "rf4_privacy",
@@ -3180,6 +2805,21 @@
     "is_relevant": false
   },
   {
+    "id": "2512.19458",
+    "title": "VASP Agent: An Agentic Framework for Autonomous First-principles Calculations",
+    "abstract": "Large Language Models (LLMs) are increasingly embedded in agentic frameworks for scientific discovery. First-principles materials computation imposes a demanding standard for autonomy: successful execution depends on internally consistent inputs, supervision of long-running calculations, and verified outputs. Here we present VASP Agent, a coding-agent-centered system that combines reusable domain skills, deterministic tools, workspace-state inspection, runtime evidence, and scientific guardrails to execute multi-step VASP calculations. The system is evaluated across multiple tasks including structural relaxation, bandgap calculation, equilibrium lattice constant determination, and CO/Pt(111) adsorption. VASP Agent completes all evaluated cases, and its computed numerical results are compared with those obtained using pymatgen and other agentic tools. When large deviations occur, the calculation parameters produced by VASP Agent are more appropriate than those produced by LLM-based workflows. Failure analysis shows that errors that terminate fixed pipelines can be diagnosed and recovered under agentic control.",
+    "authors": "Zeyu Xia, Jinzhe Ma, Congjie Zheng et al.",
+    "venue": "arXiv 2025",
+    "section": "defence",
+    "risk_type": null,
+    "scope": "component",
+    "threat_tier": "drift",
+    "github": null,
+    "doi": null,
+    "notes": "",
+    "is_relevant": false
+  },
+  {
     "id": "2512.06556",
     "title": "Semantic Attacks on Tool-Augmented LLMs: Securing the Model Context Protocol Against Descriptor-Level Manipulation",
     "abstract": "The Model Context Protocol (MCP) enables Large Language Models (LLMs) to interact with external tools via tool descriptors, thereby extending their capabilities for task execution, autonomous decision-making, and multi-agent coordination. Existing MCP deployments treat tool descriptors as trusted metadata, despite their direct integration into the LLM reasoning context. This introduces a previously underexplored semantic attack surface. Current defenses primarily target prompt injection, neglecting descriptor-level manipulation that can bias tool selection and downstream reasoning. To address this gap, we formalize three descriptor-driven attack classes: Tool Poisoning, Shadowing, and Rug Pull. We propose a layered defense solution that integrates descriptor integrity verification, pre-context semantic vetting with an auxiliary LLM, and lightweight runtime guardrails, without requiring model retraining. We evaluate GPT-5.3, DeepSeek-V3, and LLaMA-3.5 across eight prompting strategies in controlled, adversarial MCP scenarios in which tool metadata is manipulated to simulate realistic attacks. Results demonstrate that descriptor manipulation can substantially alter tool-selection behavior, producing unsafe tool invocations in up to 36% of trials under baseline configurations. The proposed full-stack mitigation reduces unsafe invocations to 15% while increasing the block rate to 74%, demonstrating substantial improvement in resistance to descriptor-driven attacks. Cross-model analysis further reveals significant differences in robustness, latency, and sensitivity to descriptor-level manipulation across LLM architectures and prompting strategies. This study provides a controlled cross-model evaluation of descriptor-level threats and mitigation strategies in tool-calling LLM systems, establishing an empirical foundation for deploying secure and resilient tool-augmented LLMs.",
@@ -3261,21 +2901,6 @@
     "authors": "Yue Huang, Hang Hua, Yujun Zhou et al.",
     "venue": "arXiv 2025",
     "section": "evaluation",
-    "risk_type": null,
-    "scope": "component",
-    "threat_tier": "drift",
-    "github": null,
-    "doi": null,
-    "notes": "",
-    "is_relevant": false
-  },
-  {
-    "id": "2510.07645",
-    "title": "Banking Done Right: Redefining Retail Banking with Language-Centric AI",
-    "abstract": "This paper presents Ryt AI, an LLM-native agentic framework that powers Ryt Bank to enable customers to execute core financial transactions through natural language conversation. This represents the first global regulator-approved deployment worldwide where conversational AI functions as the primary banking interface, in contrast to prior assistants that have been limited to advisory or support roles. Built entirely in-house, Ryt AI is powered by ILMU, a closed-source LLM developed internally, and replaces rigid multi-screen workflows with a single dialogue orchestrated by four LLM-powered agents (Guardrails, Intent, Payment, and FAQ). Each agent attaches a task-specific LoRA adapter to ILMU, which is hosted within the bank's infrastructure to ensure consistent behavior with minimal overhead. Deterministic guardrails, human-in-the-loop confirmation, and a stateless audit architecture provide defense-in-depth for security and compliance. The result is Banking Done Right: demonstrating that regulator-approved natural-language interfaces can reliably support core financial operations under strict governance.",
-    "authors": "Xin Jie Chua, Jeraelyn Ming Li Tan, Jia Xuan Tan et al.",
-    "venue": "arXiv 2025",
-    "section": "defence",
     "risk_type": null,
     "scope": "component",
     "threat_tier": "drift",
