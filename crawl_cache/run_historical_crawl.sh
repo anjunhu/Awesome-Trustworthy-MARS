@@ -31,7 +31,7 @@ run_loa() {
     for year in "${years[@]}"; do
         from="${year}0101"
         if [[ "$year" == "2026" ]]; then
-            to="20260615"
+            to="20260816"
         else
             to="${year}1231"
         fi

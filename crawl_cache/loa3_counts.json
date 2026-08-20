@@ -13,29 +13,29 @@
       "panel_a": 0
     },
     "2022": {
-      "raw": 44,
+      "raw": 45,
       "panel_b": 0,
       "panel_a": 0
     },
     "2023": {
-      "raw": 63,
+      "raw": 65,
       "panel_b": 23,
       "panel_a": 2
     },
     "2024": {
-      "raw": 176,
-      "panel_b": 75,
-      "panel_a": 3
+      "raw": 204,
+      "panel_b": 89,
+      "panel_a": 4
     },
     "2025": {
-      "raw": 252,
-      "panel_b": 104,
-      "panel_a": 1
+      "raw": 879,
+      "panel_b": 400,
+      "panel_a": 6
     },
     "2026": {
-      "raw": 280,
-      "panel_b": 124,
-      "panel_a": 2
+      "raw": 1340,
+      "panel_b": 589,
+      "panel_a": 7
     }
   }
 }

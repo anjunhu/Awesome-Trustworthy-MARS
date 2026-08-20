@@ -10,11 +10,15 @@ The crawler (`crawler.py`) runs weekly via GitHub Actions and keeps the reading 
 
 Three sources are queried:
 
-1. **arXiv** — iterates every query in `SEARCH_GROUPS` (system, risk, and defence terms) against the arXiv API with a configurable `submittedDate` window (default: 2025-01-01 to 2026-03-31), fetching up to 15 results per query. Requests are spaced 5 s apart with exponential backoff on rate limits.
+1. **arXiv** — iterates every query in `SEARCH_GROUPS` (system, risk, and defence terms) against the arXiv API with a configurable `submittedDate` window (default: 2025-01-01 to 2026-08-16), fetching up to 25 results per query, newest first. Requests are spaced `ARXIV_DELAY` seconds apart (default 20) with up to `ARXIV_RETRIES` attempts (default 5) and exponential backoff.
+
+   > **Pacing matters.** A tier crawl issues ~20 queries back-to-back. At the previous 8 s spacing this reliably tripped HTTP 429, and because a query that exhausts its retries returns an empty list, whole queries were dropped *silently* — which looks identical to "no papers matched that year" and corrupts the figure counts. Always check the run log for `request failed` before trusting a crawl.
 
 2. **OpenReview** — fetches all submissions from three hardcoded venues (`NeurIPS.cc/2025`, `ICLR.cc/2026`, `RecSys.org/2025`). Requires `OPENREVIEW_USERNAME` and `OPENREVIEW_PASSWORD` environment variables.
 
 3. **HuggingFace Papers** — uses `HfApi.list_papers()` with four keywords (`multi-agent`, `recommender`, `LLM agent`, `agentic`), up to 50 results each.
+
+Sources 2 and 3 are queried **only** in default mode. Any tier flag (`--classical`/`--loa2`/`--loa3`) implies arXiv-only, and `--arxiv-only` forces it in default mode too. The figure crawls are arXiv-only by design: it needs no auth and is the most reliable of the three.
 
 ---
 
@@ -58,7 +62,9 @@ python3 crawler.py --dry-run              # crawl only, no writes
 python3 crawler.py --no-crawl             # regenerate README from existing papers.json
 python3 crawler.py --no-commit            # write files, skip git commit
 python3 crawler.py --save-raw raw.json    # save unfiltered crawl before filtering
-python3 crawler.py --from 20250101 --to 20260331  # custom date window
+python3 crawler.py --from 20250101 --to 20260816  # custom date window
+python3 crawler.py --arxiv-only           # skip OpenReview + HuggingFace
+ARXIV_DELAY=30 python3 crawler.py         # slow the crawl further if 429s appear
 ```
 
 ---

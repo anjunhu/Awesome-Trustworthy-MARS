@@ -630,6 +630,36 @@
     "is_relevant": false
   },
   {
+    "id": "2302.06916",
+    "title": "Effective Dimension in Bandit Problems under Censorship",
+    "abstract": "In this paper, we study both multi-armed and contextual bandit problems in censored environments. Our goal is to estimate the performance loss due to censorship in the context of classical algorithms designed for uncensored environments. Our main contributions include the introduction of a broad class of censorship models and their analysis in terms of the effective dimension of the problem -- a natural measure of its underlying statistical complexity and main driver of the regret bound. In particular, the effective dimension allows us to maintain the structure of the original problem at first order, while embedding it in a bigger space, and thus naturally leads to results analogous to uncensored settings. Our analysis involves a continuous generalization of the Elliptical Potential Inequality, which we believe is of independent interest. We also discover an interesting property of decision-making under censorship: a transient phase during which initial misspecification of censorship is self-corrected at an extra cost, followed by a stationary phase that reflects the inherent slowdown of learning governed by the effective dimension. Our results are useful for applications of sequential decision-making models where the feedback received depends on strategic uncertainty (e.g., agents' willingness to follow a recommendation) and/or random uncertainty (e.g., loss or delay in arrival of information).",
+    "authors": "Gauthier Guinet, Saurabh Amin, Patrick Jaillet",
+    "venue": "arXiv 2023",
+    "section": "misc",
+    "risk_type": null,
+    "scope": "component",
+    "threat_tier": "misalignment",
+    "github": null,
+    "doi": null,
+    "notes": "multi-agent LLM recommender",
+    "is_relevant": false
+  },
+  {
+    "id": "2301.10230",
+    "title": "Two-sided Competing Matching Recommendation Markets With Quota and Complementary Preferences Constraints",
+    "abstract": "In this paper, we propose a new recommendation algorithm for addressing the problem of two-sided online matching markets with complementary preferences and quota constraints, where agents' preferences are unknown a priori and must be learned from data. The presence of mixed quota and complementary preferences constraints can lead to instability in the matching process, making this problem challenging to solve. To overcome this challenge, we formulate the problem as a bandit learning framework and propose the Multi-agent Multi-type Thompson Sampling (MMTS) algorithm. The algorithm combines the strengths of Thompson Sampling for exploration with a new double matching technique to provide a stable matching outcome. Our theoretical analysis demonstrates the effectiveness of MMTS as it can achieve stability and has a total $\\widetilde{\\mathcal{O}}(Q{\\sqrt{K_{\\max}T}})$-Bayesian regret with high probability, which exhibits linearity with respect to the total firm's quota $Q$, the square root of the maximum size of available type workers $\\sqrt{K_{\\max}}$ and time horizon $T$. In addition, simulation studies also demonstrate MMTS's effectiveness in various settings. We provide code used in our experiments \\url{https://github.com/Likelyt/Double-Matching}.",
+    "authors": "Yuantong Li, Guang Cheng, Xiaowu Dai",
+    "venue": "arXiv 2023",
+    "section": "misc",
+    "risk_type": null,
+    "scope": "component",
+    "threat_tier": "drift",
+    "github": null,
+    "doi": null,
+    "notes": "multi-agent LLM recommender",
+    "is_relevant": false
+  },
+  {
     "id": "2310.09233",
     "title": "AgentCF: Collaborative Learning with Autonomous Language Agents for Recommender Systems",
     "abstract": "Recently, there has been an emergence of employing LLM-powered agents as believable human proxies, based on their remarkable decision-making capability. However, existing studies mainly focus on simulating human dialogue. Human non-verbal behaviors, such as item clicking in recommender systems, although implicitly exhibiting user preferences and could enhance the modeling of users, have not been deeply explored. The main reasons lie in the gap between language modeling and behavior modeling, as well as the incomprehension of LLMs about user-item relations.   To address this issue, we propose AgentCF for simulating user-item interactions in recommender systems through agent-based collaborative filtering. We creatively consider not only users but also items as agents, and develop a collaborative learning approach that optimizes both kinds of agents together. Specifically, at each time step, we first prompt the user and item agents to interact autonomously. Then, based on the disparities between the agents' decisions and real-world interaction records, user and item agents are prompted to reflect on and adjust the misleading simulations collaboratively, thereby modeling their two-sided relations. The optimized agents can also propagate their preferences to other agents in subsequent interactions, implicitly capturing the collaborative filtering idea. Overall, the optimized agents exhibit diverse interaction behaviors within our framework, including user-item, user-user, item-item, and collective interactions. The results show that these agents can demonstrate personalized behaviors akin to those of real-world individuals, sparking the development of next-generation user behavior simulation.",

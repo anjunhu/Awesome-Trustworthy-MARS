@@ -50,8 +50,16 @@ ARXIV_API = "https://export.arxiv.org/api/query"
 OPENREVIEW_API = "https://api2.openreview.net/notes"
 
 # Date window for arXiv submittedDate filter (YYYYMMDD, inclusive)
+# arXiv pacing. A full tier crawl issues ~20 queries back-to-back; at 8s spacing
+# this reliably tripped HTTP 429 and silently dropped whole queries, which
+# corrupts figure counts (a dropped query looks like "no papers that year").
+ARXIV_DELAY   = int(os.environ.get("ARXIV_DELAY", "20"))   # seconds between requests
+ARXIV_RETRIES = int(os.environ.get("ARXIV_RETRIES", "5"))  # attempts per query
+# Results per query. arXiv sorts by submittedDate DESC, so a binding cap makes a
+# crawl a "newest N per query" sample rather than a census of the window.
+ARXIV_MAX_RESULTS = int(os.environ.get("ARXIV_MAX_RESULTS", "25"))
 DATE_FROM = "20250101"
-DATE_TO   = "20260331"
+DATE_TO   = "20260816"
 
 # Search groups (all combinations are tried)
 SEARCH_GROUPS = {
@@ -414,24 +422,25 @@ def arxiv_search(query: str, max_results: int = 20,
            f"&sortBy=submittedDate&sortOrder=descending")
     
     # Retry with exponential backoff on rate limit
-    for attempt in range(3):
+    for attempt in range(ARXIV_RETRIES):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "AwesomeTrustworthyMARS/1.0 (research crawler)"})
-            with urllib.request.urlopen(req, timeout=45, context=_SSL_CTX) as resp:
+            with urllib.request.urlopen(req, timeout=120, context=_SSL_CTX) as resp:
                 xml = resp.read()
-            time.sleep(8)  # arXiv requests 3s minimum; 8s gives headroom to avoid 429
+            time.sleep(ARXIV_DELAY)  # arXiv asks 3s minimum; we are far more conservative
+                                    # because bursty tier crawls reliably trip 429 otherwise
             break
         except urllib.error.HTTPError as e:
-            if e.code == 429 and attempt < 2:
-                wait = 30 * (2 ** attempt)  # 30s, 60s — generous backoff
+            if e.code == 429 and attempt < ARXIV_RETRIES - 1:
+                wait = 60 * (2 ** attempt)  # 60s, 120s, 240s, 480s
                 print(f"    Rate limited (429), waiting {wait}s...")
                 time.sleep(wait)
                 continue
             print(f"  [arXiv] request failed for '{query}': {e}")
             return []
         except Exception as e:
-            if attempt < 2:
-                wait = 15 * (2 ** attempt)
+            if attempt < ARXIV_RETRIES - 1:
+                wait = 20 * (2 ** attempt)
                 print(f"    Transient error ({e}), retrying in {wait}s...")
                 time.sleep(wait)
                 continue
@@ -494,7 +503,12 @@ def crawl_arxiv(existing_ids: set, date_from: str = DATE_FROM, date_to: str = DA
     for group, queries in groups.items():
         for query in queries:
             print(f"  [arXiv] searching: {query}  ({date_from}–{date_to})")
-            results = arxiv_search(query, max_results=25, date_from=date_from, date_to=date_to)
+            results = arxiv_search(query, max_results=ARXIV_MAX_RESULTS, date_from=date_from, date_to=date_to)
+            if len(results) >= ARXIV_MAX_RESULTS:
+                # arXiv sorts newest-first, so a full page means older matches were
+                # silently dropped and this year is undercounted for this query.
+                print(f"    CAP-BOUND: '{query}' returned the full {ARXIV_MAX_RESULTS}; "
+                      f"raise ARXIV_MAX_RESULTS or this year is undercounted")
             for r in results:
                 aid = r["id"]
                 if aid in existing_ids or aid in seen_this_run:
@@ -983,6 +997,11 @@ def main():
                             "Use for historical figure-count crawls so that already-curated "
                             "papers are not silently excluded from the raw output."
                         ))
+    parser.add_argument("--arxiv-only", action="store_true",
+                        help=(
+                            "Crawl arXiv only; never query OpenReview or HuggingFace. "
+                            "Tier flags (--classical/--loa2/--loa3) already imply this."
+                        ))
     args = parser.parse_args()
 
     if sum([args.classical, args.loa2, args.loa3]) > 1:
@@ -1007,7 +1026,7 @@ def main():
             raw_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to,
                                       filter_relevance=False, classical=args.classical,
                                       loa2=args.loa2, loa3=args.loa3)
-            if not (args.classical or args.loa2 or args.loa3):
+            if not (args.classical or args.loa2 or args.loa3 or args.arxiv_only):
                 raw_papers += crawl_openreview(existing, filter_relevance=False)
                 raw_papers += crawl_huggingface(existing, filter_relevance=False)
             Path(args.save_raw).write_text(json.dumps(raw_papers, indent=2))
@@ -1023,7 +1042,7 @@ def main():
             new_papers += crawl_arxiv(existing, date_from=args.date_from, date_to=args.date_to,
                                       filter_relevance=True, classical=args.classical,
                                       loa2=args.loa2, loa3=args.loa3)
-            if not (args.classical or args.loa2 or args.loa3):
+            if not (args.classical or args.loa2 or args.loa3 or args.arxiv_only):
                 print(f"\n=== Crawling OpenReview (filtered) ===")
                 new_papers += crawl_openreview(existing, filter_relevance=True)
                 print(f"\n=== Crawling HuggingFace Papers (filtered) ===")

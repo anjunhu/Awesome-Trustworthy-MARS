@@ -3,39 +3,39 @@
   "generated": "2026-06-17",
   "years": {
     "2020": {
-      "raw": 141,
-      "panel_b": 62,
-      "panel_a": 14
+      "raw": 278,
+      "panel_b": 91,
+      "panel_a": 15
     },
     "2021": {
-      "raw": 150,
-      "panel_b": 67,
+      "raw": 296,
+      "panel_b": 105,
       "panel_a": 12
     },
     "2022": {
-      "raw": 186,
-      "panel_b": 91,
-      "panel_a": 20
+      "raw": 362,
+      "panel_b": 130,
+      "panel_a": 22
     },
     "2023": {
-      "raw": 200,
-      "panel_b": 95,
-      "panel_a": 29
+      "raw": 483,
+      "panel_b": 151,
+      "panel_a": 32
     },
     "2024": {
-      "raw": 203,
-      "panel_b": 87,
-      "panel_a": 33
+      "raw": 672,
+      "panel_b": 165,
+      "panel_a": 36
     },
     "2025": {
-      "raw": 215,
-      "panel_b": 74,
-      "panel_a": 19
+      "raw": 925,
+      "panel_b": 156,
+      "panel_a": 23
     },
     "2026": {
-      "raw": 198,
-      "panel_b": 45,
-      "panel_a": 4
+      "raw": 746,
+      "panel_b": 109,
+      "panel_a": 6
     }
   }
 }
