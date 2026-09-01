@@ -39,7 +39,13 @@ Run with `--save-raw FILE` to save all unfiltered results first, then apply the 
 
 | Field | What it captures | Default |
 |-------|-----------------|---------|
-| `section` | Reading list section (e.g. `rf1_injection`, `rf3_interagent`, `defence`) | `misc` |
+| `section` | Reading list section, grouped by risk origin (e.g. `amp_integrity`, `eme_coordination`, `defence`) | `misc` |
+
+> **Section keys follow the survey's D3 taxonomy.** The reading list is grouped by where a risk *comes from* —
+> `amp_*` for risks composition amplifies, `eme_*` for risks that only arise through agent interaction — rather
+> than by attack name. The former flat `rf1`--`rf6` families are still accepted on existing `papers.json`
+> records and are folded into their successors via `SECTION_ALIASES` at README-generation time, so no
+> re-tagging is required.
 | `scope` | Evaluation scope: `composition`, `interaction`, or `component` | `component` |
 | `threat_tier` | Threat driver: `compromise`, `misalignment`, or `drift` | `drift` |
 | `risk_type` | `E` (emergent) or `A` (amplified) | `None` |

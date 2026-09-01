@@ -90,16 +90,24 @@ SEARCH_GROUPS = {
 
 # Keyword → section mapping (first match wins)
 SECTION_RULES = [
-    (["prompt injection", "jailbreak", "control-flow hijack", "tool hijack"], "rf1_injection"),
-    (["backdoor", "poisoning", "shilling", "fake profile", "data poison"], "rf2_poisoning"),
-    (["inter-agent", "agent-in-the-middle", "communication attack", "topology attack", "mcp poison"], "rf3_interagent"),
-    (["privacy", "inversion attack", "membership inference", "steganograph", "leakage"], "rf4_privacy"),
-    (["cognitive bias", "dark pattern", "bias llm", "popularity bias", "feedback loop bias"], "rf5_bias"),
-    (["resource depletion", "availability attack", "recursive blocking", "advertisement embedding"], "rf6_availability"),
-    (["collusion", "coordination failure", "deadlock agent"], "collusion"),
-    (["fairness", "exposure bias", "feedback loop"], "fairness"),
+    # emergent first: these need >=2 agents, so they win over the amplified
+    # keyword families when a paper mentions both.
+    (["collusion", "collude", "collective manipulation", "negotiat", "misreport"], "eme_strategic"),
+    (["premature consensus", "degenerate consensus", "correlated error", "groupthink",
+      "debate", "aggregation", "belief"], "eme_belief"),
+    (["inter-agent", "agent-in-the-middle", "communication attack", "topology attack",
+      "mcp poison", "prompt infection", "cascading", "coordination failure", "deadlock agent",
+      "resource depletion", "availability attack", "recursive blocking", "delegation"], "eme_coordination"),
+    # amplified families
+    (["prompt injection", "jailbreak", "control-flow hijack", "tool hijack",
+      "backdoor", "poisoning", "shilling", "fake profile", "data poison",
+      "advertisement embedding"], "amp_integrity"),
+    (["privacy", "inversion attack", "membership inference", "steganograph", "leakage"], "amp_privacy"),
+    (["cognitive bias", "dark pattern", "bias llm", "popularity bias", "feedback loop bias",
+      "fairness", "exposure bias", "feedback loop"], "amp_bias"),
+    # contribution-type families
     (["benchmark", "evaluation", "red-team"], "evaluation"),
-    (["guardrail", "defense", "mitigation", "anomaly detection", "safeguard"], "defence"),
+    (["guardrail", "defense", "defence", "mitigation", "anomaly detection", "safeguard"], "defence"),
     (["survey", "taxonomy", "safety"], "safety_surveys"),
     (["agentcf", "macrec", "macf", "matcha", "agentic recommender", "multi-agent recommender"], "foundational"),
 ]
@@ -721,84 +729,147 @@ def crawl_huggingface(existing_ids: set, filter_relevance: bool = True, days_bac
 
 SECTION_META = {
     "foundational": {
-        "heading": "1. Foundational MA-RS Papers",
-        "blurb": "> Papers defining multi-agent recommender architectures — the systems whose risks we study.",
+        "group": None,
+        "heading": "Foundational MA-RS Papers",
+        "blurb": "> Papers defining multi-agent recommender architectures — the systems whose risks we study. Survey \u00a73 (composition patterns D2, attack surfaces D5).",
         "cols": ["Paper", "Venue", "arXiv", "Code", "Tags"],
     },
-    "rf1_injection": {
-        "heading": "2. Risk Family 1 — Prompt Injection & Jailbreaking",
-        "blurb": ("> **Tutorial taxonomy**: Entry point = Input/Retrieval layer; Propagation = Message passing + Tool-action chains; "
-                  "**_FnTrendsIR_**: Privacy & Security (RF3). Risk type: **A** (amplified) + **E** (emergent via cascading)."),
+
+    # ── D3 = amplified: a single-agent failure that composition worsens ────────
+    "amp_integrity": {
+        "group": "Amplified Risks",
+        "heading": "Integrity Attacks",
+        "blurb": ("> Poisoning, backdoors, and prompt injection: failures with a clear single-agent baseline whose "
+                  "reach, persistence, or severity grows under composition. Survey \u00a74.2.1. "
+                  "**D3**: amplified \u00b7 **D5**: item side, memory, tool use."),
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
-    "rf2_poisoning": {
-        "heading": "3. Risk Family 2 — Data Poisoning & Backdoor Attacks",
-        "blurb": ("> **Tutorial taxonomy**: Entry point = Training data / Item content; Propagation = Feedback loops + Memory substrate; "
-                  "**_FnTrendsIR_**: Privacy & Security (RF3). Risk type: **A**."),
+    "amp_privacy": {
+        "group": "Amplified Risks",
+        "heading": "Privacy and Inversion",
+        "blurb": ("> Leakage of preferences, histories, and demographics, including compositional leakage where "
+                  "individually benign disclosures combine. Survey \u00a74.2.2. "
+                  "**D3**: amplified (emergent when disclosures compose) \u00b7 **D5**: memory, user side."),
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
-    "rf3_interagent": {
-        "heading": "4. Risk Family 3 — Inter-Agent Communication Attacks",
-        "blurb": ("> **Tutorial taxonomy**: Entry point = Protocol/Communication layer; Propagation = Message passing + Topology; "
-                  "**_FnTrendsIR_**: Coordination Failure & Collusion (RF6). Risk type: **E** (emergent)."),
+    "amp_bias": {
+        "group": "Amplified Risks",
+        "heading": "Bias, Fairness, and Feedback Loops",
+        "blurb": ("> Exposure bias, popularity loops, and dark patterns, amplified by LLM fluency and by state that "
+                  "accumulates across turns and users. Survey \u00a74.2.2. "
+                  "**D3**: amplified \u00b7 **D5**: user side, item side."),
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
-    "rf4_privacy": {
-        "heading": "5. Risk Family 4 — Privacy & Inversion Attacks",
-        "blurb": ("> **Tutorial taxonomy**: Entry point = Agent/Memory layer; Propagation = Shared memory + Output logits; "
-                  "**_FnTrendsIR_**: Privacy & Security (RF3). Risk type: **A** + **E** (compositional leakage in MA)."),
+
+    # ── D3 = emergent: the failure belongs to the interaction, not a participant
+    "eme_belief": {
+        "group": "Emergent Risks",
+        "heading": "Belief Formation and Aggregation",
+        "blurb": ("> Premature consensus, correlated error, and degenerate agreement: failures of how agents form and "
+                  "pool judgements. Survey \u00a74.3.1. "
+                  "**D3**: emergent \u00b7 **D2**: ensemble, peer."),
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
-    "rf5_bias": {
-        "heading": "6. Risk Family 5 — Cognitive Bias & Dark Patterns",
-        "blurb": ("> **Tutorial taxonomy**: Entry point = Objective/Stakeholder layer; Propagation = Output generation + User interaction; "
-                  "**_FnTrendsIR_**: Bias & Fairness (RF2). Risk type: **A** (amplified by LLM fluency)."),
+    "eme_coordination": {
+        "group": "Emergent Risks",
+        "heading": "Coordination and Delegation",
+        "blurb": ("> Unverified delegation, cascading failure, prompt infection, and resource exhaustion along "
+                  "inter-agent paths. Survey \u00a74.3.2. "
+                  "**D3**: emergent \u00b7 **D5**: inter-agent comms, orchestration."),
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
-    "rf6_availability": {
-        "heading": "7. Risk Family 6 — Availability & Resource Depletion",
-        "blurb": ("> **Tutorial taxonomy**: Entry point = Execution layer; Propagation = Tool-action chains + Recursive spawning; "
-                  "**_FnTrendsIR_**: Resource Exhaustion & Efficiency (RF5). Risk type: **E** (emergent in multi-agent)."),
+    "eme_strategic": {
+        "group": "Emergent Risks",
+        "heading": "Strategic Interaction and Governance",
+        "blurb": ("> Collusion, collective manipulation, and misreporting between agents representing parties with "
+                  "conflicting objectives. Survey \u00a74.3.3. "
+                  "**D3**: emergent \u00b7 **D2**: peer, hierarchical."),
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
-    "collusion": {
-        "heading": "8. Collusion in Multi-Agent Systems",
-        "blurb": ("> **Tutorial taxonomy**: Emergent risk in Role-based and Decentralised topologies; "
-                  "**_FnTrendsIR_**: Coordination Failure & Collusion (RF6). Risk type: **E**."),
-        "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
-    },
-    "fairness": {
-        "heading": "9. Fairness, Feedback Loops & Exposure Bias",
-        "blurb": "> **Tutorial taxonomy**: Objective/Stakeholder layer; **_FnTrendsIR_**: Bias & Fairness (RF2). Risk type: **A**.",
-        "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
-    },
+
+    # ── D6 = contribution type ────────────────────────────────────────────────
     "evaluation": {
-        "heading": "10. Evaluation & Benchmarking",
-        "blurb": "> **Evaluation framework**: Component / Interaction / Composition scope × Offline / Online setting.",
+        "group": None,
+        "heading": "Evaluation and Benchmarking",
+        "blurb": "> Scoped by the level at which a failure surfaces: component \u2192 interaction \u2192 composition. Survey \u00a75. **D6**: evaluation method.",
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
     "defence": {
-        "heading": "11. Defence Mechanisms & Mitigations",
-        "blurb": "> Organised by lifecycle stage: design-time → runtime → post-deployment.",
+        "group": None,
+        "heading": "Mitigations",
+        "blurb": "> Organised by lifecycle stage: design-time containment \u2192 pre-deployment assurance \u2192 runtime detection \u2192 post-incident recovery \u2192 disclosure and governance. Survey \u00a76. **D6**: defence.",
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
     "safety_surveys": {
-        "heading": "13. Broad Safety Surveys (Background)",
-        "blurb": "",
+        "group": None,
+        "heading": "Broad Safety Surveys (Background)",
+        "blurb": "> Prior-era and general agent-safety surveys that the taxonomy builds on. Survey \u00a72. **D6**: position paper.",
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
     "misc": {
-        "heading": "15. Uncategorised / New Additions",
+        "group": None,
+        "heading": "Uncategorised / New Additions",
         "blurb": "> Papers added by crawler awaiting manual tagging.",
         "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"],
     },
 }
 
 SECTION_ORDER = [
-    "foundational", "rf1_injection", "rf2_poisoning", "rf3_interagent",
-    "rf4_privacy", "rf5_bias", "rf6_availability", "collusion",
-    "fairness", "evaluation", "defence", "safety_surveys", "misc",
+    "foundational",
+    "amp_integrity", "amp_privacy", "amp_bias",
+    "eme_belief", "eme_coordination", "eme_strategic",
+    "evaluation", "defence", "safety_surveys", "misc",
 ]
+
+# Old flat RF1--RF6 keys -> tmlr.tex D3 taxonomy. Kept so that papers.json
+# records written before the restructure still resolve to a section.
+SECTION_ALIASES = {
+    "rf1_injection":    "amp_integrity",
+    "rf2_poisoning":    "amp_integrity",
+    "rf3_interagent":   "eme_coordination",
+    "rf4_privacy":      "amp_privacy",
+    "rf5_bias":         "amp_bias",
+    "rf6_availability": "eme_coordination",
+    "collusion":        "eme_strategic",
+    "fairness":         "amp_bias",
+}
+
+
+BADGE_DIR = "assets/badges"
+_RISK_LABEL = {"A": "amplified", "E": "emergent"}
+
+
+def _badge_slug(label: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", label.lower()).strip("-")
+
+
+def _render_tags(p: dict) -> str:
+    """Render a paper's tags as SVG pill assets.
+
+    The structured fields (risk_type / scope / threat_tier) are the source of
+    truth and come first. Free-form `tags` are shown only for genuine topics:
+    `type:*` and `risk:rf*` entries are dropped because they merely restate
+    risk_type and the (now superseded) RF section, which is what made the
+    column read as noise.
+    """
+    labels = []
+    if p.get("risk_type"):
+        labels.append(_RISK_LABEL.get(p["risk_type"], p["risk_type"]))
+    for key in ("scope", "threat_tier"):
+        if p.get(key):
+            labels.append(p[key])
+    for t in p.get("tags") or []:
+        prefix, _, val = t.partition(":")
+        if prefix in ("topic", "topo", "domain") and val:
+            labels.append(val)
+
+    seen, out = set(), []
+    for lab in labels:
+        if lab in seen:
+            continue
+        seen.add(lab)
+        out.append(f'<img src="{BADGE_DIR}/{_badge_slug(lab)}.svg" alt="{lab}">')
+    return " ".join(out) if out else "—"
 
 
 def paper_to_row(p: dict) -> str:
@@ -822,18 +893,41 @@ def paper_to_row(p: dict) -> str:
         extras.append(f"[DOI](https://doi.org/{p['doi']})")
     notes_str = " · ".join(extras) if extras else (notes or "—")
 
-    tag_parts = []
-    if p.get("risk_type"):
-        tag_parts.append(p["risk_type"])
-    if p.get("scope"):
-        tag_parts.append(p["scope"])
-    if p.get("threat_tier"):
-        tag_parts.append(p["threat_tier"])
-    tag_parts += p.get("tags", [])
-    tag_str = " ".join(f"`{t}`" for t in tag_parts) if tag_parts else "—"
+    tag_str = _render_tags(p)
 
     paper_cell = f"**{title}** — {authors}" if authors else f"**{title}**"
     return f"| {paper_cell} | {venue} | {arxiv_link} | {notes_str} | {tag_str} |"
+
+
+def _slug(text: str) -> str:
+    """GitHub heading anchor: lowercase, drop punctuation, each space -> hyphen.
+
+    Spaces are NOT collapsed: GitHub removes the punctuation but keeps both
+    surrounding spaces, so "A / B" anchors as "a--b" with a double hyphen.
+    """
+    t = re.sub(r"[^\w\s-]", "", text.lower())
+    return t.strip().replace(" ", "-")
+
+
+def _toc_lines(by_section: dict) -> list:
+    """Build the TOC from SECTION_ORDER so it can never drift from the body."""
+    out, n, current = [], 0, object()
+    out.append("- [Taxonomy Overview](#taxonomy-overview)")
+    for sec in SECTION_ORDER:
+        if not by_section.get(sec):
+            continue
+        meta = SECTION_META.get(sec, {})
+        group = meta.get("group")
+        if group != current:
+            current = group
+            if group:
+                out.append(f"- **[{group}](#{_slug(group)})**")
+        n += 1
+        heading = meta.get("heading", sec)
+        indent = "  " if group else ""
+        out.append(f"{indent}- [{n}. {heading}](#{n}-{_slug(heading)})")
+    out.append("- [How to Contribute / Crawler Notes](#how-to-contribute--crawler-notes)")
+    return out
 
 
 def generate_readme(papers: list) -> str:
@@ -841,40 +935,47 @@ def generate_readme(papers: list) -> str:
     by_section: dict[str, list] = {s: [] for s in SECTION_ORDER}
     for p in papers:
         sec = p.get("section", "misc")
+        sec = SECTION_ALIASES.get(sec, sec)   # fold legacy RF1--RF6 keys
         if sec not in by_section:
             by_section.setdefault("misc", []).append(p)
         else:
             by_section[sec].append(p)
 
     lines = [
-        "# Risks and Trustworthiness of Multi-Agent Recommender Systems",
-        "> A living, auto-updated reading list. Taxonomy follows the **RecSys '26 tutorial** and the **_FnTrendsIR_ book chapter**. Updated weekly by automated crawler.",
+        "# Amplified and Emergent Safety Risks in Multi-Agent Recommendation and Retrieval",
+        "> A living, auto-updated reading list. Taxonomy follows our TMLR survey and the **CIKM '26 tutorial**. "
+        "Risks are organised by **origin** (D3: amplified vs.\u00a0emergent) rather than by attack name. "
+        "Updated weekly by automated crawler.",
         "",
         f"**Last updated:** {today}",
         "",
         "---",
         "",
         "## Table of Contents",
-        "1. [Taxonomy Overview](#taxonomy-overview)",
-        "2. [Foundational MA-RS Papers](#1-foundational-ma-rs-papers)",
-        "3. [Risk Family 1 — Prompt Injection & Jailbreaking](#2-risk-family-1--prompt-injection--jailbreaking)",
-        "4. [Risk Family 2 — Data Poisoning & Backdoor Attacks](#3-risk-family-2--data-poisoning--backdoor-attacks)",
-        "5. [Risk Family 3 — Inter-Agent Communication Attacks](#4-risk-family-3--inter-agent-communication-attacks)",
-        "6. [Risk Family 4 — Privacy & Inversion Attacks](#5-risk-family-4--privacy--inversion-attacks)",
-        "7. [Risk Family 5 — Cognitive Bias & Dark Patterns](#6-risk-family-5--cognitive-bias--dark-patterns)",
-        "8. [Risk Family 6 — Availability & Resource Depletion](#7-risk-family-6--availability--resource-depletion)",
-        "9. [Collusion in Multi-Agent Systems](#8-collusion-in-multi-agent-systems)",
-        "10. [Fairness, Feedback Loops & Exposure Bias](#9-fairness-feedback-loops--exposure-bias)",
-        "11. [Evaluation & Benchmarking](#10-evaluation--benchmarking)",
-        "12. [Defence Mechanisms & Mitigations](#11-defence-mechanisms--mitigations)",
-        "13. [Broad Safety Surveys (Background)](#13-broad-safety-surveys-background)",
-        "14. [How to Contribute / Crawler Notes](#how-to-contribute--crawler-notes)",
+        *_toc_lines(by_section),
         "",
         "---",
         "",
         "## Taxonomy Overview",
         "",
-        "### Risk Taxonomy",
+        "### The six dimensions",
+        "",
+        "Every entry is positioned against the survey's six-dimension framework; the sections below are grouped by **D3**.",
+        "",
+        "| | Dimension | Values |",
+        "|---|---|---|",
+        "| **D1** | Architecture era | non-LLM recsys \u00b7 single-agent LLM recsys \u00b7 multi-agent LLM recsys |",
+        "| **D2** | Composition pattern | hierarchical \u00b7 pipeline \u00b7 ensemble \u00b7 peer (tool use cuts across all four) |",
+        "| **D3** | Risk origin | amplified by composition \u00b7 emergent under composition |",
+        "| **D4** | Failure driver | drift \u00b7 misalignment \u00b7 compromise |",
+        "| **D5** | Attack surface | memory \u00b7 tool use \u00b7 inter-agent comms \u00b7 orchestration \u00b7 item side \u00b7 user side |",
+        "| **D6** | Contribution type | empirical attack \u00b7 evaluation method \u00b7 defence \u00b7 position paper |",
+        "",
+        "Systems are additionally placed on the **Level of Autonomy** ladder (L0 passive \u2192 L1 conversational \u2192 "
+        "L2 retrieval-augmented \u2192 L3 tool-driven \u2192 L4 single-agent planner \u2192 L5 multi-agent orchestration, "
+        "with L6 a conceptual endpoint). This reading list is about **L5**.",
+        "",
+        "### Risk origin (D3)",
         "",
         "Risks are classified by the **single-agent isolation test**: an agent retains its full tool and memory interface, but no other agents consume or produce its messages.",
         "- **Amplified (A)**: risk exists in single-agent settings but worsens under composition.",
@@ -887,6 +988,23 @@ def generate_readme(papers: list) -> str:
         "| Drift | System dynamics cause degradation without adversary | Component |",
         "| Misalignment | Internal agent exploits its position | Interaction |",
         "| Compromise | External attacker corrupts one or more agents | Composition |",
+        "",
+        "### Tag legend",
+        "",
+        "Each entry carries pills for its **risk origin**, **evaluation scope**, and **failure driver**, "
+        "followed by free-form topic chips.",
+        "",
+        '<img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/emergent.svg" alt="emergent"> '
+        "&nbsp;&nbsp;risk origin (D3)  ",
+        '<img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/interaction.svg" alt="interaction"> '
+        '<img src="assets/badges/composition.svg" alt="composition"> &nbsp;&nbsp;evaluation scope  ',
+        '<img src="assets/badges/drift.svg" alt="drift"> <img src="assets/badges/misalignment.svg" alt="misalignment"> '
+        '<img src="assets/badges/compromise.svg" alt="compromise"> &nbsp;&nbsp;failure driver (D4)  ',
+        '<img src="assets/badges/recsys.svg" alt="recsys"> <img src="assets/badges/benchmark.svg" alt="benchmark"> '
+        "&nbsp;&nbsp;topic",
+        "",
+        "> Badges are local SVG assets in `assets/badges/`, regenerated by `python3 assets/make_badges.py`. "
+        "Colours follow the survey's Figure 1 palette; every pill meets WCAG AA contrast.",
         "",
         "### Evaluation Framework",
         "",
@@ -902,12 +1020,20 @@ def generate_readme(papers: list) -> str:
         "",
     ]
 
+    n, current_group = 0, object()
     for sec in SECTION_ORDER:
         papers_in_sec = by_section.get(sec, [])
         if not papers_in_sec:
             continue
-        meta = SECTION_META.get(sec, {"heading": sec, "blurb": "", "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"]})
-        lines.append(f"## {meta['heading']}")
+        meta = SECTION_META.get(sec, {"group": None, "heading": sec, "blurb": "",
+                                      "cols": ["Paper", "Venue", "arXiv", "Notes", "Tags"]})
+        group = meta.get("group")
+        if group != current_group:
+            current_group = group
+            if group:
+                lines += [f"# {group}", ""]
+        n += 1
+        lines.append(f"## {n}. {meta['heading']}")
         lines.append("")
         if meta["blurb"]:
             lines.append(meta["blurb"])
