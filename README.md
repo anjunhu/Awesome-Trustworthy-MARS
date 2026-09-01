@@ -1,7 +1,7 @@
 # Amplified and Emergent Safety Risks in Multi-Agent Recommendation and Retrieval
 > A living, auto-updated reading list. Taxonomy follows our TMLR survey and the **CIKM '26 tutorial**. Risks are organised by **origin** (D3: amplified vs. emergent) rather than by attack name. Updated weekly by automated crawler.
 
-**Last updated:** 2026-08-31
+**Last updated:** 2026-09-01
 
 ---
 
@@ -13,12 +13,13 @@
   - [3. Privacy and Inversion](#3-privacy-and-inversion)
   - [4. Bias, Fairness, and Feedback Loops](#4-bias-fairness-and-feedback-loops)
 - **[Emergent Risks](#emergent-risks)**
-  - [5. Coordination and Delegation](#5-coordination-and-delegation)
-  - [6. Strategic Interaction and Governance](#6-strategic-interaction-and-governance)
-- [7. Evaluation and Benchmarking](#7-evaluation-and-benchmarking)
-- [8. Mitigations](#8-mitigations)
-- [9. Broad Safety Surveys (Background)](#9-broad-safety-surveys-background)
-- [10. Uncategorised / New Additions](#10-uncategorised--new-additions)
+  - [5. Belief Formation and Aggregation](#5-belief-formation-and-aggregation)
+  - [6. Coordination and Delegation](#6-coordination-and-delegation)
+  - [7. Strategic Interaction and Governance](#7-strategic-interaction-and-governance)
+- [8. Evaluation and Benchmarking](#8-evaluation-and-benchmarking)
+- [9. Mitigations](#9-mitigations)
+- [10. Broad Safety Surveys (Background)](#10-broad-safety-surveys-background)
+- [11. Uncategorised / New Additions](#11-uncategorised--new-additions)
 - [How to Contribute / Crawler Notes](#how-to-contribute--crawler-notes)
 
 ---
@@ -140,6 +141,7 @@ Evaluation is organised by **scope** and **setting**:
 | **It's the Thought that Counts: Evaluating the Attempts of Frontier LLMs to Persuade on Harmful Topics** — Matthew Kowal, Jasper Timm, Jean-Francois Godbout et al. | arXiv 2025 | [2506.02873](https://arxiv.org/abs/2506.02873) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 | **Exploring Approaches for Detecting Memorization of Recommender System Data in Large Language Models** — Antonio Colacicco, Vito Guida, Dario Di Palma et al. | arXiv 2026 | [2601.02002](https://arxiv.org/abs/2601.02002) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 | **Autonomous Agents on Blockchains: Standards, Execution Models, and Trust Boundaries** — Saad Alqithami | arXiv 2026 | [2601.04583](https://arxiv.org/abs/2601.04583) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/compromise.svg" alt="compromise"> |
+| **Visual Inception: Compromising Long-term Planning in Agentic Recommenders via Multimodal Memory Poisoning** — Jiachen Qian | arXiv 2026 | [2604.16966](https://arxiv.org/abs/2604.16966) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/interaction.svg" alt="interaction"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 
 ---
 
@@ -167,6 +169,11 @@ Evaluation is organised by **scope** and **setting**:
 | **Lightweight Fairness for LLM-Based Recommendations via Kernelized Projection and Gated Adapters** — Nan Cui, Wendy Hui Wang, Yue Ning | arXiv 2026 | [2603.23780](https://arxiv.org/abs/2603.23780) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 | **Attack by Unlearning: Unlearning-Induced Adversarial Attacks on Graph Neural Networks** — Jiahao Zhang, Yilong Wang, Suhang Wang | arXiv 2026 | [2603.18570](https://arxiv.org/abs/2603.18570) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 | **FeDecider: An LLM-Based Framework for Federated Cross-Domain Recommendation** — Xinrui He, Ting-Wei Li, Tianxin Wei et al. | arXiv 2026 | [2602.16034](https://arxiv.org/abs/2602.16034) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **TRACER: Token ReAssignment for Concept ERasure in Generative Recommendation** — Ziheng Chen, Jiali Cheng, Zezhong Fan et al. | arXiv 2026 | [2606.07688](https://arxiv.org/abs/2606.07688) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Rethinking Fairness in LLM-Based Recommender Systems: A Survey** — Song-Duo Ma, Chu-Yun Chen, Bang-An Li et al. | arXiv 2026 | [2606.28340](https://arxiv.org/abs/2606.28340) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Trustworthy Recommendation in the Era of Large Language Models: Opportunities and Challenges** — Bohao Wang, Yu Cui, Zhenxiang Xu et al. | arXiv 2026 | [2606.00540](https://arxiv.org/abs/2606.00540) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Prompt Optimization for User Simulation in Conversational Recommender Systems: A Multi-Objective Framework** — Nipun B Nair, Tongtong Wu, Weiqing Wang | arXiv 2026 | [2607.00010](https://arxiv.org/abs/2607.00010) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **From Hidden Profiles to Governable Personalization: Recommender Systems in the Age of LLM Agents** — Jiahao Liu, Mingzhe Han, Guanming Liu et al. | arXiv 2026 | [2604.20065](https://arxiv.org/abs/2604.20065) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 
 ---
 
@@ -207,12 +214,27 @@ Evaluation is organised by **scope** and **setting**:
 | **HELM: A Human-Centered Evaluation Framework for LLM-Powered Recommender Systems** — Sushant Mehta | arXiv 2026 | [2601.19197](https://arxiv.org/abs/2601.19197) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 | **Towards Fair Large Language Model-based Recommender Systems without Costly Retraining** — Jin Li, Huilin Gu, Shoujin Wang et al. | arXiv 2026 | [2601.17492](https://arxiv.org/abs/2601.17492) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 | **Bridging Semantic Understanding and Popularity Bias with LLMs** — Renqiang Luo, Dong Zhang, Yupeng Gao et al. | arXiv 2026 | [2601.09478](https://arxiv.org/abs/2601.09478) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Fair on the Surface? Benchmarking Hidden-Output Fairness Gaps in LLM Recommenders** — Chan Aristella Lu, Arya Fayyazi, Junhao Zhang et al. | arXiv 2026 | [2608.08284](https://arxiv.org/abs/2608.08284) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **LBR: Towards Mitigating Length Bias in Large Language Models for Recommendation** — Hongchen Li, Bohao Wang, Jingbang Chen et al. | arXiv 2026 | [2607.04270](https://arxiv.org/abs/2607.04270) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **When to Ask a Question: Understanding Communication Strategies in Generative AI Tools** — Charlotte Park, Kate Donahue, Manish Raghavan | arXiv 2026 | [2605.11240](https://arxiv.org/abs/2605.11240) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Can We Steer the Black-Box? Towards Controllability-Centric Evaluation of Recommender Systems with Collaborative Agents** — Jiwen Zhou, Xiang Liu, Mingming Li et al. | arXiv 2026 | [2607.13418](https://arxiv.org/abs/2607.13418) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 
 ---
 
 # Emergent Risks
 
-## 5. Coordination and Delegation
+## 5. Belief Formation and Aggregation
+
+> Premature consensus, correlated error, and degenerate agreement: failures of how agents form and pool judgements. Survey §4.3.1. **D3**: emergent · **D2**: ensemble, peer.
+
+| Paper | Venue | arXiv | Notes | Tags |
+|----|----|----|----|----|
+| **Consensus vs. Dissent: Dynamic LLM Modeling of Subjective Preferences in Group Recommenders** — Cedric Waterschoot, Nava Tintarev, Francesco Barile | arXiv 2026 | [2607.10235](https://arxiv.org/abs/2607.10235) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **CAPRA: Scaling Feedback on Software Architecture Deliverables with a Multi-Agent LLM System** — Marco Becattini, Niccolò Caselli, Matteo Minin et al. | arXiv 2026 | [2606.18976](https://arxiv.org/abs/2606.18976) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+
+---
+
+## 6. Coordination and Delegation
 
 > Unverified delegation, cascading failure, prompt infection, and resource exhaustion along inter-agent paths. Survey §4.3.2. **D3**: emergent · **D5**: inter-agent comms, orchestration.
 
@@ -232,7 +254,7 @@ Evaluation is organised by **scope** and **setting**:
 
 ---
 
-## 6. Strategic Interaction and Governance
+## 7. Strategic Interaction and Governance
 
 > Collusion, collective manipulation, and misreporting between agents representing parties with conflicting objectives. Survey §4.3.3. **D3**: emergent · **D2**: peer, hierarchical.
 
@@ -245,10 +267,13 @@ Evaluation is organised by **scope** and **setting**:
 | **Emergent Social Intelligence Risks in Generative Multi-Agent Systems** — Yue Huang, Yu Jiang, Wenjie Wang, Haomin Zhuang, Xiaonan Luo, Yuchen Ma, Zhangchen Xu, Zichen Chen, Nuno Moniz, Zinan Lin, Pin-Yu Chen, Nitesh V Chawla, Nouha Dziri, Huan Sun, Xiangliang Zhang | arXiv 2026 | [2603.27771](https://arxiv.org/abs/2603.27771) | [GitHub](https://github.com/HowieHwong/RiskLab) | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/collusion.svg" alt="collusion"> <img src="assets/badges/social-intelligence.svg" alt="social-intelligence"> <img src="assets/badges/decentralised.svg" alt="decentralised"> |
 | **HARP: Measuring Harm Amplification in Multi-Agent LLM Systems** — Md Hafizur Rahman, Zafaryab Haider, Tanzim Mahfuz et al. | arXiv 2026 | [2605.27489](https://arxiv.org/abs/2605.27489) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 | **Institutional AI: Governing LLM Collusion in Multi-Agent Cournot Markets via Public Governance Graphs** — Marcantonio Bracale Syrnikov, Federico Pierucci, Marcello Galisai et al. | arXiv 2026 | [2601.11369](https://arxiv.org/abs/2601.11369) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/misalignment.svg" alt="misalignment"> |
+| **Emergent Misaligned Communication in Long-Horizon Multi-Agent LLM Commerce** — Zeyuan Li, Lukas Petersson, Alessandro Acquisti et al. | arXiv 2026 | [2608.14825](https://arxiv.org/abs/2608.14825) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/compromise.svg" alt="compromise"> |
+| **Tool Use Enables Undetectable Steganography in Multi-Agent LLM Systems** — Jimmy Laurence Rippin, Simon C. Marshall, David Demitri Africa et al. | arXiv 2026 | [2606.28425](https://arxiv.org/abs/2606.28425) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/misalignment.svg" alt="misalignment"> |
+| **Agentic Copyright, Data Scraping & AI Governance: Toward a Coasean Bargain in the Era of Artificial Intelligence** — Paulius Jurcys, Mark Fenwick | arXiv 2026 | [2604.07546](https://arxiv.org/abs/2604.07546) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/misalignment.svg" alt="misalignment"> |
 
 ---
 
-## 7. Evaluation and Benchmarking
+## 8. Evaluation and Benchmarking
 
 > Scoped by the level at which a failure surfaces: component → interaction → composition. Survey §5. **D6**: evaluation method.
 
@@ -272,10 +297,14 @@ Evaluation is organised by **scope** and **setting**:
 | **MATRAG: Multi-Agent Transparent Retrieval-Augmented Generation for Explainable Recommendations** — Sushant Mehta | arXiv 2026 | [2604.20848](https://arxiv.org/abs/2604.20848) | — | <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 | **RobustExplain: Evaluating Robustness of LLM-Based Explanation Agents for Recommendation** — Guilin Zhang, Kai Zhao, Jeffrey Friedman et al. | arXiv 2026 | [2601.19120](https://arxiv.org/abs/2601.19120) | — | <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 | **Length-Adaptive Interest Network for Balancing Long and Short Sequence Modeling in CTR Prediction** — Zhicheng Zhang, Zhaocheng Du, Jieming Zhu et al. | arXiv 2026 | [2601.19142](https://arxiv.org/abs/2601.19142) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **A/B Agent: A Self-Evolving Agent for Strategy Iteration in Industrial A/B Testing** — Zhuohang Jiang, Yuxin Chen, Yongsen Pan et al. | arXiv 2026 | [2608.04625](https://arxiv.org/abs/2608.04625) | — | <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **DREAM Technical Report** — Bin Zhang, Bowen Zheng, Chao Yi et al. | arXiv 2026 | [2608.09408](https://arxiv.org/abs/2608.09408) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/compromise.svg" alt="compromise"> |
+| **RouteGuard: Certifying Routing Gain in LLM Multi-Agent Systems When Complementarity Is Not Enough** — Anchen Sun, Kaiqi Yang | arXiv 2026 | [2608.07583](https://arxiv.org/abs/2608.07583) | — | <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **CASPIAN: Online Detection and Attribution of Cascade Attacks in LLM Multi-Agent Systems via Cross-Channel Causal Monitoring** — Kavana Venkatesh, Jafar Isbarov, Saad Amin et al. | arXiv 2026 | [2605.19240](https://arxiv.org/abs/2605.19240) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 
 ---
 
-## 8. Mitigations
+## 9. Mitigations
 
 > Organised by lifecycle stage: design-time containment → pre-deployment assurance → runtime detection → post-incident recovery → disclosure and governance. Survey §6. **D6**: defence.
 
@@ -296,10 +325,11 @@ Evaluation is organised by **scope** and **setting**:
 | **Simulating Filter Bubble on Short-video Recommender System with Large Language Model Agents** — Nicholas Sukiennik, Haoyu Wang, Zailin Zeng et al. | arXiv 2025 | [2504.08742](https://arxiv.org/abs/2504.08742) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 | **Explainable and Fine-Grained Safeguarding of LLM Multi-Agent Systems via Bi-Level Graph Anomaly Detection** — Junjun Pan, Yixin Liu, Rui Miao et al. | arXiv 2025 | [2512.18733](https://arxiv.org/abs/2512.18733) | — | <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 | **CITED: A Decision Boundary-Aware Signature for GNNs Towards Model Extraction Defense** — Bolin Shen, Md Shamim Seraj, Zhan Cheng et al. | arXiv 2026 | [2602.20418](https://arxiv.org/abs/2602.20418) | — | <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
+| **Attacking and Defending Multi-Agent Collaborative Filtering Systems Through Connectivity** — Anjun Hu, Hanting Xie, Saranya Govindan et al. | arXiv 2026 | [2608.03272](https://arxiv.org/abs/2608.03272) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 
 ---
 
-## 9. Broad Safety Surveys (Background)
+## 10. Broad Safety Surveys (Background)
 
 > Prior-era and general agent-safety surveys that the taxonomy builds on. Survey §2. **D6**: position paper.
 
@@ -318,7 +348,7 @@ Evaluation is organised by **scope** and **setting**:
 
 ---
 
-## 10. Uncategorised / New Additions
+## 11. Uncategorised / New Additions
 
 > Papers added by crawler awaiting manual tagging.
 
@@ -345,6 +375,12 @@ Evaluation is organised by **scope** and **setting**:
 | **A Cognitive Distribution and Behavior-Consistent Framework for Black-Box Attacks on Recommender Systems** — Hongyue Zhang, Mingming Li, Dongqin Liu et al. | arXiv 2026 | [2602.10633](https://arxiv.org/abs/2602.10633) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 | **The Behavioral Fabric of LLM-Powered GUI Agents: Human Values and Interaction Outcomes** — Simret Araya Gebreegziabher, Yukun Yang, Charles Chiang et al. | arXiv 2026 | [2601.16356](https://arxiv.org/abs/2601.16356) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 | **AMEM4Rec: Leveraging Cross-User Similarity for Memory Evolution in Agentic LLM Recommenders** — Minh-Duc Nguyen, Hai-Dang Kieu, Dung D. Le | arXiv 2026 | [2602.08837](https://arxiv.org/abs/2602.08837) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Structure-Preserving Projection for Mitigating Modality Bias in LLM-Based Sequential Recommendation** — Tzu-Wei Chiu, Song-Duo Ma, Hsin-Yu Lin et al. | arXiv 2026 | [2608.08583](https://arxiv.org/abs/2608.08583) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Finding the Signal in the Spam: Jointly Learning Rewards and Worker Reliability from Pairwise Comparisons** — Kaustubh Shivshankar Shejole, Tanish Agarwal, Arpit Agarwal et al. | arXiv 2026 | [2608.10045](https://arxiv.org/abs/2608.10045) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
+| **Ranked by Position: Order Sensitivity as an Exploitable Attack Surface in LLM Listwise Recommenders** — Ge Zhang, Jingru Cheng, Huiyuan Chen | arXiv 2026 | [2607.24869](https://arxiv.org/abs/2607.24869) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
+| **RecSys Factory: Bounding LLM Agent Autonomy to Decision Points in the Industrial Recommender Lifecycle** — Dongyang Ao, Kaixiang Fang, Shijie Xu | arXiv 2026 | [2608.11241](https://arxiv.org/abs/2608.11241) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Personalized Recommendation Tool Learning via Autonomous Language Agents** — Mingdai Yang, Zhiwei Liu, Weizhi Zhang et al. | arXiv 2026 | [2607.19739](https://arxiv.org/abs/2607.19739) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
+| **Transparent and Controllable Recommendation Filtering via Multimodal Multi-Agent Collaboration** — Chi Zhang, Zhipeng Xu, Jiahao Liu et al. | arXiv 2026 | [2604.17459](https://arxiv.org/abs/2604.17459) | — | <img src="assets/badges/amplified.svg" alt="amplified"> <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 
 ---
 
@@ -361,4 +397,4 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**Last crawler run**: 2026-08-31
+**Last crawler run**: 2026-09-01
