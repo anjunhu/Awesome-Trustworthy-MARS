@@ -1,7 +1,7 @@
 # Amplified and Emergent Safety Risks in Multi-Agent Recommendation and Retrieval
 > A living, auto-updated reading list. Taxonomy follows our TMLR survey and the **CIKM '26 tutorial**. Risks are organised by **origin** (D3: amplified vs. emergent) rather than by attack name. Updated weekly by automated crawler.
 
-**Last updated:** 2026-09-01
+**Last updated:** 2026-10-01
 
 ---
 
@@ -301,6 +301,7 @@ Evaluation is organised by **scope** and **setting**:
 | **DREAM Technical Report** — Bin Zhang, Bowen Zheng, Chao Yi et al. | arXiv 2026 | [2608.09408](https://arxiv.org/abs/2608.09408) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/compromise.svg" alt="compromise"> |
 | **RouteGuard: Certifying Routing Gain in LLM Multi-Agent Systems When Complementarity Is Not Enough** — Anchen Sun, Kaiqi Yang | arXiv 2026 | [2608.07583](https://arxiv.org/abs/2608.07583) | — | <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 | **CASPIAN: Online Detection and Attribution of Cascade Attacks in LLM Multi-Agent Systems via Cross-Channel Causal Monitoring** — Kavana Venkatesh, Jafar Isbarov, Saad Amin et al. | arXiv 2026 | [2605.19240](https://arxiv.org/abs/2605.19240) | — | <img src="assets/badges/emergent.svg" alt="emergent"> <img src="assets/badges/composition.svg" alt="composition"> <img src="assets/badges/compromise.svg" alt="compromise"> |
+| **The Utility of LLMs in Recommender Systems Explanation Evaluation** — Kathrin Wardatzky, Oana Inel, Luca Rossetto et al. | arXiv 2026 | [2609.01627](https://arxiv.org/abs/2609.01627) | — | <img src="assets/badges/component.svg" alt="component"> <img src="assets/badges/drift.svg" alt="drift"> |
 
 ---
 
@@ -397,4 +398,4 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**Last crawler run**: 2026-09-01
+**Last crawler run**: 2026-10-01
