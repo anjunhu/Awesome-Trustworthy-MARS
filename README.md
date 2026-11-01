@@ -1,7 +1,7 @@
 # Amplified and Emergent Safety Risks in Multi-Agent Recommendation and Retrieval
 > A living, auto-updated reading list. Taxonomy follows our TMLR survey and the **CIKM '26 tutorial**. Risks are organised by **origin** (D3: amplified vs. emergent) rather than by attack name. Updated weekly by automated crawler.
 
-**Last updated:** 2026-10-01
+**Last updated:** 2026-11-01
 
 ---
 
@@ -398,4 +398,4 @@ This README is maintained by `crawler.py` in this repository. The crawler:
 
 **To add a paper manually**: edit `papers.json` and run `python3 crawler.py --no-crawl`.
 
-**Last crawler run**: 2026-10-01
+**Last crawler run**: 2026-11-01
